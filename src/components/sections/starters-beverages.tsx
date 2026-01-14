@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -178,7 +180,7 @@ const StartersAndBeverages = () => {
                           fill
                           className="object-cover grayscale-[0.3]"
                         />
-                         <div className="absolute top-0 right-0 w-2 h-2 bg-[#EB6D48] rounded-full"></div>
+                        <div className="absolute top-0 right-0 w-2 h-2 bg-[#EB6D48] rounded-full"></div>
                       </div>
                     </div>
                   </div>
@@ -189,12 +191,12 @@ const StartersAndBeverages = () => {
                       <div className="absolute inset-[-6px] border border-[#2C5F2D] rounded-full"></div>
                       <div className="w-full h-full rounded-full overflow-hidden bg-white/20 relative">
                         <div className="flex items-center justify-center w-full h-full bg-[#2C5F2D]/10">
-                           <Image 
+                          <Image
                             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/fresh-mango-slice-green-leaves-juice-splashes-real-20.png"
                             alt="Virgin Mojito"
                             fill
                             className="object-contain p-2"
-                           />
+                          />
                         </div>
                         <div className="absolute bottom-0 right-4 w-2 h-2 bg-[#EAB231] rounded-full"></div>
                       </div>

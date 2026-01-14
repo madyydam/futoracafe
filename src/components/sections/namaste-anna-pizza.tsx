@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -48,9 +50,9 @@ const NamasteAnnaPizzaSection = () => {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#EBA324] rounded-full"></div>
               </div>
               <div className="food-circle w-full h-full border-4 border-[#EBA324] rounded-full overflow-hidden shadow-xl">
-                <Image 
-                  src={assets[0]} 
-                  alt="Traditional South Indian Food" 
+                <Image
+                  src={assets[0]}
+                  alt="Traditional South Indian Food"
                   fill
                   className="object-cover"
                 />
@@ -63,9 +65,9 @@ const NamasteAnnaPizzaSection = () => {
                 <div className="absolute bottom-0 right-1/4 w-2 h-2 bg-[#228B22] rounded-full"></div>
               </div>
               <div className="food-circle w-full h-full border-4 border-[#228B22] rounded-full overflow-hidden shadow-xl">
-                <Image 
-                  src={assets[1]} 
-                  alt="Dosa Varieties" 
+                <Image
+                  src={assets[1]}
+                  alt="Dosa Varieties"
                   fill
                   className="object-cover"
                 />

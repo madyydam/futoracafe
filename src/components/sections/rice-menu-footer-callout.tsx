@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -47,14 +49,14 @@ const RiceMenuFooterCallout = () => {
       <div className="relative overflow-hidden bg-[#FBCFAE] py-16 md:py-24">
         {/* Top Tribal Border Pattern */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
-           <div className="flex w-[200%] md:w-full">
-             {Array.from({ length: 40 }).map((_, i) => (
-               <div key={i} className="flex flex-col items-center mx-auto">
-                 <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[20px] border-b-[#EBA324]"></div>
-                 <div className="w-2 h-2 rounded-full bg-[#EBA324] mt-1"></div>
-               </div>
-             ))}
-           </div>
+          <div className="flex w-[200%] md:w-full">
+            {Array.from({ length: 40 }).map((_, i) => (
+              <div key={i} className="flex flex-col items-center mx-auto">
+                <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[20px] border-b-[#EBA324]"></div>
+                <div className="w-2 h-2 rounded-full bg-[#EBA324] mt-1"></div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Decorative Assets / Background blobs as seen in screenshot */}
@@ -63,19 +65,19 @@ const RiceMenuFooterCallout = () => {
             <div className="w-full h-full border-2 border-dashed border-[#912222] rounded-full"></div>
           </div>
         </div>
-        
+
         <div className="container relative z-10 px-4 mx-auto text-center">
           <div className="max-w-4xl mx-auto">
             <p className="font-display text-[28px] md:text-[36px] text-[#322B22] italic mb-6">
               Step In, Savor, and Stay Awhile!
             </p>
-            
+
             <h2 className="font-heading text-[28px] md:text-[42px] leading-[1.2] text-[#000000] font-bold mb-8 uppercase tracking-tight after:hidden">
               Where Every Bite Tells A Story,<br />
               And Every Visit Feels Like Home.<br />
               Come For The Food, Stay For The Vibe!
             </h2>
-            
+
             <p className="font-display text-[28px] md:text-[36px] text-[#322B22] italic">
               Until We Meet
             </p>
@@ -85,13 +87,13 @@ const RiceMenuFooterCallout = () => {
         {/* Bottom Tribal Border Pattern */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
           <div className="flex w-[200%] md:w-full">
-             {Array.from({ length: 40 }).map((_, i) => (
-               <div key={i} className="flex flex-col items-center mx-auto">
-                 <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[20px] border-b-[#EBA324]"></div>
-                 <div className="w-2 h-2 rounded-full bg-[#EBA324] mt-1"></div>
-               </div>
-             ))}
-           </div>
+            {Array.from({ length: 40 }).map((_, i) => (
+              <div key={i} className="flex flex-col items-center mx-auto">
+                <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[20px] border-b-[#EBA324]"></div>
+                <div className="w-2 h-2 rounded-full bg-[#EBA324] mt-1"></div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Floating Illustrative Elements */}
@@ -103,7 +105,7 @@ const RiceMenuFooterCallout = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Wave Transition to Footer */}
       <div className="wave-divider bg-[#0B0B0B] -mt-1 h-[60px] md:h-[100px]"></div>
     </section>

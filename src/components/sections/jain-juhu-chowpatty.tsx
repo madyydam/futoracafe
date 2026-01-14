@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -47,7 +49,7 @@ const JainJuhuChowpatty = () => {
 
             {/* Jain Splash Graphic */}
             <div className="absolute right-[-10%] top-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] pointer-events-none z-0">
-               <Image 
+              <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Element-e1742618605176-15.png"
                 alt="Orange Brush Stroke"
                 fill
@@ -65,7 +67,7 @@ const JainJuhuChowpatty = () => {
           <h2 className="text-[48px] font-bold text-[#912222] font-heading relative pb-3 mb-6 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[140px] after:height-[3px] after:bg-[#912222]">
             Juhu Chowpatty™
           </h2>
-          
+
           <p className="text-[16px] text-[#EBA324] font-body italic mb-10 max-w-2xl mx-auto">
             Pav bhaji is a Mumbai treat with mashed veggies, pan-fried and served with with pav jodi toasted in butter.
           </p>
@@ -76,7 +78,7 @@ const JainJuhuChowpatty = () => {
               <div className="absolute inset-[-20px] border border-[#EBA324]/30 rounded-full" />
               <div className="absolute inset-[-10px] border border-[#EBA324]/50 rounded-full" />
               <div className="relative w-full h-full rounded-full border-[6px] border-[#EBA324] overflow-hidden shadow-xl">
-                <Image 
+                <Image
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/20231110034151_IMG_7117-scaled-removebg-preview-re-23.png"
                   alt="Pav Bhaji"
                   fill
@@ -100,9 +102,9 @@ const JainJuhuChowpatty = () => {
 
         {/* Mumbai Skyline Illustration Background */}
         <div className="absolute bottom-0 left-0 w-full h-[120px] md:h-[180px] opacity-40 z-[-1] pointer-events-none">
-          <svg 
-            viewBox="0 0 1440 320" 
-            className="w-full h-full preserve-3d" 
+          <svg
+            viewBox="0 0 1440 320"
+            className="w-full h-full preserve-3d"
             preserveAspectRatio="none"
             fill="#322B22"
           >
@@ -111,15 +113,15 @@ const JainJuhuChowpatty = () => {
           {/* Silhouettes of iconic Mumbai structures (Gateway, Sea Link, etc would typically be images/SVGs here) */}
           <div className="absolute inset-0 flex items-end justify-center px-4 overflow-hidden">
             <div className="flex gap-4 items-end grayscale opacity-30 select-none">
-               {/* Simplified Skyline blocks to represent the look from screenshot */}
-               <div className="w-16 h-32 bg-[#322B22]/60 rounded-t-sm" />
-               <div className="w-24 h-48 bg-[#322B22]/80 rounded-t-md" />
-               <div className="w-20 h-40 bg-[#322B22]/50 rounded-t-sm" />
-               <div className="w-32 h-56 bg-[#322B22]/90 rounded-t-lg" />
-               <div className="w-24 h-44 bg-[#322B22]/70 rounded-t-md" />
-               <div className="w-16 h-36 bg-[#322B22]/60 rounded-t-sm" />
-               <div className="w-28 h-52 bg-[#322B22]/85 rounded-t-md" />
-               <div className="w-20 h-44 bg-[#322B22]/50 rounded-t-sm" />
+              {/* Simplified Skyline blocks to represent the look from screenshot */}
+              <div className="w-16 h-32 bg-[#322B22]/60 rounded-t-sm" />
+              <div className="w-24 h-48 bg-[#322B22]/80 rounded-t-md" />
+              <div className="w-20 h-40 bg-[#322B22]/50 rounded-t-sm" />
+              <div className="w-32 h-56 bg-[#322B22]/90 rounded-t-lg" />
+              <div className="w-24 h-44 bg-[#322B22]/70 rounded-t-md" />
+              <div className="w-16 h-36 bg-[#322B22]/60 rounded-t-sm" />
+              <div className="w-28 h-52 bg-[#322B22]/85 rounded-t-md" />
+              <div className="w-20 h-44 bg-[#322B22]/50 rounded-t-sm" />
             </div>
           </div>
         </div>

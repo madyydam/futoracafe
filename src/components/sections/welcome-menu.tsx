@@ -1,6 +1,8 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const WelcomeMenu = () => {
   const specialDishes = [
@@ -42,7 +44,7 @@ const WelcomeMenu = () => {
     }
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -52,7 +54,7 @@ const WelcomeMenu = () => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -75,9 +77,9 @@ const WelcomeMenu = () => {
 
       {/* Main Content Section */}
       <div className="bg-[#F7F1E1] pt-12 pb-24 relative px-4 text-center">
-        
+
         <div className="container mx-auto max-w-[1140px] relative z-10">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -87,7 +89,7 @@ const WelcomeMenu = () => {
             Welcome To The Common Cafe
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
@@ -97,7 +99,7 @@ const WelcomeMenu = () => {
             serving smiles with Every cup, flavors You&apos;ll Love!
           </motion.p>
 
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -116,7 +118,7 @@ const WelcomeMenu = () => {
           </div>
 
           {/* Grid Layout for Dishes */}
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -124,16 +126,31 @@ const WelcomeMenu = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
           >
             {specialDishes.map((dish) => (
-              <motion.div 
-                key={dish.id} 
+              <motion.div
+                key={dish.id}
                 variants={itemVariants}
+                whileHover={{
+                  scaleX: 1.05,
+                  scaleY: 0.95,
+                  rotate: dish.id % 2 === 0 ? 1 : -1,
+                  transition: { type: "spring", stiffness: 400, damping: 10 }
+                }}
+                animate={{
+                  rotate: [0, -1, 1, -1, 0],
+                  transition: {
+                    duration: 5 + dish.id,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }
+                }}
                 className="bg-white rounded-[15px] overflow-hidden shadow-card transition-shadow duration-300 hover:shadow-2xl flex flex-col items-center group p-4 border border-[#e5e5e5]"
+                style={{ originY: 0 }}
               >
                 <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 shadow-md">
-                  <Image 
-                    src={dish.image} 
-                    alt={dish.title} 
-                    fill 
+                  <Image
+                    src={dish.image}
+                    alt={dish.title}
+                    fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -150,7 +167,7 @@ const WelcomeMenu = () => {
           </motion.div>
 
           {/* Bottom Call to Action */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -160,8 +177,8 @@ const WelcomeMenu = () => {
             <p className="font-sans text-[18px] md:text-[22px] font-medium text-[#633200] mb-8 italic">
               These are some of the must-try delights at our café! Explore our menu and indulge in flavors you’ll love.
             </p>
-            <motion.a 
-              href="/menu" 
+            <motion.a
+              href="/menu"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-block bg-[#913429] text-white px-10 py-4 rounded-full font-bold text-[16px] uppercase tracking-wider shadow-lg hover:bg-[#a63c30] transition-colors duration-300"

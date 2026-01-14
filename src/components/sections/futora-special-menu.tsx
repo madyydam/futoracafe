@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -38,7 +40,7 @@ export default function FutoraSpecialMenu() {
   return (
     <section className="bg-[#F7F1E1] py-20 overflow-hidden relative">
       <div className="container mx-auto px-5">
-        
+
         {/* Section Heading */}
         <div className="text-center mb-12">
           <h2 className="text-[48px] font-bold text-[#912222] font-heading relative inline-block pb-3 mb-8">
@@ -49,7 +51,7 @@ export default function FutoraSpecialMenu() {
 
         {/* Top Specials Grid with Image */}
         <div className="flex flex-col md:flex-row items-center gap-10 mb-16 max-w-5xl mx-auto">
-          
+
           {/* Circular Image Container with Orbital Rings */}
           <div className="relative flex-shrink-0 w-[280px] h-[280px]">
             {/* Orbital Decorative Rings */}
@@ -58,10 +60,10 @@ export default function FutoraSpecialMenu() {
             {/* Dot Nodes on Rings */}
             <div className="absolute top-1/2 -left-[11px] w-2 h-2 bg-[#EBA324] rounded-full -translate-y-1/2"></div>
             <div className="absolute top-0 right-1/4 w-2 h-2 bg-[#EBA324] rounded-full"></div>
-            
+
             <div className="food-circle w-full h-full relative z-10">
-              <Image 
-                src={specials[0].image || ""} 
+              <Image
+                src={specials[0].image || ""}
                 alt="Creamy Cheesy Schezwan Dosa"
                 fill
                 className="object-cover"
@@ -96,15 +98,15 @@ export default function FutoraSpecialMenu() {
           <p className="text-[14px] text-[#7A7A7A] font-body italic mb-8">
             Introducing Pune’s Biggest Dosa. Can you conquer?
           </p>
-          
+
           <div className="relative w-full aspect-[4/1] md:aspect-[5/1] mt-4 mb-4">
-             <Image 
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Updated-05_10_24_page-0012-e174359747275-13.png" 
-                alt="Biggest Family Paper Dosa in Pune"
-                fill
-                className="object-contain"
-                priority
-              />
+            <Image
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Updated-05_10_24_page-0012-e174359747275-13.png"
+              alt="Biggest Family Paper Dosa in Pune"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
         </div>
 
@@ -124,7 +126,7 @@ export default function FutoraSpecialMenu() {
       {/* Background Decorative Element (Optional based on design system) */}
       <div className="absolute top-1/4 -right-20 opacity-10 pointer-events-none">
         <svg width="200" height="200" viewBox="0 0 200 200">
-           <circle cx="100" cy="100" r="90" fill="none" stroke="#EBA324" strokeWidth="1" strokeDasharray="10 5" />
+          <circle cx="100" cy="100" r="90" fill="none" stroke="#EBA324" strokeWidth="1" strokeDasharray="10 5" />
         </svg>
       </div>
     </section>

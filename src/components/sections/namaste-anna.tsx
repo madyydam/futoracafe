@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -49,7 +51,7 @@ const NamasteAnnaSection: React.FC = () => {
 
         {/* Menu Layout */}
         <div className="relative grid grid-cols-1 md:grid-cols-11 items-start gap-8 lg:gap-0">
-          
+
           {/* Left Column Items */}
           <div className="md:col-span-4 flex flex-col items-center md:items-end space-y-8 md:space-y-12">
             {leftColumnItems.map((item, index) => (
@@ -71,8 +73,8 @@ const NamasteAnnaSection: React.FC = () => {
               <div className="dish-ring w-[180px] h-[180px] md:w-[220px] md:h-[220px] bg-white overflow-hidden shadow-lg border-[#8F221B] border-2 relative">
                 {/* Secondary inner ring effect via before/after in globals.css dish-ring class */}
                 <div className="relative w-full h-full rounded-full overflow-hidden">
-                  <Image 
-                    src={assets.dish1} 
+                  <Image
+                    src={assets.dish1}
                     alt="Traditional South Indian Dish"
                     layout="fill"
                     objectFit="cover"
@@ -89,8 +91,8 @@ const NamasteAnnaSection: React.FC = () => {
             <div className="relative z-10">
               <div className="dish-ring w-[180px] h-[180px] md:w-[220px] md:h-[220px] bg-white overflow-hidden shadow-lg border-[#2C5F2D] border-2 relative ring-offset-4 ring-[#EB6D48]">
                 <div className="relative w-full h-full rounded-full overflow-hidden">
-                  <Image 
-                    src={assets.dish2} 
+                  <Image
+                    src={assets.dish2}
                     alt="Crispy Masala Dosa"
                     layout="fill"
                     objectFit="cover"

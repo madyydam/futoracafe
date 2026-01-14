@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -7,13 +9,13 @@ import Image from 'next/image';
  */
 const MenuHero: React.FC = () => {
   return (
-    <section 
+    <section
       className="relative w-full bg-[#F6F1DC] flex flex-col items-center pt-24 pb-0 overflow-hidden"
       style={{ minHeight: '80vh' }}
     >
       {/* Container for the Main Typography Content */}
       <div className="container relative z-10 flex flex-col items-center">
-        
+
         {/* "Men" portion of Menu */}
         <div className="relative w-full flex justify-center translate-x-[-120px] md:translate-x-[-180px]">
           <h1 className="hero-title animate-in slide-in-from-left duration-1000 select-none">
@@ -28,13 +30,13 @@ const MenuHero: React.FC = () => {
           </span>
 
           <div className="flex items-center gap-4">
-            <a 
-              href="https://www.swiggy.com/city/pune/sa-dosa-cafe-pimple-saudagar-rest782082" 
+            <a
+              href="https://www.swiggy.com/city/pune/sa-dosa-cafe-pimple-saudagar-rest782082"
               className="btn-order shadow-lg hover:shadow-xl active:scale-95 transition-all"
             >
               Order Now
-              <svg 
-                className="w-5 h-5 fill-current text-[#EAB231]" 
+              <svg
+                className="w-5 h-5 fill-current text-[#EAB231]"
                 viewBox="0 0 1708 2500"
               >
                 <path d="M1251.6 0C1004.9 0 836.2 147.1 836.2 388.2c0 200.7 114.9 336.8 333.3 499.7 186.1 135.5 289 238.4 289 397.7 0 171.2-126.3 268-305 268-202 0-353.4-118.8-353.4-323l-455.4 12c14.2 463.3 440.3 759.5 829.4 759.5 451 0 773.1-246.3 773.1-669 0-252.3-120.4-406.4-368.5-591.9-204.6-149-270.2-226.7-270.2-343 0-116.3 84.1-188.7 207.3-188.7 142.6 0 240.5 83.4 250.7 235.4l438.2-12.7C2186.9 148.4 1860.2 0 1251.6 0zM122.3 898.3l23.5 444.6 304.8-16.1L427.1 882.2zM27 1515.2l23.5 444.6 304.7-16 23.5-444.7zM0 2132.1l23.5 444.6 304.7-16 23.5-444.6z" />
@@ -43,7 +45,7 @@ const MenuHero: React.FC = () => {
 
             {/* Delivery Scooter Illustration */}
             <div className="relative w-[60px] h-[50px] md:w-[80px] md:h-[65px] transition-transform duration-500 hover:translate-x-4">
-              <Image 
+              <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/icons/vecteezy_delivery-illustration-free-vector-element-1.png"
                 alt="Delivery scooter"
                 fill
@@ -70,7 +72,7 @@ const MenuHero: React.FC = () => {
       {/* Large Bottom Illustration: Elephant Procession */}
       <div className="relative w-full mt-[-80px] md:mt-[-150px] z-0 overflow-visible">
         <div className="relative w-full aspect-[21/9] min-h-[300px] md:min-h-[500px]">
-          <Image 
+          <Image
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/twitch-banner-template-black-history-month-celebra-24.png"
             alt="Traditional Indian procession illustration"
             fill
@@ -82,9 +84,9 @@ const MenuHero: React.FC = () => {
 
       {/* Wave Brush Divider (Negative space toward the next section) */}
       <div className="absolute bottom-0 left-0 w-full h-[60px] pointer-events-none">
-        <svg 
-          viewBox="0 0 1200 120" 
-          preserveAspectRatio="none" 
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
           className="w-full h-full fill-white"
         >
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />

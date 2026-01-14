@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 /**
  * MustTryDishes Component
@@ -27,7 +30,7 @@ const dishItems = [
     name: "Creamy Cheesy Schezwan Dosa",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu__Updated_05_10_24_page-0004-removebg-preview--5.png",
     alignment: "left",
-    ringColor: "#8F221B", 
+    ringColor: "#8F221B",
     secondaryRing: "#EAB231",
   },
   {
@@ -82,30 +85,44 @@ export default function MustTryDishes() {
         {/* Zigzag Layout of Dishes */}
         <div className="max-w-4xl mx-auto space-y-[-20px] md:space-y-[-40px]">
           {dishItems.map((item, index) => (
-            <div 
+            <div
               key={index}
-              className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-[${10 - index}] ${
-                item.alignment === 'right' ? 'md:flex-row-reverse' : ''
-              }`}
+              className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-[${10 - index}] ${item.alignment === 'right' ? 'md:flex-row-reverse' : ''
+                }`}
             >
               {/* Dish Image Container with Multi-Border Rings */}
-              <div 
-                className="relative flex-shrink-0 animate-in fade-in duration-700"
-                style={{
-                  transitionDelay: `${index * 150}ms`
+              <motion.div
+                className="relative flex-shrink-0"
+                initial={{ opacity: 0, x: item.alignment === 'left' ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                whileHover={{
+                  scale: 1.1,
+                  rotate: [0, -2, 2, -2, 0],
+                  transition: { duration: 0.5 }
                 }}
+                animate={{
+                  y: [0, -5, 5, -5, 0],
+                  transition: {
+                    duration: 4 + index,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }
+                }}
+                style={{ originY: -50 }}
               >
                 {/* Secondary Outer Ring */}
-                <div 
+                <div
                   className="rounded-full p-2 border-2"
                   style={{ borderColor: item.secondaryRing }}
                 >
                   {/* Primary Inner Ring */}
-                  <div 
+                  <div
                     className="rounded-full p-2 border-2"
                     style={{ borderColor: item.ringColor }}
                   >
-                    <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-full overflow-hidden bg-white/5 shadow-xl">
+                    <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-full overflow-hidden bg-white/5 shadow-xl transition-shadow hover:shadow-2xl">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -118,21 +135,24 @@ export default function MustTryDishes() {
                 </div>
 
                 {/* Decorative Dotted Connector Line (Subtle Visual Aid) */}
-                <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-[2px] w-24 bg-dotted-pattern pointer-events-none opacity-20 ${
-                  item.alignment === 'left' ? 'left-full ml-4' : 'right-full mr-4'
-                }`}></div>
-              </div>
+                <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-[2px] w-24 bg-dotted-pattern pointer-events-none opacity-20 ${item.alignment === 'left' ? 'left-full ml-4' : 'right-full mr-4'
+                  }`}></div>
+              </motion.div>
 
               {/* Text Label */}
-              <div 
-                className={`max-w-[300px] text-center md:text-left ${
-                  item.alignment === 'right' ? 'md:text-right' : ''
-                }`}
+              <motion.div
+                className={`max-w-[300px] text-center md:text-left ${item.alignment === 'right' ? 'md:text-right' : ''
+                  }`}
+                whileHover={{
+                  scale: 1.05,
+                  skewX: -5,
+                  transition: { type: "spring", stiffness: 300 }
+                }}
               >
                 <h3 className="font-heading text-[24px] md:text-[36px] font-bold text-[#8F221B] leading-[1.1]">
                   {item.name}
                 </h3>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>

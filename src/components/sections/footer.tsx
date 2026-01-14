@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +10,7 @@ const Footer = () => {
     <footer className="w-full">
       {/* Concluding Section: "Until We Meet" Block */}
       <section className="bg-[#F6F1DC] py-[120px] flex flex-col items-center text-center px-6 overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -38,35 +40,35 @@ const Footer = () => {
 
       {/* Main Black Footer Section */}
       <div className="bg-[#0A0A0A] text-white pt-[80px] pb-[40px]">
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 px-6 lg:px-12">
-            
-            {/* Column 1: Logo */}
-            <div className="flex flex-col items-center md:items-start justify-center">
-              <Link href="/" className="inline-block group">
-                <div className="text-white font-display text-[48px] md:text-[60px] italic leading-tight transition-transform group-hover:scale-105">
-                  The Common Cafe
-                </div>
-              </Link>
-              <p className="mt-4 text-[#666666] font-sans max-w-sm text-center md:text-left">
-                Crafting moments of connection through artisanal brews and wholesome flavors since our very first cup.
-              </p>
-            </div>
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 px-6 lg:px-12">
 
-            {/* Column 2: Contact Us */}
-            <div className="flex flex-col items-center md:items-end text-center md:text-right">
-              <h4 className="font-sans text-[20px] font-bold text-white mb-8 uppercase tracking-[0.2em]">
-                Get In Touch
-              </h4>
-              <div className="space-y-6 text-[#999999] font-sans text-[16px] leading-relaxed">
-                <p>Address: <span className="text-white transition-colors cursor-default">Downtown Hub, City Center</span></p>
-                <p>Phone: <a href="tel:+918446544544" className="text-white hover:text-[#913429] transition-colors">+91 84465 44544</a></p>
-                <div className="mt-8 pt-4 border-t border-white/10">
-                  <p>Need help or have a question?</p>
-                  <p>Reach out: <a href="mailto:hello@thecommoncafe.com" className="text-white hover:underline font-bold">hello@thecommoncafe.com</a></p>
-                </div>
+          {/* Column 1: Logo */}
+          <div className="flex flex-col items-center md:items-start justify-center">
+            <Link href="/" className="inline-block group">
+              <div className="text-white font-display text-[48px] md:text-[60px] italic leading-tight transition-transform group-hover:scale-105">
+                The Common Cafe
+              </div>
+            </Link>
+            <p className="mt-4 text-[#666666] font-sans max-w-sm text-center md:text-left">
+              Crafting moments of connection through artisanal brews and wholesome flavors since our very first cup.
+            </p>
+          </div>
+
+          {/* Column 2: Contact Us */}
+          <div className="flex flex-col items-center md:items-end text-center md:text-right">
+            <h4 className="font-sans text-[20px] font-bold text-white mb-8 uppercase tracking-[0.2em]">
+              Get In Touch
+            </h4>
+            <div className="space-y-6 text-[#999999] font-sans text-[16px] leading-relaxed">
+              <p>Address: <span className="text-white transition-colors cursor-default">Downtown Hub, City Center</span></p>
+              <p>Phone: <a href="tel:+918446544544" className="text-white hover:text-[#913429] transition-colors">+91 84465 44544</a></p>
+              <div className="mt-8 pt-4 border-t border-white/10">
+                <p>Need help or have a question?</p>
+                <p>Reach out: <a href="mailto:hello@thecommoncafe.com" className="text-white hover:underline font-bold">hello@thecommoncafe.com</a></p>
               </div>
             </div>
           </div>
+        </div>
 
 
         {/* Footer Bottom Bar */}

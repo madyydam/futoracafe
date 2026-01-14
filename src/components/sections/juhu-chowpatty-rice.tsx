@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -47,8 +49,8 @@ const JuhuChowpattyRice: React.FC = () => {
                 "Paneer Pav Bhaji",
                 "Paneer Cheese Pav Bhaji"
               ].map((item, idx) => (
-                <h3 
-                  key={idx} 
+                <h3
+                  key={idx}
                   className="item-name text-black font-semibold text-2xl md:text-3xl hover:text-[#8F221B] transition-colors cursor-default"
                 >
                   {item}

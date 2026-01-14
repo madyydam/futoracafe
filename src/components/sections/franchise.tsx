@@ -35,10 +35,9 @@ const Franchise = () => {
             <div className="relative w-full max-w-[550px] aspect-square transition-transform duration-500 hover:scale-105">
               <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/images_23.png"
-                alt="Sa Dosa Cafe Restaurant Illustration"
+                alt="Futora Cafe Restaurant Illustration"
                 fill
                 className="object-contain"
-                priority
               />
             </div>
           </div>
@@ -46,26 +45,22 @@ const Franchise = () => {
           {/* Right Side: Content Box */}
           <div className="flex flex-col space-y-6">
             <h5 className="text-[#ffb331] font-heading text-[32px] font-semibold leading-[1.3em]">
-              Sa Dosa Cafe&apos;s Outlets
+              Futora Cafe&apos;s Outlets
             </h5>
             
             <h4 className="text-[#633200] font-heading text-[24px] font-semibold leading-[1.4em]">
               Authentic flavors, warm hospitality, and a café experience like no other.
             </h4>
 
-            <div className="space-y-4">
-              <p className="text-[#4a4a4a] font-body text-[16px] leading-[1.6em]">
-                From the aroma of freshly brewed chai to the taste of traditional delights, our cafés bring you the richness of Indian culture. Each outlet is designed to create a cozy and welcoming atmosphere, perfect for gatherings, work, or a moment of relaxation.
-              </p>
-              
-              <p className="text-[#633200] font-heading text-[18px] font-medium leading-[1.5em]">
-                Find your nearest café and indulge in the flavors of India. Come visit us today!
-              </p>
-            </div>
+            <p className="text-[#4a4a4a] font-body text-[16px] leading-[1.8] max-w-xl">
+              We started with a vision to revolutionize the way people experience traditional dishes. 
+              Our commitment to quality, innovation, and customer satisfaction has helped us grow 
+              rapidly. Join our family and be part of our success story!
+            </p>
 
             <div className="pt-4">
-              <a
-                href="/sadosa-franchise"
+              <a 
+                href="/#franchise"
                 className="inline-block bg-[#ffb331] text-white font-heading font-bold py-3 px-8 rounded-[5px] text-[14px] uppercase tracking-wider transition-all duration-300 hover:bg-[#e09d2a] hover:shadow-lg active:scale-95"
               >
                 Know More...

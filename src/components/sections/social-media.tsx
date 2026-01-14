@@ -2,14 +2,7 @@ import React from 'react';
 import { Instagram } from 'lucide-react';
 
 /**
- * SocialMedia Component
- * 
- * Clones the "Social media" section from Sa Dosa Cafe.
- * Features:
- * - Cream background (#f7f1e1)
- * - Section header with ornamental lines and Instagram icons
- * - 4-column grid layout for video/image placeholders
- * - Responsive adjustments for mobile/tablet
+ * Clones the "Social media" section from Futora Cafe.
  */
 const SocialMedia: React.FC = () => {
   // Creating an array for the 8 placeholders (2 rows of 4)

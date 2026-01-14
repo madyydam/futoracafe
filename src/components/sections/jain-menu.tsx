@@ -71,7 +71,7 @@ const JainMenu = () => {
 
           <div className="pt-8">
             <a 
-              href="/sadosa-menu/" 
+              href="/#menu" 
               className="inline-block bg-[#ffb331] text-white px-8 py-3 rounded-[5px] font-akshar font-bold text-[14px] uppercase tracking-wider hover:bg-[#e8a22a] transition-colors duration-300 shadow-sm"
             >
               Explore Our Menu

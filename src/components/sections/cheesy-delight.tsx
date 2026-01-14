@@ -47,7 +47,7 @@ export default function CheesyDelight() {
             </p>
             
             <a 
-              href="/sadosa-menu" 
+              href="/#menu" 
               className="inline-block bg-[#ffb331] text-white font-akshar font-bold text-[14px] px-8 py-3 rounded-[5px] uppercase transition-colors hover:bg-[#e69b1f] shadow-sm"
             >
               Explore Our Menu

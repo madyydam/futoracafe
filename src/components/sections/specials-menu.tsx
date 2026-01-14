@@ -101,7 +101,7 @@ const SpecialsMenu = () => {
           </p>
           
           <a
-            href="/sadosa-menu/"
+            href="/#menu"
             className="inline-block bg-[#fbb03b] text-white font-body font-medium text-[15px] px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-md"
           >
             Explore Our Menu

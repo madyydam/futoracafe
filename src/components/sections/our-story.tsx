@@ -1,10 +1,7 @@
 import React from 'react';
 
 /**
- * OurStory Component
- * Clones the brand philosophy section of Sa Dosa Cafe.
- * Features: Light cream background, centered layout, Aladin font for title, 
- * and detailed description about the evolution of Dosa.
+ * Clones the brand philosophy section of Futora Cafe.
  */
 const OurStory: React.FC = () => {
   return (
@@ -56,23 +53,24 @@ const OurStory: React.FC = () => {
           <div className="h-[1px] bg-[#633200]/20 flex-1 max-w-[150px]"></div>
         </div>
 
-        {/* Content Block */}
-        <div className="max-w-[1000px] mx-auto text-center">
-          {/* Subheading */}
-          <h4 className="font-heading text-[24px] font-bold text-[#633200] mb-6 tracking-wide uppercase">
-            Anything And Everything On Dosa!
-          </h4>
+          {/* Content Block */}
+          <div className="max-w-[1000px] mx-auto text-center">
+            {/* Subheading */}
+            <h4 className="font-heading text-[24px] font-bold text-[#633200] mb-6 tracking-wide uppercase">
+              Where Every Sip Tells A Story
+            </h4>
 
-          {/* Descriptive Text */}
-          <div className="space-y-6">
-            <p className="font-body text-[16px] leading-[1.8] text-[#4a4a4a]">
-              Dosa is the world's favorite food and we at SA dosa cafe gave it a twist to make it a little bit tastier and lighter on calories to make it healthy as a snack and main course. Dosa is one of the most well-known dishes in India and is an integral part of the cuisine of Southern India. The combination of Chutney & Sambhar enhances its taste to even greater heights.
-            </p>
-            <p className="font-body text-[16px] leading-[1.8] text-[#4a4a4a]">
-              At SA Dosa Cafe, we realized one thing that even though the traditional Dosa will always have a great fan following in India & Indians around the world, the dosas will also have to evolve in the 21st century to reach out to the younger generation, who are always looking for something new. Our mission is to bridge that gap by offering innovative flavors while respecting the authentic techniques that make Dosa legendary.
-            </p>
+            {/* Descriptive Text */}
+            <div className="space-y-6">
+              <p className="font-body text-[16px] leading-[1.8] text-[#4a4a4a]">
+                The Common Cafe was born out of a simple passion: to create a space where coffee, conversation, and comfort collide. We believe that a great cup of coffee is more than just a drink—it&apos;s a moment of connection, a catalyst for creativity, and a daily ritual that brings people together.
+              </p>
+              <p className="font-body text-[16px] leading-[1.8] text-[#4a4a4a]">
+                From our artisanal brews sourced from the finest beans to our freshly baked pastries and wholesome bites, every item on our menu is crafted with care and intention. Whether you&apos;re here for a quick morning pick-me-up or a relaxed afternoon with friends, we invite you to make The Common Cafe your second home.
+              </p>
+            </div>
           </div>
-        </div>
+
       </div>
 
       {/* Brush Divider Bottom Transition */}

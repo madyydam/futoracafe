@@ -2,9 +2,8 @@ import React from "react";
 import Image from "next/image";
 
 /**
- * WelcomeSection Component
- * Clones the welcome section with the "Welcome To Sa Dosa Cafe" text, 
- * flanked by character illustrations, and a sub-headline about spreading cheer.
+ * Clones the welcome section with the "Welcome To Futora Cafe" text, 
+ * menu card illustration, and tagline.
  */
 export default function WelcomeSection() {
   return (
@@ -61,7 +60,7 @@ export default function WelcomeSection() {
         {/* Main Heading */}
         <div className="mb-4">
           <h1 className="font-display text-[80px] md:text-[100px] lg:text-[120px] font-bold text-[#6e1c0d] leading-[0.8em] drop-shadow-sm animate-in zoom-in duration-700">
-            Welcome To <br className="block md:hidden" /> Sa Dosa Cafe
+            Welcome To <br className="block md:hidden" /> Futora Cafe
           </h1>
         </div>
 

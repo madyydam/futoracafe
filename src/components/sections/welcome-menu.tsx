@@ -5,39 +5,39 @@ const WelcomeMenu = () => {
   const specialDishes = [
     {
       id: 1,
-      title: "Creamy Cheesy Shezwan Dosa",
-      description: "A crispy dosa loaded with creamy cheese and a spicy Schezwan twist – a fusion delight you can’t resist!",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/20231110041200_IMG_7183-scaled-e1743491188165-r3ph-16.jpg"
+      title: "Artisanal Cappuccino",
+      description: "Rich espresso topped with a smooth layer of velvety foam, crafted by our expert baristas.",
+      image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000&auto=format&fit=crop"
     },
     {
       id: 2,
-      title: "Cheese Burst Paneer Tandoori Pizza Dosa",
-      description: "A crispy dosa meets the cheesy burst of paneer tandoori pizza a fusion that’s pure indulgence!",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/20240427_110209216_iOS-scaled-r3nqu0syhiw7i8uz8puf-12.jpg"
+      title: "Fresh Avocado Toast",
+      description: "Creamy smashed avocado on sourdough, topped with chili flakes and a drizzle of extra virgin olive oil.",
+      image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1000&auto=format&fit=crop"
     },
     {
       id: 3,
-      title: "Mysore Masala Dosa",
-      description: "A classic delight with a spicy Mysore twist, filled with flavorful masala – tradition on a plate!",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/20240427_110151762_iOS-scaled-r3nqt20xgnklko9hvst8-13.jpg"
+      title: "Signature Club Sandwich",
+      description: "Layers of toasted bread, fresh greens, grilled chicken, and our secret sauce.",
+      image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=1000&auto=format&fit=crop"
     },
     {
       id: 4,
-      title: "Dry Fruit Thick Mango Shake",
-      description: "A rich and creamy mango shake loaded with the goodness of almonds – a royal treat in every sip!",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/20231110024856_IMG_7051-scaled-r3nqyxim6dm44xqaku8-14.jpg"
+      title: "Golden Croissant",
+      description: "Flaky, buttery, and baked fresh every morning to perfection.",
+      image: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=1000&auto=format&fit=crop"
     },
     {
       id: 5,
-      title: "Sambar Rice",
-      description: "A hearty bowl of flavorful sambar rice – comfort food at its finest!",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/20240427_110116818_iOS-scaled-r3nqrdv9b9a8xmovn2t3-15.jpg"
+      title: "Berry Bliss Bowl",
+      description: "A refreshing blend of açai, seasonal berries, granola, and a touch of honey.",
+      image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?q=80&w=1000&auto=format&fit=crop"
     },
     {
       id: 6,
-      title: "Pav Bhaji",
-      description: "Mumbai's favorite treat: spiced mashed veggies with butter-toasted pav!",
-      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/20231110034151_IMG_7117-scaled-1-1024x1024-11.jpg"
+      title: "Iced Caramel Macchiato",
+      description: "Perfectly balanced sweetness with rich espresso and chilled milk over ice.",
+      image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=1000&auto=format&fit=crop"
     }
   ];
 
@@ -96,17 +96,19 @@ const WelcomeMenu = () => {
         </div>
 
         <div className="container mx-auto max-w-[1140px] relative z-10">
-          <h1 className="font-aladin text-[48px] md:text-[80px] lg:text-[120px] text-[#633200] leading-tight mb-4 animate-in fade-in slide-in-from-bottom duration-1000">
-            Welcome To Sa Dosa Cafe
-          </h1>
+            <h1 className="font-aladin text-[48px] md:text-[80px] lg:text-[120px] text-[#633200] leading-tight mb-4 animate-in fade-in slide-in-from-bottom duration-1000">
+              Welcome To The Common Cafe
+            </h1>
+
           
           <p className="font-roboto uppercase tracking-widest text-[#4a4a4a] text-[12px] md:text-[14px] mb-12">
             serving smile with Every plate, flavors You&apos;ll Celebrate!
           </p>
 
-          <h2 className="font-montez text-[32px] md:text-[48px] lg:text-[60px] text-[#633200] leading-tight mb-16 px-4">
-            Spreading cheer with every bite,<br className="hidden md:block" /> Crispy dosas cooked just right!
-          </h2>
+            <h2 className="font-montez text-[32px] md:text-[48px] lg:text-[60px] text-[#633200] leading-tight mb-16 px-4">
+              Spreading cheer with every bite,<br className="hidden md:block" /> Brewed fresh and served just right!
+            </h2>
+
 
           <div className="flex items-center justify-center gap-4 mb-16">
             <div className="flex-1 h-[1px] bg-[#633200]/20 hidden md:block"></div>
@@ -155,7 +157,7 @@ const WelcomeMenu = () => {
               These are some of the must-try dishes at our café! Explore our menu and indulge in flavors you’ll love.
             </p>
             <a 
-              href="/sadosa-menu" 
+              href="/#menu" 
               className="inline-block bg-[#FFB331] text-white px-8 py-3 rounded-[5px] font-akshar font-bold text-[14px] uppercase tracking-wider shadow-lg hover:bg-[#e6a12b] transition-colors duration-300"
             >
               Explore Our Menu

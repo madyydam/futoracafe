@@ -2,7 +2,6 @@ import Header from "@/components/sections/header";
 import HeroSection from "@/components/sections/hero";
 import WelcomeMenu from "@/components/sections/welcome-menu";
 import OurStory from "@/components/sections/our-story";
-import Franchise from "@/components/sections/franchise";
 import Footer from "@/components/sections/footer";
 
 export default function Home() {
@@ -13,7 +12,6 @@ export default function Home() {
         <HeroSection />
         <WelcomeMenu />
         <OurStory />
-        <Franchise />
       </main>
       <Footer />
     </div>

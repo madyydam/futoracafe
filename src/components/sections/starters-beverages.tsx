@@ -2,45 +2,46 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const StartersAndBeverages = () => {
   const starters = [
     {
-      name: "Ernakulam Podi Idli",
-      description: "Spice up dosa craving Button Idli tossed in ghee and our homemade podi masala. Served with coconut chutney and sambar.",
+      name: "Classic Bruschetta",
+      description: "Toasted artisan bread topped with fresh tomatoes, basil, and balsamic glaze.",
     },
-    { name: "Cheese Nachos", description: "" },
-    { name: "French Fries - Salted", description: "" },
-    { name: "Batata Vada Shots - (6pcs)", description: "" },
-    { name: "Hara Bhara Kabab (6pcs)", description: "" },
-    { name: "Peri Peri French Fries - Cheese Dip", description: "" },
-    { name: "Butter Garlic Nylon Dosa", description: "" },
+    { name: "Spinach & Feta Puffs", description: "" },
+    { name: "Garlic Herb Breadsticks", description: "" },
+    { name: "Mini Caprese Skewers", description: "" },
+    { name: "Crispy Mozzarella Bites", description: "" },
+    { name: "Sweet Potato Fries", description: "" },
+    { name: "Mediterranean Hummus Platter", description: "" },
   ];
 
   const beverages = [
-    { name: "Tea" },
-    { name: "Hot Coffee" },
-    { name: "Filter Coffee" },
-    { name: "Cold Coffee" },
-    { name: "Thick Cold Coffee" },
+    { name: "Masala Chai" },
+    { name: "English Breakfast Tea" },
+    { name: "Americano" },
+    { name: "Iced Coffee" },
+    { name: "Vanilla Iced Latte" },
     {
-      name: "Thick Cold Coffee With Crush",
-      description: "Cold, refreshing, and thick, topped with chocolate chunks. So thick you might need a spoon to finish.",
+      name: "Oreo Frappe",
+      description: "Creamy blended coffee with crushed Oreos and whipped cream on top.",
     },
   ];
 
   const moreBeverages = [
     {
-      name: "Dry Fruit Mango Shake",
-      description: "This thick shake, topped with roasted almonds, offers a perfect crunchy texture in a velvety smooth blend.",
+      name: "Fresh Mango Smoothie",
+      description: "Thick, refreshing mango smoothie with a touch of honey and mint.",
     },
-    { name: "Thick Chocolate Shake With Crush" },
-    { name: "Masala Pineapple" },
-    { name: "Spicy Guava" },
-    { name: "Strawberry Shake" },
+    { name: "Berry Blast Smoothie" },
+    { name: "Pineapple Ginger Cooler" },
+    { name: "Watermelon Mint Refresher" },
+    { name: "Strawberry Milkshake" },
     {
-      name: "Virgin Mojito W/o Soda",
-      description: "Sweet, citrusy, minty taste with chilled water.",
+      name: "Classic Lemonade",
+      description: "Freshly squeezed lemons with mint and a hint of sweetness.",
     },
   ];
 
@@ -49,36 +50,70 @@ const StartersAndBeverages = () => {
       <div className="container mx-auto px-6">
         {/* Starters Section */}
         <div className="mb-20">
-          <div className="flex flex-col items-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center mb-12"
+          >
             <h2 className="section-category text-[#8F221B] font-heading text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight relative inline-block text-center w-full mb-8">
-              Starters
+              Cafe Bites
             </h2>
-          </div>
+          </motion.div>
 
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            {/* Left Image - Podi Idli */}
-            <div className="relative w-[300px] h-[300px] shrink-0">
+            {/* Left Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              animate={{
+                rotate: [0, 2, -2, 0],
+                y: [0, -5, 5, 0]
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="relative w-[300px] h-[300px] shrink-0"
+            >
               <div className="dish-ring w-full h-full p-[10px] border-2 border-[#8F221B] rounded-full relative">
                 <div className="absolute inset-[-8px] border-2 border-[#2C5F2D] rounded-full"></div>
-                <div className="w-full h-full rounded-full overflow-hidden relative">
+                <div className="w-full h-full rounded-full overflow-hidden relative shadow-2xl">
                   <Image
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Updated-05_10_24_page-0012-e174359747275-13.png"
-                    alt="Ernakulam Podi Idli"
+                    src="https://images.unsplash.com/photo-1546793665-c74683f339c1?q=80&w=1000&auto=format&fit=crop"
+                    alt="Cafe Bites"
                     fill
                     className="object-cover"
                   />
-                  {/* Decorative dots to match the original layout UI */}
                   <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#EAB231] rounded-full"></div>
                   <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#EB6D48] rounded-full"></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Starter Menu List */}
-            <div className="flex-1 text-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex-1 text-center"
+            >
               {starters.map((item, index) => (
-                <div key={index} className="mb-6">
-                  <h3 className="item-name text-[#000000] font-sans text-[18px] md:text-[24px] lg:text-[32px] font-semibold mb-2">
+                <motion.div
+                  key={index}
+                  className="mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.03, x: 3 }}
+                >
+                  <h3 className="item-name text-[#000000] font-sans text-[18px] md:text-[24px] lg:text-[28px] font-semibold mb-2">
                     {item.name}
                   </h3>
                   {item.description && (
@@ -86,59 +121,98 @@ const StartersAndBeverages = () => {
                       {item.description}
                     </p>
                   )}
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            {/* Right Image - Fries/Snacks */}
-            <div className="relative w-[300px] h-[300px] shrink-0">
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              animate={{
+                rotate: [0, -2, 2, 0],
+                y: [0, 5, -5, 0]
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="relative w-[300px] h-[300px] shrink-0"
+            >
               <div className="dish-ring w-full h-full p-[10px] border-2 border-[#EAB231] rounded-full relative">
                 <div className="absolute inset-[-8px] border-2 border-[#EB6D48] rounded-full"></div>
-                <div className="w-full h-full rounded-full overflow-hidden">
+                <div className="w-full h-full rounded-full overflow-hidden shadow-2xl">
                   <Image
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/20240427_110157649_iOS-scaled-removebg-preview-e17-8.png"
-                    alt="Starters Sampler"
+                    src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop"
+                    alt="Cafe Snacks"
                     fill
                     className="object-cover"
                   />
-                  {/* Decorative dots */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#2C5F2D] rounded-full"></div>
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#8F221B] rounded-full"></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Beverages Section */}
         <div className="pt-20">
-          <div className="flex flex-col items-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center mb-12"
+          >
             <h2 className="section-category text-[#8F221B] font-heading text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight relative inline-block text-center w-full mb-8">
-              Beverages
+              Refreshments
             </h2>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-            {/* Left Content Image - Mango Shake with splashes */}
-            <div className="md:col-span-5 relative flex flex-col items-center">
+            {/* Left Content Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="md:col-span-5 relative flex flex-col items-center"
+            >
               <div className="relative w-full max-w-[400px] h-[500px]">
                 <Image
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/fresh-mango-slice-green-leaves-juice-splashes-real-20.png"
-                  alt="Dry Fruit Mango Shake"
+                  src="https://images.unsplash.com/photo-1497534547324-0ebb3f052e88?q=80&w=1000&auto=format&fit=crop"
+                  alt="Refreshing Beverages"
                   fill
                   className="object-contain"
                   priority
                 />
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Content - Beverage List */}
-            <div className="md:col-span-7 space-y-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="md:col-span-7 space-y-8"
+            >
               {/* Beverage Group 1 */}
               <div className="space-y-4">
                 {beverages.map((item, index) => (
-                  <div key={index}>
-                    <h3 className="item-name text-[#000000] font-sans text-[20px] md:text-[32px] font-semibold">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    whileHover={{ scale: 1.02, x: 5 }}
+                  >
+                    <h3 className="item-name text-[#000000] font-sans text-[20px] md:text-[28px] font-semibold">
                       {item.name}
                     </h3>
                     {item.description && (
@@ -146,16 +220,23 @@ const StartersAndBeverages = () => {
                         {item.description}
                       </p>
                     )}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              {/* Speciality Items and Insets */}
+              {/* Specialty Items */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="space-y-4">
                   {moreBeverages.map((item, index) => (
-                    <div key={index}>
-                      <h3 className="item-name text-[#000000] font-sans text-[20px] md:text-[32px] font-semibold">
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.08 }}
+                      whileHover={{ scale: 1.02, x: 5 }}
+                    >
+                      <h3 className="item-name text-[#000000] font-sans text-[20px] md:text-[28px] font-semibold">
                         {item.name}
                       </h3>
                       {item.description && (
@@ -163,48 +244,68 @@ const StartersAndBeverages = () => {
                           {item.description}
                         </p>
                       )}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
                 {/* Small Inset Images */}
                 <div className="flex flex-col gap-12 items-center lg:items-end pr-8">
-                  {/* Cold Coffee Inset */}
-                  <div className="relative w-[150px] h-[150px]">
+                  {/* Smoothie Inset */}
+                  <motion.div
+                    className="relative w-[150px] h-[150px]"
+                    animate={{
+                      y: [0, -5, 5, 0],
+                      rotate: [0, 2, -2, 0]
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
                     <div className="dish-ring w-full h-full p-[6px] border-2 border-[#EAB231] rounded-full relative">
                       <div className="absolute inset-[-6px] border border-[#8F221B] rounded-full"></div>
-                      <div className="w-full h-full rounded-full overflow-hidden relative">
+                      <div className="w-full h-full rounded-full overflow-hidden relative shadow-lg">
                         <Image
-                          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Updated-05_10_24_page-0012-e174359747275-13.png"
-                          alt="Cold Coffee"
+                          src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?q=80&w=1000&auto=format&fit=crop"
+                          alt="Smoothie"
                           fill
-                          className="object-cover grayscale-[0.3]"
+                          className="object-cover"
                         />
                         <div className="absolute top-0 right-0 w-2 h-2 bg-[#EB6D48] rounded-full"></div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  {/* Virgin Mojito Inset */}
-                  <div className="relative w-[150px] h-[150px]">
+                  {/* Lemonade Inset */}
+                  <motion.div
+                    className="relative w-[150px] h-[150px]"
+                    animate={{
+                      y: [0, 5, -5, 0],
+                      rotate: [0, -2, 2, 0]
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
                     <div className="dish-ring w-full h-full p-[6px] border-2 border-[#EAB231] rounded-full relative shadow-lg">
                       <div className="absolute inset-[-6px] border border-[#2C5F2D] rounded-full"></div>
-                      <div className="w-full h-full rounded-full overflow-hidden bg-white/20 relative">
-                        <div className="flex items-center justify-center w-full h-full bg-[#2C5F2D]/10">
-                          <Image
-                            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/fresh-mango-slice-green-leaves-juice-splashes-real-20.png"
-                            alt="Virgin Mojito"
-                            fill
-                            className="object-contain p-2"
-                          />
-                        </div>
+                      <div className="w-full h-full rounded-full overflow-hidden bg-white relative shadow-lg">
+                        <Image
+                          src="https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9e?q=80&w=1000&auto=format&fit=crop"
+                          alt="Fresh Lemonade"
+                          fill
+                          className="object-cover"
+                        />
                         <div className="absolute bottom-0 right-4 w-2 h-2 bg-[#EAB231] rounded-full"></div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

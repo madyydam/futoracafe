@@ -46,7 +46,7 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-start justify-center">
             <Link href="/" className="inline-block group">
               <div className="text-white font-display text-[48px] md:text-[60px] italic leading-tight transition-transform group-hover:scale-105">
-                The Common Cafe
+                The Futora Cafe
               </div>
             </Link>
             <p className="mt-4 text-[#666666] font-sans max-w-sm text-center md:text-left">
@@ -64,7 +64,7 @@ const Footer = () => {
               <p>Phone: <a href="tel:+918446544544" className="text-white hover:text-[#913429] transition-colors">+91 84465 44544</a></p>
               <div className="mt-8 pt-4 border-t border-white/10">
                 <p>Need help or have a question?</p>
-                <p>Reach out: <a href="mailto:hello@thecommoncafe.com" className="text-white hover:underline font-bold">hello@thecommoncafe.com</a></p>
+                <p>Reach out: <a href="mailto:hello@thefutoracafe.com" className="text-white hover:underline font-bold">hello@thefutoracafe.com</a></p>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@ const Footer = () => {
         <div className="border-t border-white/5 mt-[80px] pt-8 px-6">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#666666] font-sans text-[13px]">
-              Copyright © {new Date().getFullYear()} The Common Cafe. All Rights Reserved.
+              Copyright © {new Date().getFullYear()} The Futora Cafe. All Rights Reserved.
             </p>
             <p className="text-[#444444] font-sans text-[11px] uppercase tracking-widest">
               Design by Aquilla Marketers

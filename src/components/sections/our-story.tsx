@@ -54,7 +54,7 @@ const OurStory: React.FC = () => {
               viewport={{ once: true }}
               className="font-sans text-[18px] md:text-[20px] leading-[1.8] text-[#4a4a4a]"
             >
-              The Common Cafe was born out of a simple passion: to create a space where coffee, conversation, and comfort collide. We believe that a great cup of coffee is more than just a drink—it&apos;s a moment of connection, a catalyst for creativity, and a daily ritual that brings people together.
+              The Futora Cafe was born out of a simple passion: to create a space where coffee, conversation, and comfort collide. We believe that a great cup of coffee is more than just a drink—it&apos;s a moment of connection, a catalyst for creativity, and a daily ritual that brings people together.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, x: 30 }}
@@ -63,7 +63,7 @@ const OurStory: React.FC = () => {
               viewport={{ once: true }}
               className="font-sans text-[18px] md:text-[20px] leading-[1.8] text-[#4a4a4a]"
             >
-              From our artisanal brews sourced from the finest beans to our freshly baked pastries and wholesome bites, every item on our menu is crafted with care and intention. Whether you&apos;re here for a quick morning pick-me-up or a relaxed afternoon with friends, we invite you to make The Common Cafe your second home.
+              From our artisanal brews sourced from the finest beans to our freshly baked pastries and wholesome bites, every item on our menu is crafted with care and intention. Whether you&apos;re here for a quick morning pick-me-up or a relaxed afternoon with friends, we invite you to make The Futora Cafe your second home.
             </motion.p>
           </div>
         </div>

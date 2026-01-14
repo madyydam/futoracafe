@@ -10,58 +10,45 @@ const WelcomeMenu = () => {
       id: 1,
       title: "Artisanal Cappuccino",
       description: "Rich espresso topped with a smooth layer of velvety foam, crafted by our expert baristas.",
-      image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1000&auto=format&fit=crop",
+      rotation: -3,
     },
     {
       id: 2,
       title: "Fresh Avocado Toast",
       description: "Creamy smashed avocado on sourdough, topped with chili flakes and a drizzle of extra virgin olive oil.",
-      image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1000&auto=format&fit=crop",
+      rotation: 2,
     },
     {
       id: 3,
       title: "Signature Club Sandwich",
       description: "Layers of toasted bread, fresh greens, grilled chicken, and our secret sauce.",
-      image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=1000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=1000&auto=format&fit=crop",
+      rotation: -2,
     },
     {
       id: 4,
       title: "Golden Croissant",
       description: "Flaky, buttery, and baked fresh every morning to perfection.",
-      image: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=1000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=1000&auto=format&fit=crop",
+      rotation: 3,
     },
     {
       id: 5,
       title: "Berry Bliss Bowl",
       description: "A refreshing blend of açai, seasonal berries, granola, and a touch of honey.",
-      image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?q=80&w=1000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?q=80&w=1000&auto=format&fit=crop",
+      rotation: -2,
     },
     {
       id: 6,
       title: "Iced Caramel Macchiato",
       description: "Perfectly balanced sweetness with rich espresso and chilled milk over ice.",
-      image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=1000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=1000&auto=format&fit=crop",
+      rotation: 2,
     }
   ];
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  };
 
   return (
     <section className="relative w-full overflow-hidden">
@@ -86,7 +73,7 @@ const WelcomeMenu = () => {
             viewport={{ once: true }}
             className="font-display text-[48px] md:text-[80px] lg:text-[100px] text-[#633200] leading-tight mb-4 italic"
           >
-            Welcome To The Common Cafe
+            Welcome To The Futora Cafe
           </motion.h1>
 
           <motion.p
@@ -117,54 +104,103 @@ const WelcomeMenu = () => {
             <div className="flex-1 h-[1px] bg-[#633200]/20 hidden md:block"></div>
           </div>
 
-          {/* Grid Layout for Dishes */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
-          >
-            {specialDishes.map((dish) => (
+          {/* Hanging Polaroid Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+            {specialDishes.map((dish, index) => (
               <motion.div
                 key={dish.id}
-                variants={itemVariants}
-                whileHover={{
-                  scaleX: 1.05,
-                  scaleY: 0.95,
-                  rotate: dish.id % 2 === 0 ? 1 : -1,
-                  transition: { type: "spring", stiffness: 400, damping: 10 }
+                initial={{ opacity: 0, y: -100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 80
                 }}
-                animate={{
-                  rotate: [0, -1, 1, -1, 0],
-                  transition: {
-                    duration: 5 + dish.id,
+                className="relative"
+                style={{ perspective: "1000px" }}
+              >
+                {/* Hanging String/Rope */}
+                <motion.div
+                  className="absolute top-[-50px] left-1/2 -translate-x-1/2 w-[3px] bg-gradient-to-b from-[#8B7355] via-[#A0826D] to-transparent z-10"
+                  style={{
+                    height: "50px",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+                  }}
+                  animate={{
+                    scaleY: [1, 1.02, 1],
+                  }}
+                  transition={{
+                    duration: 3 + index * 0.3,
                     repeat: Infinity,
                     ease: "easeInOut"
-                  }
-                }}
-                className="bg-white rounded-[15px] overflow-hidden shadow-card transition-shadow duration-300 hover:shadow-2xl flex flex-col items-center group p-4 border border-[#e5e5e5]"
-                style={{ originY: 0 }}
-              >
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 shadow-md">
-                  <Image
-                    src={dish.image}
-                    alt={dish.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  }}
+                />
+
+                {/* Polaroid Card */}
+                <motion.div
+                  className="bg-white p-4 pb-8 shadow-2xl relative"
+                  style={{
+                    rotate: dish.rotation,
+                    transformOrigin: "top center"
+                  }}
+                  animate={{
+                    rotate: [dish.rotation, dish.rotation - 1.5, dish.rotation + 1.5, dish.rotation],
+                    y: [0, -3, 3, 0],
+                  }}
+                  transition={{
+                    duration: 4 + index * 0.4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    repeatType: "reverse"
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    rotate: dish.rotation + 2,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  {/* Tape effect at top */}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#F5DEB3] opacity-60 rotate-0 shadow-sm"
+                    style={{
+                      background: "linear-gradient(180deg, rgba(255,255,255, 0.9) 0%, rgba(245,222,179,0.6) 100%)",
+                      border: "1px solid rgba(0,0,0,0.05)"
+                    }}
                   />
-                </div>
-                <div className="text-center px-4 pb-4">
-                  <h5 className="font-sans text-[22px] md:text-[26px] font-bold text-[#913429] mb-3 leading-tight">
-                    {dish.title}
-                  </h5>
-                  <p className="font-poppins text-[14px] leading-relaxed text-[#4a4a4a]">
-                    {dish.description}
-                  </p>
-                </div>
+
+                  {/* Image Container */}
+                  <div className="relative w-full aspect-[4/3] bg-gray-100 mb-4 overflow-hidden">
+                    <Image
+                      src={dish.image}
+                      alt={dish.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="text-center space-y-2">
+                    <h5 className="font-sans text-[18px] md:text-[22px] font-bold text-[#913429] leading-tight">
+                      {dish.title}
+                    </h5>
+                    <p className="font-sans text-[12px] md:text-[13px] text-gray-700 leading-relaxed px-2">
+                      {dish.description}
+                    </p>
+                  </div>
+
+                  {/* Handwritten-style note effect */}
+                  <div className="absolute bottom-2 right-3 opacity-20">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                        fill="#8F221B" stroke="#8F221B" strokeWidth="0.5" />
+                    </svg>
+                  </div>
+                </motion.div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Bottom Call to Action */}
           <motion.div
@@ -172,10 +208,10 @@ const WelcomeMenu = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-[800px] mx-auto mb-10"
+            className="max-w-[800px] mx-auto mb-10 mt-16"
           >
             <p className="font-sans text-[18px] md:text-[22px] font-medium text-[#633200] mb-8 italic">
-              These are some of the must-try delights at our café! Explore our menu and indulge in flavors you’ll love.
+              These are some of the must-try delights at our café! Explore our menu and indulge in flavors you'll love.
             </p>
             <motion.a
               href="/menu"

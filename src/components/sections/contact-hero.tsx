@@ -1,69 +1,58 @@
+"use client";
+
 import React from 'react';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
 
-const ContactHero = () => {
+export default function ContactHero() {
   return (
-    <section 
-      className="relative w-full overflow-hidden bg-white"
-      style={{
-        paddingTop: '80px',
-        paddingBottom: '80px',
-      }}
+    <section
+      className="relative w-full bg-[#F9B233] flex flex-col items-center pt-32 pb-16 overflow-hidden"
+      style={{ minHeight: '50vh' }}
     >
-      <div className="container mx-auto px-6 max-w-[1200px]">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-0">
-          
-          {/* Left Column: Illustration */}
-          <div 
-            className="w-full md:w-1/2 flex justify-center md:justify-start items-center animate-in fade-in duration-1000"
-          >
-            <div className="relative w-full max-w-[500px] aspect-[4/3] md:aspect-auto">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Element02-e1743600655592-6.png"
-                alt="Tropical boat scene illustration"
-                width={600}
-                height={450}
-                className="object-contain w-full h-auto"
-                priority
-              />
-            </div>
-          </div>
+      {/* Animated Coffee Beans */}
+      {[...Array(15)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full shadow-lg"
+          style={{
+            width: 15 + Math.random() * 15,
+            height: 20 + Math.random() * 20,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: 'linear-gradient(135deg, #5D4037 0%, #3E2723 100%)',
+          }}
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: 4 + Math.random() * 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.2,
+          }}
+        />
+      ))}
 
-          {/* Right Column: Typography */}
-          <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
-            <div className="animate-in slide-in-from-right duration-700 delay-100">
-              <h1 
-                className="mb-6 text-[#080C0E]"
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(48px, 6vw, 72px)',
-                  lineHeight: '1.1',
-                  fontWeight: '400',
-                }}
-              >
-                Get in Touch<br />with Us
-              </h1>
-            </div>
+      <div className="container mx-auto px-6 text-center relative z-10">
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, type: "spring" }}
+          className="font-display text-[60px] md:text-[90px] text-[#913429] mb-6 italic"
+        >
+          Get In Touch
+        </motion.h1>
 
-            <div className="animate-in slide-in-from-right duration-700 delay-300">
-              <h5 
-                className="text-[#080C0E] max-w-[450px] mx-auto md:mx-0"
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '18px',
-                  fontWeight: '500',
-                  lineHeight: '1.6',
-                }}
-              >
-                Whether it&apos;s a query, collaboration, or just a friendly hello, feel free to reach out. We&apos;d love to hear from you!
-              </h5>
-            </div>
-          </div>
-
-        </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="font-sans text-xl md:text-2xl text-black/80 max-w-2xl mx-auto"
+        >
+          We'd love to hear from you! Visit us or send us a message.
+        </motion.p>
       </div>
     </section>
   );
-};
-
-export default ContactHero;
+}

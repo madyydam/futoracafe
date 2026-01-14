@@ -5,8 +5,8 @@ import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "The Common Cafe",
-  description: "Coffee, Conversations & Comfort",
+  title: "The Futora Cafe",
+  description: "Coffee, Conversations & Comfort at The Futora Cafe",
 };
 
 export default function RootLayout({
@@ -15,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en">
-        <body className="antialiased">
+    <html lang="en">
+      <body className="antialiased">
         <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"

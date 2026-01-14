@@ -6,129 +6,122 @@ import { ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 /**
- * Hero Section Component
- * Clones the hero section with yellow gradient, cultural illustrations, 
- * and specific typography for The Common Cafe.
+ * Hero Section - With Full Background Image
  */
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden w-full">
-      {/* 
-         Main Hero Container 
-         Gradient background from Saffron (#F9B233) to a lighter shade
-      */}
-      <div 
-        className="relative min-h-[85vh] flex flex-col items-center justify-center pt-32 pb-48 text-center px-6"
-        style={{
-          background: "linear-gradient(180deg, #F9B233 0%, #FABD52 100%)",
-        }}
-      >
-          {/* Cultural Illustration Container - Left side image */}
-          <motion.div 
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 0.8, x: -20 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="absolute left-0 bottom-0 w-[300px] md:w-[450px] lg:w-[600px] pointer-events-none"
+      <div className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 pb-12 text-center px-6">
+        {/* Background Image - Full Coverage */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero-coffee.jpg"
+            alt="Coffee Experience"
+            fill
+            className="object-cover"
+            priority
+            quality={100}
+          />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+        </div>
+
+        {/* Main Content */}
+        <div className="max-w-[1140px] mx-auto z-10 relative">
+          {/* Main Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-heading text-[40px] md:text-[72px] lg:text-[84px] text-[#3E2723] font-bold leading-tight mb-4"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              textShadow: '3px 3px 8px rgba(255,255,255,0.8), -1px -1px 4px rgba(255,255,255,0.6)',
+            }}
           >
-            <Image
-              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1470&auto=format&fit=crop"
-              alt="Cafe Interior Vibe"
-              width={1495}
-              height={1333}
-              className="w-full h-auto object-contain rounded-tr-[100px]"
-              priority
-            />
-          </motion.div>
+            The Futora Cafe
+          </motion.h1>
 
-          {/* Hero Content Wrapper */}
-          <div className="max-w-[1140px] mx-auto z-10">
-            {/* Main Title - Display Font */}
-            <motion.h1 
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-              viewport={{ once: true }}
-              className="font-display text-[54px] md:text-[96px] text-brand-rust mb-6 drop-shadow-sm italic"
-              style={{ 
-                fontFamily: 'var(--font-display)',
-                color: '#913429' 
-              }}
-            >
-              The Common Cafe
-            </motion.h1>
-
-            {/* Subtitle area */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="max-w-2xl mx-auto space-y-2 mb-10"
-            >
-              <h4 
-                className="font-sans text-xl md:text-[26px] font-semibold text-black leading-tight"
-                style={{ fontFamily: 'var(--font-sans)', color: '#000000' }}
-              >
-                Coffee, Conversations & Comfort
-              </h4>
-              <p 
-                className="font-sans text-lg md:text-[20px] font-medium text-black/70 leading-tight"
-                style={{ fontFamily: 'var(--font-sans)' }}
-              >
-                Experience the perfect blend of artisanal brews and freshly baked delights.
-              </p>
-            </motion.div>
-
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="font-sans text-lg md:text-2xl text-[#5D4037] mb-8"
+            style={{
+              fontFamily: 'var(--font-sans)',
+              textShadow: '2px 2px 6px rgba(255,255,255,0.9)',
+            }}
+          >
+            City&apos;s Most Iconic Coffee Experience
+          </motion.p>
 
           {/* Explore Button */}
-          <motion.a 
+          <motion.a
             href="#explore"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+            }}
             whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="group inline-flex items-center gap-2 bg-black text-white px-10 py-4 rounded-full font-semibold transition-all hover:bg-neutral-800 focus:ring-2 focus:ring-offset-2 focus:ring-black shadow-xl"
+            transition={{ duration: 0.3, delay: 0.6 }}
+            className="inline-flex items-center gap-2 bg-black text-white px-10 py-4 rounded-full font-semibold text-lg shadow-2xl hover:bg-neutral-800 transition-all"
           >
             Explore Menu
-            <ChevronDown className="w-5 h-5 transition-transform group-hover:translate-y-1" />
+            <ChevronDown className="w-5 h-5" />
           </motion.a>
         </div>
+
+        {/* Bottom Tagline */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 font-sans text-[16px] md:text-[20px] text-[#3E2723] font-medium z-10"
+          style={{
+            textShadow: '2px 2px 6px rgba(255,255,255,0.9)',
+          }}
+        >
+          Coffee, Conversations &amp; Comfort — all in one place.
+        </motion.p>
       </div>
 
-      {/* 
-         Sub-Hero Content Separator
-         "Bringing Great Food Near You"
-      */}
-      <div className="bg-[#F7F3E3] pt-24 pb-8 text-center px-6">
-        <motion.div 
+      {/* Sub-Hero Content */}
+      <div className="bg-[#F7F3E3] pt-16 pb-8 text-center px-6">
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="max-w-[1140px] mx-auto"
         >
-          <h2 
-            className="font-heading text-[32px] md:text-[44px] font-bold text-brand-rust mb-4"
-            style={{ 
+          <motion.h2
+            whileInView={{
+              scale: [1, 1.02, 1],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="font-heading text-[32px] md:text-[44px] font-bold text-[#913429] mb-4"
+            style={{
               fontFamily: 'var(--font-heading)',
-              color: '#913429'
             }}
           >
             Bringing Great Food Near You
-          </h2>
-          <h4 
+          </motion.h2>
+          <h4
             className="font-sans text-[18px] md:text-[20px] font-normal text-[#333333] italic"
             style={{ fontFamily: 'var(--font-sans)' }}
           >
-            Our restaurants, each offering a unique dining experience with signature flavors
+            Our cafe, offering a unique experience with signature flavors
           </h4>
         </motion.div>
       </div>
 
-      {/* Spacer or anchor point for the next section */}
       <div id="explore" className="h-1 bg-[#F7F3E3]" />
     </section>
   );

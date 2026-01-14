@@ -5,175 +5,201 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 /**
- * MustTryDishes Component
- * 
- * Features a zigzag layout of circular dish images with colored circular borders
- * and stylized text labels for featured items.
+ * MustTryDishes Component - Hanging Polaroid Cards Style
  */
 
 const dishItems = [
   {
-    name: "Pav Bhaji",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu_Card_Final-removebg-e1743474049285-3.png",
-    alignment: "left",
-    ringColor: "#8F221B", // Primary Red
-    secondaryRing: "#2C5F2D", // Accent Green
+    name: "Signature Cold Brew",
+    description: "Rich, smooth cold brew coffee steeped for 24 hours for maximum flavor.",
+    image: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1000&auto=format&fit=crop",
+    rotation: -3,
   },
   {
-    name: "Cheese Burst Paneer Tandoori Pizza Dosa",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu_Card_Updated_05_10_24_page-0004-removebg-prev-4.png",
-    alignment: "right",
-    ringColor: "#EAB231", // Secondary Yellow
-    secondaryRing: "#EB6D48", // Accent Orange
+    name: "Artisan Espresso",
+    description: "Bold espresso shot crafted from premium single-origin beans.",
+    image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=1000&auto=format&fit=crop",
+    rotation: 2,
   },
   {
-    name: "Creamy Cheesy Schezwan Dosa",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu__Updated_05_10_24_page-0004-removebg-preview--5.png",
-    alignment: "left",
-    ringColor: "#8F221B",
-    secondaryRing: "#EAB231",
+    name: "Caramel Macchiato",
+    description: "Layered espresso with steamed milk and sweet caramel drizzle.",
+    image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=1000&auto=format&fit=crop",
+    rotation: -2,
   },
   {
-    name: "Sambar Rice",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Updated-05_10_24_page-0005-e174357967292-6.png",
-    alignment: "right",
-    ringColor: "#2C5F2D",
-    secondaryRing: "#EAB231",
+    name: "Buttery Croissant",
+    description: "Flaky, golden croissant baked fresh every morning.",
+    image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1000&auto=format&fit=crop",
+    rotation: 3,
   },
   {
-    name: "Mysore Masala Dosa",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Updated-05_10_24_page-0005-1-e1743579723-7.png",
-    alignment: "left",
-    ringColor: "#2C5F2D",
-    secondaryRing: "#8F221B",
+    name: "Avocado Toast Deluxe",
+    description: "Smashed avocado on sourdough with cherry tomatoes and chili flakes.",
+    image: "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?q=80&w=1000&auto=format&fit=crop",
+    rotation: -2,
   },
   {
-    name: "Dry Fruit Mango Shake",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Updated-05_10_24_page-0005-1-e1743579723-7.png", // Fallback to relevant asset
-    alignment: "right",
-    ringColor: "#EB6D48",
-    secondaryRing: "#EAB231",
+    name: "Belgian Chocolate Latte",
+    description: "Rich chocolate latte made with premium Belgian cocoa.",
+    image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=1000&auto=format&fit=crop",
+    rotation: 2,
   },
-  {
-    name: "Ernakulam Podi Idli",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu_Card_Final-removebg-e1743474049285-3.png", // Fallback
-    alignment: "left",
-    ringColor: "#2C5F2D",
-    secondaryRing: "#EAB231",
-  },
-  {
-    name: "Ghee Roast Podi Utappam",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Updated-05_10_24_page-0005-e174357967292-6.png", // Fallback
-    alignment: "right",
-    ringColor: "#8F221B",
-    secondaryRing: "#2C5F2D",
-  }
 ];
 
 export default function MustTryDishes() {
   return (
-    <section className="py-20 bg-[#F6F1DC] overflow-hidden" id="must-try-dishes">
+    <section className="py-20 bg-[#F6F1DC] overflow-hidden relative" id="must-try-dishes">
       <div className="container mx-auto px-6">
         {/* Section Heading */}
-        <div className="text-center mb-16 relative">
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 relative"
+        >
           <h2 className="font-heading text-[32px] md:text-[64px] font-bold text-[#8F221B] leading-tight mb-2">
-            Must Try Dishes
+            Must Try Delights
           </h2>
-          <div className="w-[120px] h-[4px] bg-[#8F221B] mx-auto"></div>
-        </div>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-[120px] h-[4px] bg-[#8F221B] mx-auto"
+          />
+        </motion.div>
 
-        {/* Zigzag Layout of Dishes */}
-        <div className="max-w-4xl mx-auto space-y-[-20px] md:space-y-[-40px]">
+        {/* Hanging Polaroid Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {dishItems.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-[${10 - index}] ${item.alignment === 'right' ? 'md:flex-row-reverse' : ''
-                }`}
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.15,
+                type: "spring",
+                stiffness: 80
+              }}
+              className="relative"
+              style={{ perspective: "1000px" }}
             >
-              {/* Dish Image Container with Multi-Border Rings */}
+              {/* Hanging String/Rope */}
               <motion.div
-                className="relative flex-shrink-0"
-                initial={{ opacity: 0, x: item.alignment === 'left' ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                whileHover={{
-                  scale: 1.1,
-                  rotate: [0, -2, 2, -2, 0],
-                  transition: { duration: 0.5 }
+                className="absolute top-[-50px] left-1/2 -translate-x-1/2 w-[3px] bg-gradient-to-b from-[#8B7355] via-[#A0826D] to-transparent z-10"
+                style={{
+                  height: "50px",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
                 }}
                 animate={{
-                  y: [0, -5, 5, -5, 0],
-                  transition: {
-                    duration: 4 + index,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }
+                  scaleY: [1, 1.02, 1],
                 }}
-                style={{ originY: -50 }}
-              >
-                {/* Secondary Outer Ring */}
-                <div
-                  className="rounded-full p-2 border-2"
-                  style={{ borderColor: item.secondaryRing }}
-                >
-                  {/* Primary Inner Ring */}
-                  <div
-                    className="rounded-full p-2 border-2"
-                    style={{ borderColor: item.ringColor }}
-                  >
-                    <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-full overflow-hidden bg-white/5 shadow-xl transition-shadow hover:shadow-2xl">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 200px, 280px"
-                      />
-                    </div>
-                  </div>
-                </div>
+                transition={{
+                  duration: 3 + index * 0.3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
 
-                {/* Decorative Dotted Connector Line (Subtle Visual Aid) */}
-                <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-[2px] w-24 bg-dotted-pattern pointer-events-none opacity-20 ${item.alignment === 'left' ? 'left-full ml-4' : 'right-full mr-4'
-                  }`}></div>
-              </motion.div>
-
-              {/* Text Label */}
+              {/* Polaroid Card */}
               <motion.div
-                className={`max-w-[300px] text-center md:text-left ${item.alignment === 'right' ? 'md:text-right' : ''
-                  }`}
+                className="bg-white p-4 pb-8 shadow-2xl relative"
+                style={{
+                  rotate: item.rotation,
+                  transformOrigin: "top center"
+                }}
+                animate={{
+                  rotate: [item.rotation, item.rotation - 1.5, item.rotation + 1.5, item.rotation],
+                  y: [0, -3, 3, 0],
+                }}
+                transition={{
+                  duration: 4 + index * 0.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatType: "reverse"
+                }}
                 whileHover={{
                   scale: 1.05,
-                  skewX: -5,
-                  transition: { type: "spring", stiffness: 300 }
+                  rotate: item.rotation + 2,
+                  transition: { duration: 0.3 }
                 }}
               >
-                <h3 className="font-heading text-[24px] md:text-[36px] font-bold text-[#8F221B] leading-[1.1]">
-                  {item.name}
-                </h3>
+                {/* Tape effect at top */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#F5DEB3] opacity-60 rotate-0 shadow-sm"
+                  style={{
+                    background: "linear-gradient(180deg, rgba(255,255,255, 0.9) 0%, rgba(245,222,179,0.6) 100%)",
+                    border: "1px solid rgba(0,0,0,0.05)"
+                  }}
+                />
+
+                {/* Image Container */}
+                <div className="relative w-full aspect-[4/3] bg-gray-100 mb-4 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+
+                {/* Text Content */}
+                <div className="text-center space-y-2">
+                  <h3 className="font-heading text-[20px] md:text-[24px] font-bold text-[#FF6B35] leading-tight">
+                    {item.name}
+                  </h3>
+                  <p className="font-sans text-[13px] md:text-[14px] text-gray-700 leading-relaxed px-2">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Handwritten-style note effect */}
+                <div className="absolute bottom-2 right-3 opacity-20">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                      fill="#8F221B" stroke="#8F221B" strokeWidth="0.5" />
+                  </svg>
+                </div>
               </motion.div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Embedded Wavy Divider Support (From CSS Guidelines) */}
-      <style jsx global>{`
-        .bg-dotted-pattern {
-          background-image: radial-gradient(#8F221B 1px, transparent 1px);
-          background-size: 8px 8px;
-        }
-      `}</style>
+      {/* Background Decoration Circles */}
+      <motion.div
+        className="absolute top-10 right-10 w-20 h-20 opacity-5"
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 180, 360],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        <div className="w-full h-full rounded-full bg-[#8F221B]" />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-10 left-10 w-24 h-24 opacity-5"
+        animate={{
+          scale: [1, 1.1, 1],
+          rotate: [360, 180, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        <div className="w-full h-full rounded-full bg-[#EAB231]" />
+      </motion.div>
     </section>
   );
 }
-
-/**
- * Styling Notes based on Computed Styles & Design Specs:
- * - Font: Amita (Heading), Poppins (Item names - though here we use Amita to match the "stylized text" requirement)
- * - Colors: #8F221B (Red), #EAB231 (Yellow), #2C5F2D (Green), #EB6D48 (Orange)
- * - Background: #F6F1DC (Warm Ivory)
- * - Layout: Zigzag effect achieved via flex-row-reverse and negative margins for overlapping feel
- * - Visual Effects: Double bordered rings around images
- */

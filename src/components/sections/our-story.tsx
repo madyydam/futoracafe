@@ -1,73 +1,68 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 /**
- * Clones the brand philosophy section of Futora Cafe.
+ * Brand philosophy section of The Common Cafe.
  */
 const OurStory: React.FC = () => {
   return (
     <section 
       id="our-story"
-      className="relative bg-[#f7f1e1] py-[80px] px-4 md:px-0 scroll-mt-20 overflow-hidden"
+      className="relative bg-[#f7f1e1] py-[100px] px-4 md:px-0 scroll-mt-20 overflow-hidden"
     >
       {/* Container to maintain alignment with other sections */}
       <div className="container mx-auto max-w-[1140px]">
         
         {/* Decorative Divider with Icons */}
-        <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="flex items-center justify-center gap-4 mb-12">
           <div className="h-[1px] bg-[#633200]/20 flex-1 max-w-[150px]"></div>
-          <div className="text-[#633200] opacity-60">
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="1.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="lucide lucide-message-square"
-            >
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-          </div>
           
-          <h2 className="text-[65px] font-aladin text-[#ffb331] leading-tight text-center whitespace-nowrap px-4 select-none">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-[48px] md:text-[80px] font-display text-[#913429] leading-tight text-center whitespace-nowrap px-4 select-none italic"
+          >
             Our Story
-          </h2>
+          </motion.h2>
 
-          <div className="text-[#633200] opacity-60">
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="1.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="lucide lucide-message-square"
-            >
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-          </div>
           <div className="h-[1px] bg-[#633200]/20 flex-1 max-w-[150px]"></div>
         </div>
 
           {/* Content Block */}
           <div className="max-w-[1000px] mx-auto text-center">
             {/* Subheading */}
-            <h4 className="font-heading text-[24px] font-bold text-[#633200] mb-6 tracking-wide uppercase">
+            <motion.h4 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="font-sans text-[22px] md:text-[32px] font-bold text-[#633200] mb-8 tracking-wide uppercase"
+            >
               Where Every Sip Tells A Story
-            </h4>
+            </motion.h4>
 
             {/* Descriptive Text */}
-            <div className="space-y-6">
-              <p className="font-body text-[16px] leading-[1.8] text-[#4a4a4a]">
+            <div className="space-y-8">
+              <motion.p 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="font-sans text-[18px] md:text-[20px] leading-[1.8] text-[#4a4a4a]"
+              >
                 The Common Cafe was born out of a simple passion: to create a space where coffee, conversation, and comfort collide. We believe that a great cup of coffee is more than just a drink—it&apos;s a moment of connection, a catalyst for creativity, and a daily ritual that brings people together.
-              </p>
-              <p className="font-body text-[16px] leading-[1.8] text-[#4a4a4a]">
+              </motion.p>
+              <motion.p 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                viewport={{ once: true }}
+                className="font-sans text-[18px] md:text-[20px] leading-[1.8] text-[#4a4a4a]"
+              >
                 From our artisanal brews sourced from the finest beans to our freshly baked pastries and wholesome bites, every item on our menu is crafted with care and intention. Whether you&apos;re here for a quick morning pick-me-up or a relaxed afternoon with friends, we invite you to make The Common Cafe your second home.
-              </p>
+              </motion.p>
             </div>
           </div>
 
@@ -81,7 +76,7 @@ const OurStory: React.FC = () => {
         }}
       />
       
-      {/* Wave Brush Style from High Level Design */}
+      {/* Wave Brush Style */}
       <div className="absolute -bottom-1 left-0 w-full overflow-hidden leading-[0] transform rotate-180">
         <svg 
           viewBox="0 0 1200 120" 

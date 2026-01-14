@@ -5,8 +5,8 @@ import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Futora Cafe",
-  description: "Innovative Flavors, Authentic Techniques",
+  title: "The Common Cafe",
+  description: "Coffee, Conversations & Comfort",
 };
 
 export default function RootLayout({

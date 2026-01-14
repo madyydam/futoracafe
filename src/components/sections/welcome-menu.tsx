@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const WelcomeMenu = () => {
   const specialDishes = [
@@ -41,30 +42,29 @@ const WelcomeMenu = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <section className="relative w-full overflow-hidden">
       {/* Yellow Transition Section */}
       <div className="bg-[#FFB331] h-[150px] relative w-full">
-        {/* Floating Menu Card Assets */}
-        <div className="absolute left-[5%] top-[-20%] z-10 hidden md:block animate-bounce-slow">
-           <Image 
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Final-1-e1743600227811-210x300-10.png"
-            alt="Menu Decoration"
-            width={210}
-            height={300}
-            className="w-[120px] lg:w-[210px] h-auto drop-shadow-xl"
-           />
-        </div>
-        <div className="absolute right-[5%] top-[-20%] z-10 hidden md:block animate-bounce-slow" style={{ animationDelay: '1s' }}>
-           <Image 
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Final-1-e1743600227811-210x300-10.png"
-            alt="Menu Decoration"
-            width={210}
-            height={300}
-            className="w-[120px] lg:w-[210px] h-auto scale-x-[-1] drop-shadow-xl"
-           />
-        </div>
-
         {/* Wave Brush Divider */}
         <div className="absolute bottom-0 left-0 w-full h-[80px] z-20">
           <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-full fill-[#F7F1E1]">
@@ -75,63 +75,61 @@ const WelcomeMenu = () => {
 
       {/* Main Content Section */}
       <div className="bg-[#F7F1E1] pt-12 pb-24 relative px-4 text-center">
-        {/* Decorative Character Illustrations */}
-        <div className="absolute left-4 top-20 hidden lg:block animate-pulse">
-          <Image 
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/rb_2149484273-removebg-preview-e1743600374818.png" 
-            alt="Welcome Character" 
-            width={180} 
-            height={200}
-            className="w-[150px] h-auto"
-          />
-        </div>
-        <div className="absolute right-4 top-20 hidden lg:block animate-pulse">
-          <Image 
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/rb_2149484273-removebg-preview-e1743600374818.png" 
-            alt="Welcome Character" 
-            width={180} 
-            height={200}
-            className="w-[150px] h-auto scale-x-[-1]"
-          />
-        </div>
-
+        
         <div className="container mx-auto max-w-[1140px] relative z-10">
-            <h1 className="font-aladin text-[48px] md:text-[80px] lg:text-[120px] text-[#633200] leading-tight mb-4 animate-in fade-in slide-in-from-bottom duration-1000">
-              Welcome To The Common Cafe
-            </h1>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="font-display text-[48px] md:text-[80px] lg:text-[100px] text-[#633200] leading-tight mb-4 italic"
+          >
+            Welcome To The Common Cafe
+          </motion.h1>
 
-          
-          <p className="font-roboto uppercase tracking-widest text-[#4a4a4a] text-[12px] md:text-[14px] mb-12">
-            serving smile with Every plate, flavors You&apos;ll Celebrate!
-          </p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="font-roboto uppercase tracking-widest text-[#4a4a4a] text-[12px] md:text-[14px] mb-12"
+          >
+            serving smiles with Every cup, flavors You&apos;ll Love!
+          </motion.p>
 
-            <h2 className="font-montez text-[32px] md:text-[48px] lg:text-[60px] text-[#633200] leading-tight mb-16 px-4">
-              Spreading cheer with every bite,<br className="hidden md:block" /> Brewed fresh and served just right!
-            </h2>
-
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="font-montez text-[32px] md:text-[48px] lg:text-[60px] text-[#633200] leading-tight mb-16 px-4"
+          >
+            Spreading cheer with every bite,<br className="hidden md:block" /> Brewed fresh and served just right!
+          </motion.h2>
 
           <div className="flex items-center justify-center gap-4 mb-16">
             <div className="flex-1 h-[1px] bg-[#633200]/20 hidden md:block"></div>
-            <div className="text-[18px] text-[#633200]">
-              <span className="inline-block p-1 border border-[#633200]/20 rounded-full"></span>
-            </div>
             <h3 className="font-aladin text-[40px] md:text-[65px] text-[#633200] underline decoration-[#FFB331] decoration-4 underline-offset-8">
               Specials&apos; On Our Menu
             </h3>
-            <div className="text-[18px] text-[#633200]">
-              <span className="inline-block p-1 border border-[#633200]/20 rounded-full"></span>
-            </div>
             <div className="flex-1 h-[1px] bg-[#633200]/20 hidden md:block"></div>
           </div>
 
           {/* Grid Layout for Dishes */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          >
             {specialDishes.map((dish) => (
-              <div 
+              <motion.div 
                 key={dish.id} 
-                className="bg-white rounded-[15px] overflow-hidden shadow-card transition-transform duration-300 hover:scale-[1.03] flex flex-col items-center group p-4 border border-[#e5e5e5]"
+                variants={itemVariants}
+                className="bg-white rounded-[15px] overflow-hidden shadow-card transition-shadow duration-300 hover:shadow-2xl flex flex-col items-center group p-4 border border-[#e5e5e5]"
               >
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 food-border shadow-md">
+                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 shadow-md">
                   <Image 
                     src={dish.image} 
                     alt={dish.title} 
@@ -140,29 +138,37 @@ const WelcomeMenu = () => {
                   />
                 </div>
                 <div className="text-center px-4 pb-4">
-                  <h5 className="font-akshar text-[22px] md:text-[28px] font-semibold text-[#A2231A] mb-3 leading-tight">
+                  <h5 className="font-sans text-[22px] md:text-[26px] font-bold text-[#913429] mb-3 leading-tight">
                     {dish.title}
                   </h5>
                   <p className="font-poppins text-[14px] leading-relaxed text-[#4a4a4a]">
                     {dish.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Bottom Call to Action */}
-          <div className="max-w-[800px] mx-auto mb-10">
-            <p className="font-akshar text-[18px] md:text-[24px] font-medium text-[#633200] mb-8 italic">
-              These are some of the must-try dishes at our café! Explore our menu and indulge in flavors you’ll love.
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-[800px] mx-auto mb-10"
+          >
+            <p className="font-sans text-[18px] md:text-[22px] font-medium text-[#633200] mb-8 italic">
+              These are some of the must-try delights at our café! Explore our menu and indulge in flavors you’ll love.
             </p>
-            <a 
-              href="/#menu" 
-              className="inline-block bg-[#FFB331] text-white px-8 py-3 rounded-[5px] font-akshar font-bold text-[14px] uppercase tracking-wider shadow-lg hover:bg-[#e6a12b] transition-colors duration-300"
+            <motion.a 
+              href="/menu" 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block bg-[#913429] text-white px-10 py-4 rounded-full font-bold text-[16px] uppercase tracking-wider shadow-lg hover:bg-[#a63c30] transition-colors duration-300"
             >
               Explore Our Menu
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
       </div>
     </section>

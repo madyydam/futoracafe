@@ -54,18 +54,19 @@ const Header = () => {
             {/* Navigation Links - Right Side */}
             <nav className="hidden lg:flex items-center justify-end gap-10 flex-1">
 
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`font-nav text-[14px] font-semibold tracking-wider transition-colors ${
-                  link.active ? "text-white underline underline-offset-4" : "text-white hover:text-white/80"
-                }`}
-                style={{ fontFamily: 'var(--font-nav)' }}
-              >
-                {link.name.toUpperCase()}
-              </a>
-            ))}
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`font-nav text-[14px] font-semibold tracking-wider transition-colors ${
+                    link.active ? "text-white underline underline-offset-4" : "text-white hover:text-white/80"
+                  }`}
+                  style={{ fontFamily: 'var(--font-nav)' }}
+                >
+                  {link.name.toUpperCase()}
+                </Link>
+              ))}
+
           </nav>
 
           {/* Mobile Toggle */}

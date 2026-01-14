@@ -1,8 +1,19 @@
+import dynamic from "next/dynamic";
 import Header from "@/components/sections/header";
 import HeroSection from "@/components/sections/hero";
-import WelcomeMenu from "@/components/sections/welcome-menu";
-import OurStory from "@/components/sections/our-story";
-import Footer from "@/components/sections/footer";
+
+// Lazy loading below-the-fold components
+const WelcomeMenu = dynamic(() => import("@/components/sections/welcome-menu"), {
+  loading: () => <div className="h-[500px] animate-pulse bg-gray-100" />,
+});
+
+const OurStory = dynamic(() => import("@/components/sections/our-story"), {
+  loading: () => <div className="h-[400px] animate-pulse bg-gray-50" />,
+});
+
+const Footer = dynamic(() => import("@/components/sections/footer"), {
+  loading: () => <div className="h-[300px] animate-pulse bg-black/5" />,
+});
 
 export default function Home() {
   return (

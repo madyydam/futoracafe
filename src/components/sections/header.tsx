@@ -6,7 +6,13 @@ import Link from "next/link";
 import { Facebook, Instagram, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Header = () => {
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "Menu", href: "/menu", active: true },
+  { name: "Contact", href: "/contact" },
+];
+
+const Header = React.memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -22,14 +28,6 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const logoUrl = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/sadosalogo-1.png";
-
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Menu", href: "/menu", active: true },
-    { name: "Contact", href: "/contact" },
-  ];
 
   return (
     <header className="sticky top-0 z-[100] w-full">
@@ -129,6 +127,8 @@ const Header = () => {
 
     </header>
   );
-};
+});
+
+Header.displayName = "Header";
 
 export default Header;

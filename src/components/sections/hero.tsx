@@ -1,128 +1,218 @@
 "use client";
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Coffee, Sun, Star, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 /**
- * Hero Section - With Full Background Image
+ * Hero Section - ULTRA ANIMATED "BHA BHAR KE" VERSION
+ * Zoomed out to 80% as requested.
  */
-export default function HeroSection() {
-  return (
-    <section className="relative overflow-hidden w-full">
-      <div className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 pb-12 text-center px-6">
-        {/* Background Image - Full Coverage */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero-coffee.jpg"
-            alt="Coffee Experience"
-            fill
-            className="object-cover"
-            priority
-            quality={100}
-          />
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
-        </div>
+const HeroSection = React.memo(() => {
+    // Decorative elements data
+    const coffeeBeans = useMemo(() => [...Array(25)].map((_, i) => ({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        delay: Math.random() * 5,
+        duration: 15 + Math.random() * 25,
+        size: 10 + Math.random() * 30,
+        rotate: Math.random() * 300,
+    })), []);
 
-        {/* Main Content */}
-        <div className="max-w-[1140px] mx-auto z-10 relative">
-          {/* Main Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-heading text-[40px] md:text-[72px] lg:text-[84px] text-[#3E2723] font-bold leading-tight mb-4"
-            style={{
-              fontFamily: 'var(--font-heading)',
-              textShadow: '3px 3px 8px rgba(255,255,255,0.8), -1px -1px 4px rgba(255,255,255,0.6)',
-            }}
-          >
-            The Futora Cafe
-          </motion.h1>
+    const sparkles = useMemo(() => [...Array(20)].map((_, i) => ({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        delay: Math.random() * 4,
+        duration: 1.5 + Math.random() * 3,
+    })), []);
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-sans text-lg md:text-2xl text-[#5D4037] mb-8"
-            style={{
-              fontFamily: 'var(--font-sans)',
-              textShadow: '2px 2px 6px rgba(255,255,255,0.9)',
-            }}
-          >
-            City&apos;s Most Iconic Coffee Experience
-          </motion.p>
+    return (
+        <section className="relative overflow-hidden w-full h-[90vh] bg-[#1a1a1a]">
+            {/* --- BACKGROUND LAYER --- */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+                <motion.div
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 2, ease: "easeOut" }}
+                    className="relative w-full h-full"
+                >
+                    <Image
+                        src="/images/hero-coffee-new.png"
+                        alt="The Futora Cafe Experience"
+                        fill
+                        className="object-cover"
+                        priority
+                        quality={100}
+                    />
+                </motion.div>
+                {/* Animated Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10" />
+                <motion.div
+                    animate={{ opacity: [0.1, 0.2, 0.1] }}
+                    transition={{ duration: 5, repeat: Infinity }}
+                    className="absolute inset-0 bg-[#913429]/10 z-10 mix-blend-overlay"
+                />
+            </div>
 
-          {/* Explore Button */}
-          <motion.a
-            href="#explore"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.3, delay: 0.6 }}
-            className="inline-flex items-center gap-2 bg-black text-white px-10 py-4 rounded-full font-semibold text-lg shadow-2xl hover:bg-neutral-800 transition-all"
-          >
-            Explore Menu
-            <ChevronDown className="w-5 h-5" />
-          </motion.a>
-        </div>
+            {/* --- DECORATIVE ANIMATIONS (BHA BHAR KE) --- */}
 
-        {/* Bottom Tagline */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 font-sans text-[16px] md:text-[20px] text-[#3E2723] font-medium z-10"
-          style={{
-            textShadow: '2px 2px 6px rgba(255,255,255,0.9)',
-          }}
-        >
-          Coffee, Conversations &amp; Comfort — all in one place.
-        </motion.p>
-      </div>
+            {/* Floating Coffee Beans */}
+            {coffeeBeans.map((bean) => (
+                <motion.div
+                    key={`bean-${bean.id}`}
+                    className="absolute z-20 pointer-events-none opacity-40"
+                    style={{ left: bean.left, top: bean.top }}
+                    animate={{
+                        y: [0, -150, 0, 150, 0],
+                        x: [0, 80, 0, -80, 0],
+                        rotate: [bean.rotate, bean.rotate + 360],
+                        scale: [1, 1.2, 0.8, 1]
+                    }}
+                    transition={{
+                        duration: bean.duration,
+                        repeat: Infinity,
+                        delay: bean.delay,
+                        ease: "easeInOut"
+                    }}
+                >
+                    <div
+                        className="bg-[#2D1B18] rounded-full blur-[0.5px] border border-white/5"
+                        style={{ width: bean.size, height: bean.size * 0.7 }}
+                    />
+                </motion.div>
+            ))}
 
-      {/* Sub-Hero Content */}
-      <div className="bg-[#F7F3E3] pt-16 pb-8 text-center px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="max-w-[1140px] mx-auto"
-        >
-          <motion.h2
-            whileInView={{
-              scale: [1, 1.02, 1],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="font-heading text-[32px] md:text-[44px] font-bold text-[#913429] mb-4"
-            style={{
-              fontFamily: 'var(--font-heading)',
-            }}
-          >
-            Bringing Great Food Near You
-          </motion.h2>
-          <h4
-            className="font-sans text-[18px] md:text-[20px] font-normal text-[#333333] italic"
-            style={{ fontFamily: 'var(--font-sans)' }}
-          >
-            Our cafe, offering a unique experience with signature flavors
-          </h4>
-        </motion.div>
-      </div>
+            {/* Twinkling Magical Sparkles */}
+            {sparkles.map((sparkle) => (
+                <motion.div
+                    key={`sparkle-${sparkle.id}`}
+                    className="absolute z-30 pointer-events-none"
+                    style={{ left: sparkle.left, top: sparkle.top }}
+                    animate={{
+                        opacity: [0, 1, 0],
+                        scale: [0, 1.2, 0],
+                        rotate: [0, 180],
+                    }}
+                    transition={{
+                        duration: sparkle.duration,
+                        repeat: Infinity,
+                        delay: sparkle.delay,
+                    }}
+                >
+                    <Star size={8} fill="#FFD700" className="text-yellow-400 drop-shadow-[0_0_8px_rgba(255,215,0,0.8)]" />
+                </motion.div>
+            ))}
 
-      <div id="explore" className="h-1 bg-[#F7F3E3]" />
-    </section>
-  );
-}
+            {/* Floating Icons */}
+            <motion.div
+                className="absolute top-[20%] left-[15%] z-20 text-white/20 hidden lg:block"
+                animate={{
+                    y: [0, -40, 0],
+                    rotate: [-15, 15, -15],
+                    scale: [0.9, 1, 0.9],
+                }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            >
+                <Coffee size={100} strokeWidth={0.5} />
+            </motion.div>
+
+            {/* Heavy Steam Clouds Animation */}
+            <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-full h-[500px] pointer-events-none z-20">
+                {[...Array(5)].map((_, i) => (
+                    <motion.div
+                        key={`steam-heavy-${i}`}
+                        className="absolute bottom-0 w-[15%] h-56 bg-white/10 blur-[50px] rounded-full"
+                        style={{ left: `${20 + i * 15}%` }}
+                        animate={{
+                            y: [0, -600],
+                            opacity: [0, 0.3, 0],
+                            scale: [1, 2.5, 1.2],
+                        }}
+                        transition={{
+                            duration: 6 + i,
+                            repeat: Infinity,
+                            delay: i * 1.5,
+                            ease: "easeOut"
+                        }}
+                    />
+                ))}
+            </div>
+
+            {/* --- CONTENT LAYER --- */}
+            <div className="relative z-40 flex flex-col items-center justify-center h-full max-w-[1200px] mx-auto text-center px-4">
+
+                {/* Title with 80% Zoom (Reduced font size) */}
+                <motion.div className="mb-10">
+                    {"The Futora Cafe".split("").map((char, i) => (char === " " ? (
+                        <span key={i} className="inline-block px-3">&nbsp;</span>
+                    ) : (
+                        <motion.span
+                            key={i}
+                            initial={{ opacity: 0, y: 50, rotate: i % 2 === 0 ? 30 : -30 }}
+                            animate={{ opacity: 1, y: 0, rotate: 0 }}
+                            transition={{
+                                duration: 0.8,
+                                delay: 0.5 + (i * 0.05),
+                                type: "spring",
+                                stiffness: 150
+                            }}
+                            className="inline-block font-heading text-[48px] md:text-[80px] lg:text-[104px] text-white font-black leading-none"
+                            style={{
+                                fontFamily: 'var(--font-heading)',
+                                textShadow: '0 0 15px rgba(0,0,0,0.5), 0 0 30px rgba(145,52,41,0.3)',
+                                padding: "0 1.5px"
+                            }}
+                        >
+                            {char}
+                        </motion.span>
+                    )))}
+                </motion.div>
+
+                {/* Dynamic Tagline (80% Zoom) - Brown Color */}
+                <motion.div
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: "auto", opacity: 1 }}
+                    transition={{ duration: 1.5, delay: 1.5 }}
+                    className="overflow-hidden whitespace-nowrap mb-10 py-3"
+                >
+                    <h2 className="font-sans text-lg md:text-2xl text-[#3E2723] font-bold tracking-[0.25em] uppercase italic" style={{ textShadow: '0 0 10px rgba(255,255,255,0.5)' }}>
+                        City&apos;s Most Iconic Coffee Experience
+                    </h2>
+                </motion.div>
+
+                {/* CTA Button (80% Zoom - smaller padding and text) */}
+                <motion.a
+                    href="#explore"
+                    whileHover={{
+                        scale: 1.05,
+                        backgroundColor: "#fff",
+                        color: "#1a1a1a",
+                        boxShadow: "0 0 30px rgba(255,255,255,0.5)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group relative inline-flex items-center gap-3 bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-black text-base overflow-hidden transition-all"
+                >
+                    <motion.div
+                        className="absolute inset-0 bg-white translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300"
+                    />
+                    <span className="relative z-10 uppercase">Explore Our Brews</span>
+                    <ChevronDown className="relative z-10 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+
+                    {/* Inner Glow animation */}
+                    <motion.div
+                        animate={{ x: ['-100%', '200%'] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12 z-20 pointer-events-none"
+                    />
+                </motion.a>
+            </div>
+        </section>
+    );
+});
+
+HeroSection.displayName = "HeroSection";
+
+export default HeroSection;

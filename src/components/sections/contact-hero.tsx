@@ -1,24 +1,44 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 export default function ContactHero() {
+  // Generate random positions only on client side to prevent hydration mismatch
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Coffee beans data - only populated after client hydration
+  const coffeeBeans = useMemo(() => {
+    if (!isClient) return [];
+    return [...Array(15)].map((_, i) => ({
+      id: i,
+      width: 15 + Math.random() * 15,
+      height: 20 + Math.random() * 20,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 4 + Math.random() * 4,
+    }));
+  }, [isClient]);
+
   return (
     <section
       className="relative w-full bg-[#F9B233] flex flex-col items-center pt-32 pb-16 overflow-hidden"
       style={{ minHeight: '50vh' }}
     >
       {/* Animated Coffee Beans */}
-      {[...Array(15)].map((_, i) => (
+      {coffeeBeans.map((bean) => (
         <motion.div
-          key={i}
+          key={bean.id}
           className="absolute rounded-full shadow-lg"
           style={{
-            width: 15 + Math.random() * 15,
-            height: 20 + Math.random() * 20,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            width: bean.width,
+            height: bean.height,
+            left: bean.left,
+            top: bean.top,
             background: 'linear-gradient(135deg, #5D4037 0%, #3E2723 100%)',
           }}
           animate={{
@@ -26,10 +46,10 @@ export default function ContactHero() {
             rotate: [0, 360],
           }}
           transition={{
-            duration: 4 + Math.random() * 4,
+            duration: bean.duration,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: i * 0.2,
+            delay: bean.id * 0.2,
           }}
         />
       ))}

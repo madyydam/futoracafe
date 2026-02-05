@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronDown, Coffee, Sun, Star, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -8,26 +8,40 @@ import { motion } from 'framer-motion';
 /**
  * Hero Section - ULTRA ANIMATED "BHA BHAR KE" VERSION
  * Zoomed out to 80% as requested.
+ * Fixed: Client-side only random generation to prevent hydration errors
  */
 const HeroSection = React.memo(() => {
-    // Decorative elements data
-    const coffeeBeans = useMemo(() => [...Array(25)].map((_, i) => ({
-        id: i,
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        delay: Math.random() * 5,
-        duration: 15 + Math.random() * 25,
-        size: 10 + Math.random() * 30,
-        rotate: Math.random() * 300,
-    })), []);
+    // Generate decorative elements only on client side to prevent hydration mismatch
+    const [isClient, setIsClient] = useState(false);
 
-    const sparkles = useMemo(() => [...Array(20)].map((_, i) => ({
-        id: i,
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        delay: Math.random() * 4,
-        duration: 1.5 + Math.random() * 3,
-    })), []);
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    // Decorative elements data - only populated after client hydration
+    const coffeeBeans = useMemo(() => {
+        if (!isClient) return [];
+        return [...Array(25)].map((_, i) => ({
+            id: i,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            delay: Math.random() * 5,
+            duration: 15 + Math.random() * 25,
+            size: 10 + Math.random() * 30,
+            rotate: Math.random() * 300,
+        }));
+    }, [isClient]);
+
+    const sparkles = useMemo(() => {
+        if (!isClient) return [];
+        return [...Array(20)].map((_, i) => ({
+            id: i,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            delay: Math.random() * 4,
+            duration: 1.5 + Math.random() * 3,
+        }));
+    }, [isClient]);
 
     return (
         <section className="relative overflow-hidden w-full h-[90vh] bg-[#1a1a1a]">

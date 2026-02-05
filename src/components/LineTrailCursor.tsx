@@ -17,7 +17,10 @@ export default function LineTrailCursor() {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        // Set canvas size
+        let animationFrameId: number;
+        let isMoving = false;
+        let idleTimeout: NodeJS.Timeout;
+
         const resizeCanvas = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -25,30 +28,23 @@ export default function LineTrailCursor() {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Track mouse movement - direct manipulation, no setState
-        const handleMouseMove = (e: MouseEvent) => {
-            // Add new point to trail
-            trailPoints.current.push({
-                x: e.clientX,
-                y: e.clientY,
-                timestamp: Date.now()
-            });
-
-            // Keep only recent points (last 500ms)
+        const animate = () => {
             const now = Date.now();
+
+            // Filter points
             trailPoints.current = trailPoints.current.filter(
                 point => now - point.timestamp < 500
             );
-        };
 
-        // Use passive event listener for better scroll performance
-        window.addEventListener('mousemove', handleMouseMove, { passive: true });
+            if (trailPoints.current.length === 0) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                isMoving = false;
+                cancelAnimationFrame(animationFrameId);
+                return;
+            }
 
-        // Animation loop - runs continuously
-        const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Draw trail
             if (trailPoints.current.length > 1) {
                 ctx.beginPath();
                 ctx.lineWidth = 2;
@@ -58,26 +54,39 @@ export default function LineTrailCursor() {
                 for (let i = 0; i < trailPoints.current.length - 1; i++) {
                     const point = trailPoints.current[i];
                     const nextPoint = trailPoints.current[i + 1];
-
                     const opacity = (i / trailPoints.current.length) * 0.5;
                     ctx.strokeStyle = `rgba(145, 52, 41, ${opacity})`;
-
                     ctx.moveTo(point.x, point.y);
                     ctx.lineTo(nextPoint.x, nextPoint.y);
                     ctx.stroke();
                 }
             }
 
-            requestAnimationFrame(animate);
+            animationFrameId = requestAnimationFrame(animate);
         };
 
-        animate();
+        const handleMouseMove = (e: MouseEvent) => {
+            const now = Date.now();
+            trailPoints.current.push({
+                x: e.clientX,
+                y: e.clientY,
+                timestamp: now
+            });
+
+            if (!isMoving) {
+                isMoving = true;
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        };
+
+        window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('resize', resizeCanvas);
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
         };
-    }, []); // ✅ FIXED: Empty dependency array - runs once!
+    }, []);
 
     return (
         <canvas

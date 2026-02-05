@@ -49,7 +49,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
     }, [items]);
 
-    const addToCart = (item: MenuItem, quantity = 1) => {
+    const addToCart = React.useCallback((item: MenuItem, quantity = 1) => {
         setItems(prev => {
             const existingItem = prev.find(i => i.id === item.id);
 
@@ -65,13 +65,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         });
 
         setIsCartOpen(true); // Auto-open cart when item is added
-    };
+    }, []);
 
-    const removeFromCart = (itemId: string) => {
+    const removeFromCart = React.useCallback((itemId: string) => {
         setItems(prev => prev.filter(item => item.id !== itemId));
-    };
+    }, []);
 
-    const updateQuantity = (itemId: string, quantity: number) => {
+    const updateQuantity = React.useCallback((itemId: string, quantity: number) => {
         if (quantity <= 0) {
             removeFromCart(itemId);
             return;
@@ -82,32 +82,36 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                 item.id === itemId ? { ...item, quantity } : item
             )
         );
-    };
+    }, [removeFromCart]);
 
-    const updateSpecialInstructions = (itemId: string, instructions: string) => {
+    const updateSpecialInstructions = React.useCallback((itemId: string, instructions: string) => {
         setItems(prev =>
             prev.map(item =>
                 item.id === itemId ? { ...item, specialInstructions: instructions } : item
             )
         );
-    };
+    }, []);
 
-    const clearCart = () => {
+    const clearCart = React.useCallback(() => {
         setItems([]);
         localStorage.removeItem(CART_STORAGE_KEY);
-    };
+    }, []);
 
-    const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+    const totalItems = React.useMemo(() =>
+        items.reduce((sum, item) => sum + item.quantity, 0),
+        [items]);
 
-    const subtotal = items.reduce((sum, item) => {
-        const price = parseFloat(item.price.replace('₹', ''));
-        return sum + (price * item.quantity);
-    }, 0);
+    const subtotal = React.useMemo(() =>
+        items.reduce((sum, item) => {
+            const price = parseFloat(item.price.replace('₹', ''));
+            return sum + (price * item.quantity);
+        }, 0),
+        [items]);
 
-    const openCart = () => setIsCartOpen(true);
-    const closeCart = () => setIsCartOpen(false);
+    const openCart = React.useCallback(() => setIsCartOpen(true), []);
+    const closeCart = React.useCallback(() => setIsCartOpen(false), []);
 
-    const value: CartContextValue = {
+    const value: CartContextValue = React.useMemo(() => ({
         items,
         addToCart,
         removeFromCart,
@@ -119,7 +123,19 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         isCartOpen,
         openCart,
         closeCart,
-    };
+    }), [
+        items,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        updateSpecialInstructions,
+        clearCart,
+        totalItems,
+        subtotal,
+        isCartOpen,
+        openCart,
+        closeCart,
+    ]);
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

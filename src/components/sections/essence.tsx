@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const EssenceSection: React.FC = () => {
+const EssenceSection: React.FC = React.memo(() => {
   return (
     <section className="relative overflow-hidden">
       {/* Wave Transition Top */}
@@ -59,8 +59,8 @@ const EssenceSection: React.FC = () => {
 
               <div className="space-y-6 max-w-[500px]">
                 <p className="font-sans text-[16px] leading-[1.6] opacity-90">
-                  From The Aroma Of Freshly Brewed Chai To The Taste Of Traditional Delights, 
-                  Our Cafés Bring You The Richness Of Indian Culture. Each Outlet Is Designed To 
+                  From The Aroma Of Freshly Brewed Chai To The Taste Of Traditional Delights,
+                  Our Cafés Bring You The Richness Of Indian Culture. Each Outlet Is Designed To
                   Create A Cozy And Welcoming Atmosphere, Perfect For Gatherings, Work, Or A Moment Of Relaxation.
                 </p>
 
@@ -78,7 +78,7 @@ const EssenceSection: React.FC = () => {
                   fill
                   className="object-contain object-right lg:object-left"
                 />
-                
+
                 {/* Decorative Text Elements if they were separate (simulating based on design) */}
                 <div className="absolute top-1/4 right-0 lg:left-3/4 font-display text-[48px] text-white opacity-40 rotate-[-15deg] pointer-events-none select-none">
                   Coffee
@@ -93,12 +93,14 @@ const EssenceSection: React.FC = () => {
       </div>
 
       {/* Background Texture Overlay */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
+      <div
+        className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
         style={{ backgroundImage: `url("https://www.transparenttextures.com/patterns/dark-leather.png")` }}
       />
     </section>
   );
-};
+});
+
+EssenceSection.displayName = 'EssenceSection';
 
 export default EssenceSection;

@@ -40,21 +40,21 @@ export default function LocationPimpleSaudagar() {
               <h2 className="font-heading text-[28px] md:text-[36px] text-[#913429] font-bold leading-[1.2] uppercase mb-4">
                 FUTORA CAFE (PIMPLE SAUDAGAR)
               </h2>
-              
+
               <p className="text-[#333333] mb-4 text-[16px]">
                 <strong className="font-semibold">Address:</strong> BLOCK A, RUNAL&apos;S DEEPMALA, Deepmala Society, Pimple Saudagar, Pimpri-Chinchwad, Maharashtra 411027
               </p>
-              
+
               <p className="text-[#333333] mb-4 text-[16px]">
                 <strong className="font-semibold">Service Options:</strong> Reservations Required · Has All You Can Eat · Serves Happy-Hour Food
               </p>
-              
+
               <p className="mb-6">
-                <a 
-                  href="tel:+919823444534" 
+                <a
+                  href="tel:+91 84466 53644"
                   className="text-[#333333] text-[16px] hover:text-[#913429] transition-colors font-semibold"
                 >
-                  Phone: 098234 44534
+                  Phone: 084466 53644
                 </a>
               </p>
             </div>
@@ -63,7 +63,7 @@ export default function LocationPimpleSaudagar() {
               <h4 className="font-sans font-semibold text-[18px] text-[#333333] mb-4">
                 Opening Hour&apos;s
               </h4>
-              
+
               <div className="grid grid-cols-2 gap-x-8 gap-y-2 max-w-full md:max-w-[500px]">
                 {/* Left Side Hours */}
                 <div className="space-y-2">
@@ -74,7 +74,7 @@ export default function LocationPimpleSaudagar() {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* Right Side Hours */}
                 <div className="space-y-2">
                   {openingHours.filter(i => i.dayRight).map((item, idx) => (
@@ -89,18 +89,18 @@ export default function LocationPimpleSaudagar() {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4 pt-6">
-              <a 
-                href="https://maps.google.com" 
-                target="_blank" 
+              <a
+                href="https://maps.google.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 bg-[#1A1A1A] text-white font-sans font-semibold rounded-full hover:bg-neutral-800 transition-all duration-300 text-[14px] group"
               >
                 Get Directions
                 <MousePointer2 className="ml-2 w-4 h-4 transition-transform group-hover:scale-110" />
               </a>
-              
-              <a 
-                href="#reserve" 
+
+              <a
+                href="#reserve"
                 className="inline-flex items-center justify-center px-8 py-3 bg-white border border-[#1A1A1A] text-[#1A1A1A] font-sans font-semibold rounded-full hover:bg-neutral-50 transition-all duration-300 text-[14px] group"
               >
                 Reserve a Table

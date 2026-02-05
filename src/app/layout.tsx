@@ -9,10 +9,12 @@ import { CartProvider } from "@/contexts/CartContext";
 import CartDrawer from "@/components/CartDrawer";
 
 export const metadata: Metadata = {
-  title: "The Futora Cafe",
-  description: "Coffee, Conversations & Comfort at The Futora Cafe",
+  title: "The Futora Cafe – Best Cafe in Pune | FC Road Coffee & Food",
+  description: "Visit The Futora Cafe – one of the best cafes in Pune near FC Road. Amazing coffee, cozy vibe & delicious food. Founded by Madhur Dhadve.",
   manifest: "/manifest.json",
 };
+
+import { LazyMotion, domAnimation } from "framer-motion";
 
 export default function RootLayout({
   children,
@@ -40,9 +42,11 @@ export default function RootLayout({
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
         <CartProvider>
-          <PageTransition>
-            {children}
-          </PageTransition>
+          <LazyMotion features={domAnimation}>
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </LazyMotion>
           <CartDrawer />
           <WhatsAppButton />
         </CartProvider>

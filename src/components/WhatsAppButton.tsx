@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
-    const phoneNumber = '+919876543210'; // Replace with your actual WhatsApp Business number
+    const phoneNumber = '918446653644';
     const message = encodeURIComponent('Hi! I would like to know more about The Futora Cafe.');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

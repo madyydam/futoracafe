@@ -35,14 +35,14 @@ const LocationBibwewadi = () => {
             </p>
 
             <p className="text-[16px] leading-[1.6] text-[#333333] m-0">
-              <a href="tel:+919823444534" className="font-semibold hover:text-[#913429] transition-colors">
-                Phone: 098234 44534
+              <a href="tel:+91 84466 53644" className="font-semibold hover:text-[#913429] transition-colors">
+                Phone: 084466 53644
               </a>
             </p>
 
             <div className="pt-2">
               <p className="font-semibold text-[16px] mb-4">Opening Hour&apos;s</p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 max-w-[500px]">
                 {/* Sunday to Wednesday */}
                 <div className="space-y-1">

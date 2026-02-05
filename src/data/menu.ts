@@ -47,7 +47,7 @@ export const menuData: MenuItem[] = [
         name: 'Artisan Espresso',
         description: 'Rich and velvety double shot espresso.',
         price: '₹189',
-        image: 'https://images.unsplash.com/photo-1579992357154-faf4bfe95b3d?q=80&w=800&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800&auto=format&fit=crop',
         category: 'espresso',
         dietary: ['veg', 'vegan'],
         mealType: ['breakfast', 'snacks'],

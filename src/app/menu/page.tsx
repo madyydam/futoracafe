@@ -4,6 +4,11 @@ import { MenuProvider } from "@/contexts/MenuContext";
 import MenuFilters from "@/components/sections/MenuFilters";
 
 // Lazy loading menu sections
+export const metadata = {
+    title: "Menu | The Futora Cafe Pune – Best Handcrafted Coffee & Global Food",
+    description: "Explore the menu at The Futora Cafe, one of the best cafes in Pune. Handcrafted artisanal coffee, gourmet food, and amazing fusions near FC Road.",
+};
+
 const MenuHero = dynamic(() => import("@/components/sections/menu-hero"), {
     loading: () => <div className="h-[400px] animate-pulse bg-gray-100" />,
 });

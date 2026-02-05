@@ -9,7 +9,7 @@ export default function ContactInfo() {
         {
             icon: MapPin,
             title: "Visit Us",
-            content: "Futora Cafe, Ground Floor, Icon Tower, Wakad, Pune",
+            content: "FC Road, Pune",
             color: "#8F221B"
         },
         {
@@ -36,7 +36,7 @@ export default function ContactInfo() {
         <section className="bg-[#F7F1E1] py-20 relative">
             {/* WhatsApp Floating Button Quick Win */}
             <motion.a
-                href="https://wa.me/918446544544?text=Hi! I'd like to know more about FutoraCafe"
+                href="https://wa.me/918446653644?text=Hi! I'd like to know more about FutoraCafe"
                 target="_blank"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}

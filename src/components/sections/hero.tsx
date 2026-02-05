@@ -3,7 +3,7 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ChevronDown, Coffee, Sun, Star, Zap } from 'lucide-react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { m, useScroll, useTransform, useInView } from 'framer-motion';
 
 /**
  * Hero Section - ULTRA ANIMATED "BHA BHAR KE" VERSION
@@ -13,12 +13,12 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 const HeroSection = React.memo(() => {
     // Generate decorative elements only on client side to prevent hydration mismatch
     const [isClient, setIsClient] = useState(false);
-    const sectionRef = useRef(null);
+    const sectionRef = useRef<HTMLElement>(null);
     const isInView = useInView(sectionRef, { margin: "100px" });
 
     // Parallax setup
     const { scrollYProgress } = useScroll({
-        target: sectionRef,
+        target: sectionRef as any,
         offset: ["start start", "end start"]
     });
 
@@ -33,33 +33,33 @@ const HeroSection = React.memo(() => {
     // Decorative elements data - only populated after client hydration
     const coffeeBeans = useMemo(() => {
         if (!isClient) return [];
-        return [...Array(15)].map((_, i) => ({ // Reduced from 25 to 15 for performance
+        return [...Array(6)].map((_, i) => ({ // Further reduced for performance
             id: i,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
             delay: Math.random() * 5,
-            duration: 15 + Math.random() * 25,
-            size: 10 + Math.random() * 30,
+            duration: 20 + Math.random() * 20,
+            size: 15 + Math.random() * 25,
             rotate: Math.random() * 300,
         }));
     }, [isClient]);
 
     const sparkles = useMemo(() => {
         if (!isClient) return [];
-        return [...Array(12)].map((_, i) => ({ // Reduced from 20 to 12 for performance
+        return [...Array(4)].map((_, i) => ({ // Further reduced for performance
             id: i,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
             delay: Math.random() * 4,
-            duration: 1.5 + Math.random() * 3,
+            duration: 2 + Math.random() * 3,
         }));
     }, [isClient]);
 
     return (
-        <section ref={sectionRef} className="relative overflow-hidden w-full h-[90vh] bg-[#1a1a1a]">
+        <section ref={sectionRef} className="relative overflow-hidden w-full h-screen bg-[#1a1a1a]">
             {/* --- BACKGROUND LAYER --- */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-                <motion.div
+                <m.div
                     initial={{ scale: 1.1, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     style={{ y: bgY }}
@@ -74,13 +74,13 @@ const HeroSection = React.memo(() => {
                         priority
                         quality={100}
                     />
-                </motion.div>
-                {/* Animated Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10" />
-                <motion.div
-                    animate={{ opacity: [0.1, 0.2, 0.1] }}
-                    transition={{ duration: 5, repeat: Infinity }}
-                    className="absolute inset-0 bg-[#913429]/10 z-10 mix-blend-overlay"
+                </m.div>
+                {/* Animated Overlays - Darkened for better text visibility */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10" />
+                <m.div
+                    animate={{ opacity: [0.2, 0.35, 0.2] }}
+                    transition={{ duration: 6, repeat: Infinity }}
+                    className="absolute inset-0 bg-black/30 z-10 mix-blend-multiply"
                 />
             </div>
 
@@ -89,7 +89,7 @@ const HeroSection = React.memo(() => {
                 <>
                     {/* Floating Coffee Beans */}
                     {coffeeBeans.map((bean) => (
-                        <motion.div
+                        <m.div
                             key={`bean-${bean.id}`}
                             className="absolute z-20 pointer-events-none opacity-40"
                             style={{
@@ -116,12 +116,12 @@ const HeroSection = React.memo(() => {
                                 className="bg-[#2D1B18] rounded-full blur-[0.5px] border border-white/5"
                                 style={{ width: bean.size, height: bean.size * 0.7 }}
                             />
-                        </motion.div>
+                        </m.div>
                     ))}
 
                     {/* Twinkling Magical Sparkles */}
                     {sparkles.map((sparkle) => (
-                        <motion.div
+                        <m.div
                             key={`sparkle-${sparkle.id}`}
                             className="absolute z-30 pointer-events-none"
                             style={{
@@ -142,11 +142,11 @@ const HeroSection = React.memo(() => {
                             }}
                         >
                             <Star size={8} fill="#FFD700" className="text-yellow-400 drop-shadow-[0_0_8px_rgba(255,215,0,0.8)]" />
-                        </motion.div>
+                        </m.div>
                     ))}
 
                     {/* Floating Icons */}
-                    <motion.div
+                    <m.div
                         className="absolute top-[20%] left-[15%] z-20 text-white/20 hidden lg:block"
                         animate={{
                             y: [0, -40, 0],
@@ -156,25 +156,24 @@ const HeroSection = React.memo(() => {
                         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                     >
                         <Coffee size={100} strokeWidth={0.5} />
-                    </motion.div>
+                    </m.div>
 
-                    {/* Heavy Steam Clouds Animation */}
-                    <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-full h-[500px] pointer-events-none z-20">
-                        {[...Array(5)].map((_, i) => (
-                            <motion.div
+                    {/* Optimized Steam Clouds Animation - Less blur, higher performance */}
+                    <div className="absolute bottom-0 left-0 w-full h-[300px] pointer-events-none z-20 overflow-hidden">
+                        {[...Array(3)].map((_, i) => (
+                            <m.div
                                 key={`steam-heavy-${i}`}
-                                className="absolute bottom-0 w-[15%] h-56 bg-white/10 blur-[50px] rounded-full"
-                                style={{ left: `${20 + i * 15}%` }}
+                                className="absolute bottom-0 w-[30%] h-40 bg-white/5 blur-[40px] rounded-full"
+                                style={{ left: `${15 + i * 30}%` }}
                                 animate={{
-                                    y: [0, -600],
-                                    opacity: [0, 0.3, 0],
-                                    scale: [1, 2.5, 1.2],
+                                    y: [0, -400],
+                                    opacity: [0, 0.2, 0],
                                 }}
                                 transition={{
-                                    duration: 6 + i,
+                                    duration: 8 + i,
                                     repeat: Infinity,
-                                    delay: i * 1.5,
-                                    ease: "easeOut"
+                                    delay: i * 2,
+                                    ease: "linear"
                                 }}
                             />
                         ))}
@@ -183,17 +182,17 @@ const HeroSection = React.memo(() => {
             )}
 
             {/* --- CONTENT LAYER --- */}
-            <motion.div
+            <m.div
                 style={{ y: textY }}
-                className="relative z-40 flex flex-col items-center justify-center h-full max-w-[1200px] mx-auto text-center px-4"
+                className="relative z-40 flex flex-col items-center justify-center h-full max-w-[1200px] mx-auto text-center px-4 pt-20"
             >
 
                 {/* Title with 80% Zoom (Reduced font size) */}
-                <motion.div className="mb-10">
+                <m.div className="mb-10">
                     {"The Futora Cafe".split("").map((char, i) => (char === " " ? (
                         <span key={i} className="inline-block px-3">&nbsp;</span>
                     ) : (
-                        <motion.span
+                        <m.span
                             key={i}
                             initial={{ opacity: 0, y: 50, rotate: i % 2 === 0 ? 30 : -30 }}
                             animate={{ opacity: 1, y: 0, rotate: 0 }}
@@ -212,24 +211,24 @@ const HeroSection = React.memo(() => {
                             }}
                         >
                             {char}
-                        </motion.span>
+                        </m.span>
                     )))}
-                </motion.div>
+                </m.div>
 
                 {/* Dynamic Tagline (80% Zoom) - Brown Color */}
-                <motion.div
-                    initial={{ width: 0, opacity: 0 }}
-                    animate={{ width: "auto", opacity: 1 }}
+                <m.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 1.5, delay: 1.5 }}
-                    className="overflow-hidden whitespace-nowrap mb-10 py-3"
+                    className="mb-10 py-3 px-4 max-w-2xl mx-auto"
                 >
-                    <h2 className="font-sans text-lg md:text-2xl text-[#3E2723] font-bold tracking-[0.25em] uppercase italic" style={{ textShadow: '0 0 10px rgba(255,255,255,0.5)' }}>
-                        City&apos;s Most Iconic Coffee Experience
+                    <h2 className="font-sans text-base sm:text-lg md:text-2xl text-[#3E2723] font-bold tracking-[0.1em] sm:tracking-[0.25em] uppercase italic text-center" style={{ textShadow: '0 0 10px rgba(255,255,255,0.5)' }}>
+                        The Futora Cafe – Best Cafe in Pune
                     </h2>
-                </motion.div>
+                </m.div>
 
                 {/* CTA Button (80% Zoom - smaller padding and text) */}
-                <motion.a
+                <m.a
                     href="/menu"
                     whileHover={{
                         scale: 1.05,
@@ -240,20 +239,20 @@ const HeroSection = React.memo(() => {
                     whileTap={{ scale: 0.95 }}
                     className="group relative inline-flex items-center gap-3 bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-black text-base overflow-hidden transition-all"
                 >
-                    <motion.div
+                    <m.div
                         className="absolute inset-0 bg-white translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300"
                     />
                     <span className="relative z-10 uppercase">Explore Our Brews</span>
                     <ChevronDown className="relative z-10 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
 
                     {/* Inner Glow animation */}
-                    <motion.div
+                    <m.div
                         animate={{ x: ['-100%', '200%'] }}
                         transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12 z-20 pointer-events-none"
                     />
-                </motion.a>
-            </motion.div>
+                </m.a>
+            </m.div>
         </section>
     );
 });

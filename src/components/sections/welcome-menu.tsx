@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const welcomeDishes = [
     {
@@ -16,7 +17,7 @@ const welcomeDishes = [
         id: 2,
         name: "Artisan Espresso",
         description: "Rich, velvety shot of our house-blend arabica beans.",
-        image: "https://images.unsplash.com/photo-1579992357154-faf4bfe95b3d?q=80&w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800&auto=format&fit=crop",
         price: "₹189"
     },
     {
@@ -67,6 +68,7 @@ const TiltCard = ({ dish, idx }: { dish: any, idx: number }) => {
                 rotateX,
                 rotateY,
                 transformStyle: "preserve-3d",
+                willChange: "transform",
             }}
             className="relative group p-4 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-sm"
         >
@@ -103,9 +105,15 @@ const TiltCard = ({ dish, idx }: { dish: any, idx: number }) => {
 };
 
 const WelcomeMenu = React.memo(() => {
+    const router = useRouter();
+
     return (
-        <section className="py-20 bg-[#F7F3E3] overflow-hidden" style={{ perspective: "1000px" }}>
-            <div className="container mx-auto px-6">
+        <section
+            onClick={() => router.push('/menu')}
+            className="py-20 bg-[#F7F3E3] overflow-hidden cursor-pointer group/section relative"
+            style={{ perspective: "1000px" }}
+        >
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <motion.h4
                         initial={{ opacity: 0, y: 20 }}
@@ -123,6 +131,9 @@ const WelcomeMenu = React.memo(() => {
                     >
                         Must Try Delights
                     </motion.h2>
+                    <div className="mt-4 opacity-0 group-hover/section:opacity-100 transition-opacity duration-300">
+                        <span className="text-[#913429] font-nav text-xs font-bold uppercase tracking-[0.2em]">Click anywhere to view full menu</span>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -131,6 +142,9 @@ const WelcomeMenu = React.memo(() => {
                     ))}
                 </div>
             </div>
+
+            {/* Subtle hover effect for the whole section */}
+            <div className="absolute inset-0 bg-[#3E2723]/0 group-hover/section:bg-[#3E2723]/[0.02] transition-colors duration-500 pointer-events-none" />
         </section>
     );
 });

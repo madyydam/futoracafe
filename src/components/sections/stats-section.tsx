@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Coffee, Users, MapPin, Award } from "lucide-react";
+import NumberFlow from "@number-flow/react";
 
 const MorphingBlob = ({ color, className }: { color: string, className: string }) => (
     <motion.div
@@ -35,22 +36,7 @@ interface CounterProps {
 
 const Counter = ({ value, label, icon, suffix = "" }: CounterProps) => {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
-    const count = useMotionValue(0);
-    const rounded = useSpring(count, { stiffness: 50, damping: 20 });
-    const [displayValue, setDisplayValue] = useState(0);
-
-    useEffect(() => {
-        if (isInView) {
-            count.set(value);
-        }
-    }, [isInView, value, count]);
-
-    useEffect(() => {
-        return rounded.on("change", (latest) => {
-            setDisplayValue(Math.floor(latest));
-        });
-    }, [rounded]);
+    const isInView = useInView(ref, { once: true, margin: "-50px" });
 
     return (
         <motion.div
@@ -62,7 +48,11 @@ const Counter = ({ value, label, icon, suffix = "" }: CounterProps) => {
                 {icon}
             </div>
             <div className="text-4xl md:text-5xl font-black text-white mb-2 flex items-center">
-                <motion.span>{displayValue}</motion.span>
+                <NumberFlow
+                    value={isInView ? value : 0}
+                    format={{ useGrouping: false }}
+                    className="font-black"
+                />
                 {suffix}
             </div>
             <div className="text-gray-400 font-sans uppercase tracking-[0.2em] text-xs font-bold">

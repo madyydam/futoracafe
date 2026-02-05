@@ -8,9 +8,9 @@ const FranchiseFooter = () => {
   ];
 
   const contactDetails = {
-    address: 'SADOSACAFE_MAIN_BRANCH',
-    phone: '+91 84465 44544',
-    email: 'info@sadosacafe.com',
+    address: 'FC Road, Pune',
+    phone: '+91 84466 53644',
+    email: 'futoragroup@gmail.com',
   };
 
   const logoAsset = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/SA_DOSA_CAFE-removebg-preview-e1743673847897-8.png";
@@ -21,7 +21,7 @@ const FranchiseFooter = () => {
       <div className="bg-[#111111] py-[80px]">
         <div className="max-w-[1140px] mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-            
+
             {/* Logo Column */}
             <div className="flex justify-center md:justify-start">
               <div className="relative w-[300px] h-auto">

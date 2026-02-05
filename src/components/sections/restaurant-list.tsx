@@ -27,7 +27,7 @@ const locations: RestaurantLocation[] = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/2024-08-15-9.jpg",
     address: "Prabhat road, Lane no 8, Karve Rd, near garware college, Kachare Colony, Erandwane, Pune, Maharashtra 411004",
     serviceOptions: "Has all you can eat · Has outdoor seating · Serves vegan dishes",
-    phone: "084465 44544",
+    phone: "+91 84466 53644",
     hours: {
       left: [
         { day: "Sunday", time: "8:30 am–11:30 pm" },
@@ -71,7 +71,7 @@ const locations: RestaurantLocation[] = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Screenshot_18-12-2024_21023_www_google_com_-11.jpeg",
     address: "Survey No 225, Pune Airport, Aeromall, Unit K 12, Lohegaon, Pune, Maharashtra 411047",
     serviceOptions: "Serves vegan dishes · Has Wi-Fi",
-    phone: "084465 44544",
+    phone: "+91 84466 53644",
     hours: {
       left: [
         { day: "Sunday", time: "8:30 am–11 pm" },
@@ -137,7 +137,7 @@ const locations: RestaurantLocation[] = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/2025-04-01-e1743758392648-14.jpg",
     address: "Sector No 24, Pradhikaran, Nigdi, Pimpri-Chinchwad, Maharashtra 411044",
     serviceOptions: "Has outdoor seating · Has fireplace · Serves vegan dishes",
-    phone: "084465 44544",
+    phone: "+91 84466 53644",
     hours: {
       left: [
         { day: "Sunday", time: "8:30 am–11 pm" },

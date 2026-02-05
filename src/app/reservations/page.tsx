@@ -1,10 +1,9 @@
 import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import ReservationForm from "@/components/sections/ReservationForm";
-import { motion } from "framer-motion";
 
 export const metadata = {
-    title: "Table Reservations | The Futora Cafe",
+    title: "Table Reservations | The Futora Cafe Pune",
     description: "Book your table at The Futora Cafe for a premium dining experience.",
 };
 
@@ -14,11 +13,7 @@ export default function ReservationsPage() {
             <Header />
             <main className="flex-grow pt-[120px] pb-24">
                 <div className="container mx-auto px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-center mb-16"
-                    >
+                    <div className="text-center mb-16">
                         <h4 className="text-[#913429] font-bold tracking-widest uppercase text-sm mb-4">
                             Reserve Your Spot
                         </h4>
@@ -29,7 +24,7 @@ export default function ReservationsPage() {
                             Experience the perfect blend of artisanal coffee and gourmet dining.
                             Secure your table for any occasion.
                         </p>
-                    </motion.div>
+                    </div>
 
                     <ReservationForm />
 
@@ -37,7 +32,7 @@ export default function ReservationsPage() {
                     <div className="mt-20 grid md:grid-cols-3 gap-12 max-w-5xl mx-auto text-center">
                         <div>
                             <h3 className="font-heading text-2xl text-[#3E2723] mb-3">Group Dining</h3>
-                            <p className="text-[#5D4037] font-sans">For parties larger than 8, please contact us directly via phone or WhatsApp.</p>
+                            <p className="text-[#5D4037] font-sans">For parties larger than 8, please contact us directly via phone or WhatsApp at +91 84466 53644.</p>
                         </div>
                         <div>
                             <h3 className="font-heading text-2xl text-[#3E2723] mb-3">Private Events</h3>

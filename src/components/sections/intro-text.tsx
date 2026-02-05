@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IntroText = () => {
+const IntroText = React.memo(() => {
   return (
     <section className="bg-background py-[80px] md:py-[100px]">
       <div className="container px-6 mx-auto max-w-[1140px]">
@@ -11,7 +11,7 @@ const IntroText = () => {
             <h2 className="hidden md:block font-heading text-[28px] md:text-[36px] text-brand-rust font-bold animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
               Bringing Great Food Near You
             </h2>
-            
+
             {/* Mobile Version with Line Break - matched from HTML structure */}
             <h2 className="md:hidden font-heading text-[28px] text-brand-rust font-bold animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both leading-[1.2]">
               Bringing Great<br />Food Near You
@@ -28,6 +28,8 @@ const IntroText = () => {
       </div>
     </section>
   );
-};
+});
+
+IntroText.displayName = 'IntroText';
 
 export default IntroText;

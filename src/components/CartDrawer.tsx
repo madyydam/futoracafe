@@ -96,6 +96,7 @@ export default function CartDrawer() {
                                                     <button
                                                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                                         className="p-1 hover:bg-[#8F221B] hover:text-white rounded transition-colors"
+                                                        aria-label="Decrease quantity"
                                                     >
                                                         <Minus className="w-4 h-4" />
                                                     </button>
@@ -105,6 +106,7 @@ export default function CartDrawer() {
                                                     <button
                                                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                                         className="p-1 hover:bg-[#8F221B] hover:text-white rounded transition-colors"
+                                                        aria-label="Increase quantity"
                                                     >
                                                         <Plus className="w-4 h-4" />
                                                     </button>
@@ -115,6 +117,7 @@ export default function CartDrawer() {
                                             <button
                                                 onClick={() => removeFromCart(item.id)}
                                                 className="p-2 hover:bg-red-100 rounded transition-colors self-start"
+                                                aria-label={`Remove ${item.name} from cart`}
                                             >
                                                 <Trash2 className="w-5 h-5 text-red-600" />
                                             </button>

@@ -59,11 +59,11 @@ const Footer = React.memo(() => {
                             Get In Touch
                         </h4>
                         <div className="space-y-6 text-[#999999] font-sans text-[16px] leading-relaxed">
-                            <p>Address: <span className="text-white transition-colors cursor-default">Downtown Hub, City Center</span></p>
-                            <p>Phone: <a href="tel:+918446544544" className="text-white hover:text-[#913429] transition-colors">+91 84465 44544</a></p>
+                            <p>Address: <span className="text-white transition-colors cursor-default">FC Road, Pune</span></p>
+                            <p>Phone: <a href="tel:+918446653644" className="text-white hover:text-[#913429] transition-colors">+91 84466 53644</a></p>
                             <div className="mt-8 pt-4 border-t border-white/10">
                                 <p>Need help or have a question?</p>
-                                <p>Reach out: <a href="mailto:hello@thefutoracafe.com" className="text-white hover:underline font-bold">hello@thefutoracafe.com</a></p>
+                                <p>Reach out: <a href="mailto:futoragroup@gmail.com" className="text-white hover:underline font-bold">futoragroup@gmail.com</a></p>
                             </div>
                         </div>
                     </div>

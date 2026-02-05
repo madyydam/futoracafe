@@ -130,7 +130,7 @@ export default function CheckoutPage() {
                                                 value={formData.phone}
                                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                                 className={`w-full px-4 py-3 border-2 rounded-lg font-sans ${errors.phone ? 'border-red-500' : 'border-[#D4CDB3]'} focus:border-[#8F221B] focus:outline-none`}
-                                                placeholder="+91 98765 43210"
+                                                placeholder="+91 84466 53644"
                                             />
                                             {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                                         </div>

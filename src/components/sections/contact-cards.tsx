@@ -28,7 +28,7 @@ export default function ContactCards() {
     {
       id: 'phone',
       title: 'Phone Number',
-      content: '+91 84465 44544',
+      content: '+91 +91 84466 53644',
       icon: <Phone className="text-[#FF7F27]" size={36} fill="#FF7F27" fillOpacity={0.1} />,
       link: 'tel:+918446544544',
       animation: 'animate-slideInRight'
@@ -48,15 +48,15 @@ export default function ContactCards() {
         {/* Info Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {contactInfo.map((item) => (
-            <div 
+            <div
               key={item.id}
               className={`info-card flex flex-col items-center text-center p-8 bg-white rounded-lg shadow-[0px_10px_30px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1.5 ${item.animation}`}
             >
               {/* Icon Container */}
               <div className="mb-6">
-                <a 
-                  href={item.link} 
-                  target="_blank" 
+                <a
+                  href={item.link}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center p-2"
                   aria-label={item.title}
@@ -67,7 +67,7 @@ export default function ContactCards() {
 
               {/* Title */}
               <h6 className="font-sans text-[20px] font-semibold text-[#080C0E] mb-4 leading-[1.4]">
-                <a 
+                <a
                   href={item.link}
                   className="hover:text-[#FF7F27] transition-colors"
                 >

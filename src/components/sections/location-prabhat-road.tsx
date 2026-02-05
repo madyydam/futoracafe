@@ -41,11 +41,11 @@ const LocationPrabhatRoad = () => {
 
             {/* Phone */}
             <div className="text-[14px] md:text-[16px]">
-              <a 
-                href="tel:+918446544544" 
+              <a
+                href="tel:+918446544544"
                 className="font-bold hover:text-[#913429] transition-colors"
               >
-                Phone: 084465 44544
+                Phone: 0+91 84466 53644
               </a>
             </div>
 

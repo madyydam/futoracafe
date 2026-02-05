@@ -56,7 +56,7 @@ const AeroMallLocation: React.FC = () => {
 
               <p className="text-[#333333] font-sans text-[15px] md:text-[16px] leading-relaxed">
                 <a href="tel:+918446544544" className="hover:text-brand-rust transition-colors underline-offset-4">
-                  <span className="font-bold">Phone:</span> 084465 44544
+                  <span className="font-bold">Phone:</span> 0+91 84466 53644
                 </a>
               </p>
             </div>
@@ -65,7 +65,7 @@ const AeroMallLocation: React.FC = () => {
               <h4 className="text-[#333333] font-sans font-semibold text-[18px] mb-4">
                 Opening Hour’s
               </h4>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1">
                 <div className="space-y-1">
                   {openingHoursColumn1.map((hour) => (
@@ -87,7 +87,7 @@ const AeroMallLocation: React.FC = () => {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <a 
+              <a
                 href="https://www.google.com/maps/search/?api=1&query=Futora+Cafe+Aero+Mall+Pune"
                 target="_blank"
                 rel="noopener noreferrer"

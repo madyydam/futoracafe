@@ -195,7 +195,7 @@ export default function OrderConfirmation() {
                         <p className="text-[#3E2723] font-sans">
                             A confirmation email has been sent to <strong>{orderData.customer.email}</strong>.
                             <br />
-                            For any queries, contact us at <strong>+91 98765 43210</strong>
+                            For any queries, contact us at <strong>+91 84466 53644</strong>
                         </p>
                     </motion.div>
                 </div>

@@ -60,8 +60,7 @@ const Header = React.memo(() => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`font-nav text-[14px] font-semibold tracking-wider transition-colors ${link.active ? "text-white underline underline-offset-4" : "text-white hover:text-white/80"
-                  }`}
+                className="font-nav text-[14px] font-semibold tracking-wider transition-colors text-white hover:text-white/80"
                 style={{ fontFamily: 'var(--font-nav)' }}
               >
                 {link.name.toUpperCase()}
@@ -117,8 +116,7 @@ const Header = React.memo(() => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * idx }}
-                  className={`font-nav text-[20px] font-bold text-white uppercase tracking-widest ${link.active ? "border-b-2 border-white" : ""
-                    }`}
+                  className="font-nav text-[20px] font-bold text-white uppercase tracking-widest"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
@@ -127,7 +125,7 @@ const Header = React.memo(() => {
             </nav>
 
             <div className="mt-12 text-white font-nav text-sm opacity-90">
-              Contact: +91 84465 44544
+              Contact: +91 84466 53644
             </div>
           </motion.div>
         )}

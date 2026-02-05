@@ -22,11 +22,11 @@ const LocationNigdi = () => {
     <section className="bg-[#F7F3E3] py-10 md:py-20 font-sans">
       <div className="container mx-auto max-w-[1140px] px-6">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 animate-in slide-in-from-right duration-700">
-          
+
           {/* Left Column: Image with specific shadow and radius */}
           <div className="w-full md:w-1/2">
             <div className="relative group">
-              <div 
+              <div
                 className="overflow-hidden bg-cover bg-center rounded-[15px] shadow-[0px_20px_40px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-1"
                 style={{ height: '550px' }}
               >
@@ -59,16 +59,16 @@ const LocationNigdi = () => {
               </p>
 
               <p className="leading-relaxed">
-                <a href="tel:+9184465 44544" className="hover:text-[#913429] transition-colors">
+                <a href="tel:+91+91 84466 53644" className="hover:text-[#913429] transition-colors">
                   <span className="font-bold">Phone: </span>
-                  084465 44544
+                  0+91 84466 53644
                 </a>
               </p>
             </div>
 
             <div className="pt-2">
               <p className="font-bold text-[#333333] mb-4">Opening Hour&apos;s</p>
-              
+
               <div className="grid grid-cols-2 gap-x-8 text-[14px] md:text-[15px] leading-[1.8] text-[#666666]">
                 {/* Column 1 */}
                 <div className="space-y-1">
@@ -92,13 +92,13 @@ const LocationNigdi = () => {
             </div>
 
             <div className="pt-6 flex flex-wrap gap-4">
-              <a 
+              <a
                 href="#"
                 className="inline-flex items-center gap-2 bg-black text-white px-6 py-2 rounded-full font-semibold text-sm transition-transform hover:scale-105 active:scale-95 shadow-md"
               >
                 Get Directions
                 <svg className="w-3 h-3 fill-white rotate-[-45deg]" viewBox="0 0 448 512">
-                  <path d="M429.6 92.1c4.9-11.9 2.1-25.6-7-34.7s-22.8-11.9-34.7-7l-352 144c-14.2 5.8-22.2 20.8-19.3 35.8s16.1 25.8 31.4 25.8H224V432c0 15.3 10.8 28.4 25.8 31.4s30-5.1 35.8-19.3l144-352z"/>
+                  <path d="M429.6 92.1c4.9-11.9 2.1-25.6-7-34.7s-22.8-11.9-34.7-7l-352 144c-14.2 5.8-22.2 20.8-19.3 35.8s16.1 25.8 31.4 25.8H224V432c0 15.3 10.8 28.4 25.8 31.4s30-5.1 35.8-19.3l144-352z" />
                 </svg>
               </a>
             </div>

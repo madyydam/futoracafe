@@ -15,13 +15,13 @@ export default function ContactInfo() {
         {
             icon: Phone,
             title: "Call Us",
-            content: "+91 84465 44544",
+            content: "+91 +91 84466 53644",
             color: "#2C5F2D"
         },
         {
             icon: Mail,
             title: "Email Us",
-            content: "hello@thefutoracafe.com",
+            content: "futoragroup@gmail.com",
             color: "#EAB231"
         },
         {

@@ -25,7 +25,7 @@ export default function CheckoutPage() {
 
     const [errors, setErrors] = useState<Record<string, string>>({});
 
-    const deliveryFee = formData.order Type === 'delivery' ? 50 : 0;
+    const deliveryFee = formData.orderType === 'delivery' ? 50 : 0;
     const tax = (subtotal + deliveryFee) * 0.05; // 5% tax
     const total = subtotal + deliveryFee + tax;
 

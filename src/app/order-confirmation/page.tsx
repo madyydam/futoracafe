@@ -19,7 +19,7 @@ interface OrderData {
     date: string;
 }
 
-export default function OrderConfirmation Page() {
+export default function OrderConfirmation() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const orderId = searchParams.get('id');

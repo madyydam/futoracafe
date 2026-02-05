@@ -3,12 +3,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Menu, X } from "lucide-react";
+import { Facebook, Instagram, Menu, X, ShoppingCart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import CartButton from "../CartButton";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Menu", href: "/menu", active: true },
+  { name: "Menu", href: "/menu" },
+  { name: "Book a Table", href: "/reservations" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -68,15 +70,18 @@ const Header = React.memo(() => {
 
           </nav>
 
-          {/* Mobile Toggle */}
-          <div className="lg:hidden flex items-center">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white p-1"
-              aria-label="Toggle Menu"
-            >
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+          {/* Cart & Mobile Toggle */}
+          <div className="flex items-center gap-4">
+            <CartButton />
+            <div className="lg:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-white p-1"
+                aria-label="Toggle Menu"
+              >
+                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -188,9 +188,9 @@ const HeroSection = React.memo(() => {
             >
 
                 {/* Title with 80% Zoom (Reduced font size) */}
-                <m.div className="mb-10">
+                <m.div className="mb-10 whitespace-nowrap">
                     {"The Futora Cafe".split("").map((char, i) => (char === " " ? (
-                        <span key={i} className="inline-block px-3">&nbsp;</span>
+                        <span key={i} className="inline-block px-1 sm:px-3">&nbsp;</span>
                     ) : (
                         <m.span
                             key={i}
@@ -202,11 +202,11 @@ const HeroSection = React.memo(() => {
                                 type: "spring",
                                 stiffness: 150
                             }}
-                            className="inline-block font-display italic text-[48px] md:text-[80px] lg:text-[120px] text-white font-normal leading-none"
+                            className="inline-block font-display italic text-[32px] xs:text-[36px] sm:text-[48px] md:text-[80px] lg:text-[120px] text-white font-normal leading-none"
                             style={{
                                 fontFamily: 'var(--font-display)',
                                 textShadow: '0 0 20px rgba(0,0,0,0.3)',
-                                padding: "0 2px",
+                                padding: "0 1px",
                                 letterSpacing: '0.01em'
                             }}
                         >

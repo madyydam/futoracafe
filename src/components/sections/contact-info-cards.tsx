@@ -27,9 +27,9 @@ const ContactInfoCards = () => {
     },
     {
       title: "Phone Number",
-      description: "+91 +91 84466 53644",
+      description: "+91 84466 53644",
       icon: <Phone className="w-6 h-6 text-[#FF6B1A]" />,
-      link: "tel:+918446544544"
+      link: "tel:+918446653644"
     }
   ];
 

@@ -157,14 +157,14 @@ export default function ContactForm() {
                     className="mt-20 w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
                 >
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.996767676767!2d73.76676767676767!3d18.599676767676767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b91c7a7a7a7a%3A0x7a7a7a7a7a7a7a7a!2sFutora+Cafe!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.189617267156!2d73.84093921!3d18.521876499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c07a049d5a9d%3A0x959714850fa97746!2sFergusson%20College%20Rd%2C%20Shivajinagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
                         allowFullScreen={true}
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                        title="Futora Cafe Location"
+                        title="Futora Cafe FC Road Location"
                     ></iframe>
                 </motion.div>
             </div>

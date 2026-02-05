@@ -3,14 +3,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Menu, X, ShoppingCart } from "lucide-react";
+import { Facebook, Instagram, Menu, X, ShoppingCart, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CartButton from "../CartButton";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Menu", href: "/menu" },
-  { name: "Contact", href: "/contact" },
 ];
 
 const Header = React.memo(() => {
@@ -74,6 +73,13 @@ const Header = React.memo(() => {
 
         {/* Right Actions: Cart & Mobile Toggle */}
         <div className="flex-1 flex items-center justify-end gap-3 md:gap-5">
+          <Link
+            href="/contact"
+            className="p-2 text-white/90 hover:text-white transition-colors"
+            aria-label="Contact Us"
+          >
+            <Phone size={22} />
+          </Link>
           <CartButton />
 
           <button

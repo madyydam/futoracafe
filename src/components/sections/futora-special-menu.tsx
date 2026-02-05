@@ -31,7 +31,7 @@ const specialItems = [
 
 const FutoraSpecialMenu = React.memo(() => {
   return (
-    <section className="py-24 bg-[#3E2723] text-white overflow-hidden relative">
+    <section id="specials" className="py-24 bg-[#3E2723] text-white overflow-hidden relative scroll-mt-20">
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#913429]/20 rounded-full blur-3xl -mr-32 -mt-32" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/40 rounded-full blur-3xl -ml-32 -mb-32" />
 

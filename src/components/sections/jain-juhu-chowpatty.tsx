@@ -8,7 +8,7 @@ const QuickBitesSection = () => {
   return (
     <div className="bg-[#F7F1E1] overflow-hidden">
       {/* Healthy Options Section */}
-      <section className="relative pt-20 pb-16 px-4 md:px-0">
+      <section id="jain" className="relative pt-24 pb-16 px-4 md:px-0 scroll-mt-20">
         <div className="container mx-auto max-w-[1200px]">
           <motion.h2
             initial={{ opacity: 0, y: -30 }}
@@ -17,7 +17,7 @@ const QuickBitesSection = () => {
             transition={{ duration: 0.8 }}
             className="text-[42px] md:text-[56px] font-bold text-[#912222] text-center font-heading relative pb-3 mb-12 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[140px] after:height-[3px] after:bg-[#912222]"
           >
-            Healthy Choices
+            Healthy Choices & Jain Special
           </motion.h2>
 
           <div className="relative flex flex-col md:flex-row items-center justify-between">

@@ -88,6 +88,38 @@ const MenuHero: React.FC = () => {
         >
           Discover Our Delicious Creations
         </motion.p>
+
+        {/* Category Quick Links - New Enhancement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex flex-wrap justify-center gap-4 mt-12 mb-4"
+        >
+          {[
+            { name: "Must Try", icon: "✨", id: "#must-try" },
+            { name: "Specials", icon: "🍛", id: "#specials" },
+            { name: "Starters", icon: "🥟", id: "#starters" },
+            { name: "Beverages", icon: "☕", id: "#beverages" },
+            { name: "Pizza/Dosa", icon: "🍕", id: "#pizza-dosa" },
+            { name: "Jain", icon: "🌿", id: "#jain" },
+          ].map((cat) => (
+            <motion.a
+              key={cat.id}
+              href={cat.id}
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: "#8F221B",
+                color: "#ffffff"
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 rounded-full border-2 border-[#8F221B] text-[#8F221B] font-bold text-sm bg-white transition-all flex items-center gap-2 shadow-sm"
+            >
+              <span>{cat.icon}</span>
+              {cat.name}
+            </motion.a>
+          ))}
+        </motion.div>
       </div>
 
       {/* Large Bottom Illustration */}

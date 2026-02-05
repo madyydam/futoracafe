@@ -209,7 +209,7 @@ const HeroSection = React.memo(() => {
 
                 {/* CTA Button (80% Zoom - smaller padding and text) */}
                 <motion.a
-                    href="#explore"
+                    href="/menu"
                     whileHover={{
                         scale: 1.05,
                         backgroundColor: "#fff",

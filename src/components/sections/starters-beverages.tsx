@@ -46,121 +46,125 @@ const StartersAndBeverages = () => {
   ];
 
   return (
-    <section className="bg-[#F6F1DC] py-[80px] lg:py-[100px] overflow-hidden">
-      <div className="container mx-auto px-6">
-        {/* Starters Section */}
-        <div className="mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col items-center mb-12"
-          >
-            <h2 className="section-category text-[#8F221B] font-heading text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight relative inline-block text-center w-full mb-8">
-              Cafe Bites
-            </h2>
-          </motion.div>
-
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            {/* Left Image */}
+    <div className="bg-[#F6F1DC] overflow-hidden">
+      {/* Starters Section */}
+      <section id="starters" className="py-[80px] lg:py-[100px] scroll-mt-20">
+        <div className="container mx-auto px-6">
+          <div className="mb-20">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              animate={{
-                rotate: [0, 2, -2, 0],
-                y: [0, -5, 5, 0]
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="relative w-[300px] h-[300px] shrink-0"
+              className="flex flex-col items-center mb-12"
             >
-              <div className="dish-ring w-full h-full p-[10px] border-2 border-[#8F221B] rounded-full relative">
-                <div className="absolute inset-[-8px] border-2 border-[#2C5F2D] rounded-full"></div>
-                <div className="w-full h-full rounded-full overflow-hidden relative shadow-2xl">
-                  <Image
-                    src="https://images.unsplash.com/photo-1546793665-c74683f339c1?q=80&w=1000&auto=format&fit=crop"
-                    alt="Cafe Bites"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#EAB231] rounded-full"></div>
-                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#EB6D48] rounded-full"></div>
+              <h2 className="section-category text-[#8F221B] font-heading text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-tight relative inline-block text-center w-full mb-8">
+                Cafe Bites
+              </h2>
+            </motion.div>
+
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+              {/* Left Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                animate={{
+                  rotate: [0, 2, -2, 0],
+                  y: [0, -5, 5, 0]
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="relative w-[300px] h-[300px] shrink-0"
+              >
+                <div className="dish-ring w-full h-full p-[10px] border-2 border-[#8F221B] rounded-full relative">
+                  <div className="absolute inset-[-8px] border-2 border-[#2C5F2D] rounded-full"></div>
+                  <div className="w-full h-full rounded-full overflow-hidden relative shadow-2xl">
+                    <Image
+                      src="https://images.unsplash.com/photo-1546793665-c74683f339c1?q=80&w=1000&auto=format&fit=crop"
+                      alt="Cafe Bites"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#EAB231] rounded-full"></div>
+                    <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#EB6D48] rounded-full"></div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
 
-            {/* Starter Menu List */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="flex-1 text-center"
-            >
-              {starters.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.03, x: 3 }}
-                >
-                  <h3 className="item-name text-[#000000] font-sans text-[18px] md:text-[24px] lg:text-[28px] font-semibold mb-2">
-                    {item.name}
-                  </h3>
-                  {item.description && (
-                    <p className="item-description text-[#666666] font-sans text-[14px] md:text-[16px] leading-relaxed max-w-2xl mx-auto">
-                      {item.description}
-                    </p>
-                  )}
-                </motion.div>
-              ))}
-            </motion.div>
+              {/* Starter Menu List */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="flex-1 text-center"
+              >
+                {starters.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="mb-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.03, x: 3 }}
+                  >
+                    <h3 className="item-name text-[#000000] font-sans text-[18px] md:text-[24px] lg:text-[28px] font-semibold mb-2">
+                      {item.name}
+                    </h3>
+                    {item.description && (
+                      <p className="item-description text-[#666666] font-sans text-[14px] md:text-[16px] leading-relaxed max-w-2xl mx-auto">
+                        {item.description}
+                      </p>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
 
-            {/* Right Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              animate={{
-                rotate: [0, -2, 2, 0],
-                y: [0, 5, -5, 0]
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="relative w-[300px] h-[300px] shrink-0"
-            >
-              <div className="dish-ring w-full h-full p-[10px] border-2 border-[#EAB231] rounded-full relative">
-                <div className="absolute inset-[-8px] border-2 border-[#EB6D48] rounded-full"></div>
-                <div className="w-full h-full rounded-full overflow-hidden shadow-2xl">
-                  <Image
-                    src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop"
-                    alt="Cafe Snacks"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#2C5F2D] rounded-full"></div>
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#8F221B] rounded-full"></div>
+              {/* Right Image */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                animate={{
+                  rotate: [0, -2, 2, 0],
+                  y: [0, 5, -5, 0]
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="relative w-[300px] h-[300px] shrink-0"
+              >
+                <div className="dish-ring w-full h-full p-[10px] border-2 border-[#EAB231] rounded-full relative">
+                  <div className="absolute inset-[-8px] border-2 border-[#EB6D48] rounded-full"></div>
+                  <div className="w-full h-full rounded-full overflow-hidden shadow-2xl">
+                    <Image
+                      src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop"
+                      alt="Cafe Snacks"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#2C5F2D] rounded-full"></div>
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#8F221B] rounded-full"></div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Beverages Section */}
-        <div className="pt-20">
+      {/* Beverages Section */}
+      <section id="beverages" className="pt-20 pb-32 scroll-mt-20">
+        <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -308,8 +312,8 @@ const StartersAndBeverages = () => {
             </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

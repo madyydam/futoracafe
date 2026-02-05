@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 
 const GourmetSnacksSection = () => {
   return (
-    <section className="bg-[#F7F1E1] py-20 overflow-hidden">
-      {/* G ourmet Cafe Snacks Section */}
+    <section id="pizza-dosa" className="bg-[#F7F1E1] py-24 overflow-hidden scroll-mt-20">
+      {/* Gourmet Cafe Snacks Section */}
       <div className="container mx-auto max-w-[1200px] px-5">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}

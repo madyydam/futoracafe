@@ -16,7 +16,7 @@ const welcomeDishes = [
         id: 2,
         name: "Artisan Espresso",
         description: "Rich, velvety shot of our house-blend arabica beans.",
-        image: "https://images.unsplash.com/photo-1510707577719-af7c183f1fef?q=80&w=600&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1541167760496-162955ed8a9f?q=80&w=800&auto=format&fit=crop",
         price: "₹189"
     },
     {

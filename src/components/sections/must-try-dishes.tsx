@@ -4,10 +4,12 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useMenu } from '@/contexts/MenuContext';
-import { Clock, Sparkles } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
+import { Clock } from 'lucide-react';
 
 export default function MustTryDishes() {
     const { filteredItems } = useMenu();
+    const { addToCart } = useCart();
 
     // Filter to only show items in these categories
     const dishes = filteredItems.filter(item =>
@@ -71,8 +73,8 @@ export default function MustTryDishes() {
                                             <span
                                                 key={badge}
                                                 className={`px-3 py-1 rounded-full text-xs font-bold text-white backdrop-blur-sm ${badge === 'bestseller' ? 'bg-[#8F221B]/90' :
-                                                        badge === 'new' ? 'bg-[#2C5F2D]/90' :
-                                                            'bg-[#EAB231]/90'
+                                                    badge === 'new' ? 'bg-[#2C5F2D]/90' :
+                                                        'bg-[#EAB231]/90'
                                                     }`}
                                             >
                                                 {badge === 'bestseller' && '⭐ Bestseller'}
@@ -126,9 +128,10 @@ export default function MustTryDishes() {
                                     <motion.button
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
+                                        onClick={() => addToCart(dish)}
                                         className="px-6 py-2 bg-[#8F221B] text-white rounded-full font-nav font-medium text-sm hover:bg-[#8F221B]/90 transition-colors"
                                     >
-                                        Order Now
+                                        Add to Cart
                                     </motion.button>
                                 </div>
                             </div>

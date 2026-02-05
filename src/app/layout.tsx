@@ -5,6 +5,8 @@ import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import PageTransition from "@/components/PageTransition";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { CartProvider } from "@/contexts/CartContext";
+import CartDrawer from "@/components/CartDrawer";
 
 export const metadata: Metadata = {
   title: "The Futora Cafe",
@@ -37,10 +39,13 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
-        <PageTransition>
-          {children}
-        </PageTransition>
-        <WhatsAppButton />
+        <CartProvider>
+          <PageTransition>
+            {children}
+          </PageTransition>
+          <CartDrawer />
+          <WhatsAppButton />
+        </CartProvider>
         <VisualEditsMessenger />
       </body>
     </html>

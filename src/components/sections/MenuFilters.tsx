@@ -42,7 +42,7 @@ export default function MenuFilters() {
     const hasActiveFilters = selectedCategories.length > 0 || selectedDietary.length > 0 || searchQuery.trim().length > 0;
 
     return (
-        <div className="bg-[#F7F3E3] py-8 sticky top-[80px] z-40 shadow-sm">
+        <div className="bg-[#F7F3E3] py-12 border-b border-[#D4CDB3]">
             <div className="container mx-auto px-6">
                 {/* Search Bar */}
                 <div className="mb-6">
@@ -77,8 +77,8 @@ export default function MenuFilters() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className={`px-4 py-2 rounded-full font-nav text-sm font-medium transition-colors ${selectedCategories.includes(category)
-                                        ? 'bg-[#8F221B] text-white'
-                                        : 'bg-white text-[#3E2723] border border-[#D4CDB3] hover:border-[#8F221B]'
+                                    ? 'bg-[#8F221B] text-white'
+                                    : 'bg-white text-[#3E2723] border border-[#D4CDB3] hover:border-[#8F221B]'
                                     }`}
                             >
                                 {categoryLabels[category]}
@@ -98,8 +98,8 @@ export default function MenuFilters() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className={`px-4 py-2 rounded-full font-nav text-sm font-medium transition-colors ${selectedDietary.includes(dietary)
-                                        ? 'bg-[#2C5F2D] text-white'
-                                        : 'bg-white text-[#3E2723] border border-[#D4CDB3] hover:border-[#2C5F2D]'
+                                    ? 'bg-[#2C5F2D] text-white'
+                                    : 'bg-white text-[#3E2723] border border-[#D4CDB3] hover:border-[#2C5F2D]'
                                     }`}
                             >
                                 {dietaryLabels[dietary]}

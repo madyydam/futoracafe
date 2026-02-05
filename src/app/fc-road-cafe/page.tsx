@@ -2,6 +2,7 @@ import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import HeroSection from "@/components/sections/hero";
 import Link from "next/link";
+import NextImage from "next/image";
 import { Coffee, MapPin, Star, Utensils } from "lucide-react";
 
 export const metadata = {
@@ -79,10 +80,11 @@ export default function FCRoadCafePage() {
                         </div>
                         <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                             <div className="absolute inset-0 bg-black/20 z-10" />
-                            <img
+                            <NextImage
                                 src="/images/sections/about-image.webp"
                                 alt="Best Cafe in Pune FC Road"
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
                             />
                         </div>
                     </div>

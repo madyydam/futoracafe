@@ -1,11 +1,79 @@
 "use client";
 
-import React from 'react';
+import React, { useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
 import { useRouter } from 'next/navigation';
+
+// Memoized CartItem component to prevent re-renders of all items when one changes
+const CartItem = React.memo(({ item, onUpdateQuantity, onRemove }: {
+    item: any;
+    onUpdateQuantity: (id: string, qty: number) => void;
+    onRemove: (id: string) => void;
+}) => {
+    return (
+        <motion.div
+            layout
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            className="flex gap-4 p-4 bg-[#F7F3E3] rounded-lg"
+        >
+            {/* Image */}
+            <div className="relative w-20 h-20 rounded overflow-hidden flex-shrink-0">
+                <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                />
+            </div>
+
+            {/* Details */}
+            <div className="flex-1 min-w-0">
+                <h3 className="font-heading text-lg text-[#3E2723] truncate">
+                    {item.name}
+                </h3>
+                <p className="text-sm text-[#5D4037] font-sans">
+                    {item.price}
+                </p>
+
+                {/* Quantity Controls */}
+                <div className="flex items-center gap-3 mt-2">
+                    <button
+                        onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
+                        className="p-1 hover:bg-[#8F221B] hover:text-white rounded transition-colors"
+                        aria-label="Decrease quantity"
+                    >
+                        <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="font-nav font-semibold text-[#3E2723] min-w-[2ch] text-center">
+                        {item.quantity}
+                    </span>
+                    <button
+                        onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
+                        className="p-1 hover:bg-[#8F221B] hover:text-white rounded transition-colors"
+                        aria-label="Increase quantity"
+                    >
+                        <Plus className="w-4 h-4" />
+                    </button>
+                </div>
+            </div>
+
+            {/* Remove Button */}
+            <button
+                onClick={() => onRemove(item.id)}
+                className="p-2 hover:bg-red-100 rounded transition-colors self-start"
+                aria-label={`Remove ${item.name} from cart`}
+            >
+                <Trash2 className="w-5 h-5 text-red-600" />
+            </button>
+        </motion.div>
+    );
+});
+CartItem.displayName = 'CartItem';
 
 export default function CartDrawer() {
     const { items, isCartOpen, closeCart, updateQuantity, removeFromCart, totalItems, subtotal } = useCart();
@@ -15,6 +83,15 @@ export default function CartDrawer() {
         closeCart();
         router.push('/checkout');
     };
+
+    // Memoize handlers to keep props stable for CartItem
+    const handleUpdateQuantity = useCallback((id: string, qty: number) => {
+        updateQuantity(id, qty);
+    }, [updateQuantity]);
+
+    const handleRemove = useCallback((id: string) => {
+        removeFromCart(id);
+    }, [removeFromCart]);
 
     return (
         <AnimatePresence>
@@ -64,64 +141,12 @@ export default function CartDrawer() {
                             ) : (
                                 <div className="space-y-4">
                                     {items.map((item) => (
-                                        <motion.div
+                                        <CartItem
                                             key={item.id}
-                                            layout
-                                            initial={{ opacity: 0, y: 20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, x: 100 }}
-                                            className="flex gap-4 p-4 bg-[#F7F3E3] rounded-lg"
-                                        >
-                                            {/* Image */}
-                                            <div className="relative w-20 h-20 rounded overflow-hidden flex-shrink-0">
-                                                <Image
-                                                    src={item.image}
-                                                    alt={item.name}
-                                                    fill
-                                                    className="object-cover"
-                                                />
-                                            </div>
-
-                                            {/* Details */}
-                                            <div className="flex-1 min-w-0">
-                                                <h3 className="font-heading text-lg text-[#3E2723] truncate">
-                                                    {item.name}
-                                                </h3>
-                                                <p className="text-sm text-[#5D4037] font-sans">
-                                                    {item.price}
-                                                </p>
-
-                                                {/* Quantity Controls */}
-                                                <div className="flex items-center gap-3 mt-2">
-                                                    <button
-                                                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                                        className="p-1 hover:bg-[#8F221B] hover:text-white rounded transition-colors"
-                                                        aria-label="Decrease quantity"
-                                                    >
-                                                        <Minus className="w-4 h-4" />
-                                                    </button>
-                                                    <span className="font-nav font-semibold text-[#3E2723] min-w-[2ch] text-center">
-                                                        {item.quantity}
-                                                    </span>
-                                                    <button
-                                                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                                        className="p-1 hover:bg-[#8F221B] hover:text-white rounded transition-colors"
-                                                        aria-label="Increase quantity"
-                                                    >
-                                                        <Plus className="w-4 h-4" />
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            {/* Remove Button */}
-                                            <button
-                                                onClick={() => removeFromCart(item.id)}
-                                                className="p-2 hover:bg-red-100 rounded transition-colors self-start"
-                                                aria-label={`Remove ${item.name} from cart`}
-                                            >
-                                                <Trash2 className="w-5 h-5 text-red-600" />
-                                            </button>
-                                        </motion.div>
+                                            item={item}
+                                            onUpdateQuantity={handleUpdateQuantity}
+                                            onRemove={handleRemove}
+                                        />
                                     ))}
                                 </div>
                             )}

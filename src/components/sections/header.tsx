@@ -12,6 +12,8 @@ const navLinks = [
   { name: "Menu", href: "/menu" },
 ];
 
+const mobileNavLinks = [...navLinks, { name: "Book a Table", href: "/reservations" }];
+
 const Header = React.memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -121,7 +123,7 @@ const Header = React.memo(() => {
               </div>
 
               <nav className="flex flex-col gap-8">
-                {[...navLinks, { name: "Book a Table", href: "/reservations" }].map((link, idx) => (
+                {mobileNavLinks.map((link, idx) => (
                   <motion.div
                     key={link.name}
                     initial={{ opacity: 0, x: 20 }}

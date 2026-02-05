@@ -31,10 +31,20 @@ export default function LineTrailCursor() {
         const animate = () => {
             const now = Date.now();
 
-            // Filter points
-            trailPoints.current = trailPoints.current.filter(
-                point => now - point.timestamp < 500
-            );
+            // Filter points efficiently (in-place removal from start)
+            // Points are chronologically ordered, so we only need to remove from the start
+            let removeCount = 0;
+            for (let i = 0; i < trailPoints.current.length; i++) {
+                if (now - trailPoints.current[i].timestamp >= 500) {
+                    removeCount++;
+                } else {
+                    break;
+                }
+            }
+
+            if (removeCount > 0) {
+                trailPoints.current.splice(0, removeCount);
+            }
 
             if (trailPoints.current.length === 0) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);

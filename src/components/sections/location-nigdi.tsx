@@ -61,7 +61,7 @@ const LocationNigdi = () => {
               <p className="leading-relaxed">
                 <a href="tel:+91+91 84466 53644" className="hover:text-[#913429] transition-colors">
                   <span className="font-bold">Phone: </span>
-                  0+91 84466 53644
+                  +91 84466 53644
                 </a>
               </p>
             </div>

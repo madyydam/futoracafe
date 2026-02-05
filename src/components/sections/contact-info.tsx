@@ -15,7 +15,7 @@ export default function ContactInfo() {
         {
             icon: Phone,
             title: "Call Us",
-            content: "+91 +91 84466 53644",
+            content: "+91 84466 53644",
             color: "#2C5F2D"
         },
         {

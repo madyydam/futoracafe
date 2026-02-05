@@ -28,9 +28,9 @@ export default function ContactCards() {
     {
       id: 'phone',
       title: 'Phone Number',
-      content: '+91 +91 84466 53644',
+      content: '+91 84466 53644',
       icon: <Phone className="text-[#FF7F27]" size={36} fill="#FF7F27" fillOpacity={0.1} />,
-      link: 'tel:+918446544544',
+      link: 'tel:+918446653644',
       animation: 'animate-slideInRight'
     }
   ];

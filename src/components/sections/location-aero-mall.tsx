@@ -55,8 +55,8 @@ const AeroMallLocation: React.FC = () => {
               </p>
 
               <p className="text-[#333333] font-sans text-[15px] md:text-[16px] leading-relaxed">
-                <a href="tel:+918446544544" className="hover:text-brand-rust transition-colors underline-offset-4">
-                  <span className="font-bold">Phone:</span> 0+91 84466 53644
+                <a href="tel:+918446653644" className="hover:text-brand-rust transition-colors underline-offset-4">
+                  <span className="font-bold">Phone:</span> +91 84466 53644
                 </a>
               </p>
             </div>

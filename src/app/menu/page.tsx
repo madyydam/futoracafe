@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 import Header from "@/components/sections/header";
+import { MenuProvider } from "@/contexts/MenuContext";
+import MenuFilters from "@/components/sections/MenuFilters";
 
 // Lazy loading menu sections
 const MenuHero = dynamic(() => import("@/components/sections/menu-hero"), {
@@ -36,18 +38,21 @@ const Footer = dynamic(() => import("@/components/sections/footer"), {
 
 export default function MenuPage() {
     return (
-        <div className="flex min-h-screen flex-col bg-[#F7F1E1]">
-            <Header />
-            <main className="flex-grow pt-[80px]">
-                <MenuHero />
-                <MustTryDishes />
-                <FutoraSpecialMenu />
-                <StartersAndBeverages />
-                <NamasteAnnaPizzaSection />
-                <JainJuhuChowpatty />
-                <RiceMenuFooterCallout />
-            </main>
-            <Footer />
-        </div>
+        <MenuProvider>
+            <div className="flex min-h-screen flex-col bg-[#F7F1E1]">
+                <Header />
+                <main className="flex-grow pt-[80px]">
+                    <MenuHero />
+                    <MenuFilters />
+                    <MustTryDishes />
+                    <FutoraSpecialMenu />
+                    <StartersAndBeverages />
+                    <NamasteAnnaPizzaSection />
+                    <JainJuhuChowpatty />
+                    <RiceMenuFooterCallout />
+                </main>
+                <Footer />
+            </div>
+        </MenuProvider>
     );
 }

@@ -203,11 +203,12 @@ const HeroSection = React.memo(() => {
                                 type: "spring",
                                 stiffness: 150
                             }}
-                            className="inline-block font-display italic text-[36px] md:text-[60px] lg:text-[80px] text-white font-normal leading-none"
+                            className="inline-block font-display italic text-[48px] md:text-[80px] lg:text-[120px] text-white font-normal leading-none"
                             style={{
                                 fontFamily: 'var(--font-display)',
-                                textShadow: '0 0 15px rgba(0,0,0,0.3)',
-                                padding: "0 1px"
+                                textShadow: '0 0 20px rgba(0,0,0,0.3)',
+                                padding: "0 2px",
+                                letterSpacing: '0.01em'
                             }}
                         >
                             {char}

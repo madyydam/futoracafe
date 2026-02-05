@@ -4,6 +4,7 @@ import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import PageTransition from "@/components/PageTransition";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "The Futora Cafe",
@@ -39,6 +40,7 @@ export default function RootLayout({
         <PageTransition>
           {children}
         </PageTransition>
+        <WhatsAppButton />
         <VisualEditsMessenger />
       </body>
     </html>

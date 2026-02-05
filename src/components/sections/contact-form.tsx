@@ -34,7 +34,7 @@ export default function ContactForm() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-center font-heading text-[40px] md:text-[56px] text-[#912222] font-bold mb-4"
+                    className="text-center font-heading text-[32px] md:text-[56px] text-[#912222] font-bold mb-4"
                 >
                     Send Us a Message
                 </motion.h2>
@@ -55,7 +55,7 @@ export default function ContactForm() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                     onSubmit={handleSubmit}
-                    className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl"
+                    className="bg-white p-6 md:p-12 rounded-3xl shadow-2xl"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <motion.div

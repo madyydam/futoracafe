@@ -188,31 +188,33 @@ const HeroSection = React.memo(() => {
             >
 
                 {/* Title with 80% Zoom (Reduced font size) */}
-                <m.div className="mb-10 whitespace-nowrap">
-                    {"The Futora Cafe".split("").map((char, i) => (char === " " ? (
-                        <span key={i} className="inline-block px-1 sm:px-3">&nbsp;</span>
-                    ) : (
-                        <m.span
-                            key={i}
-                            initial={{ opacity: 0, y: 50, rotate: i % 2 === 0 ? 30 : -30 }}
-                            animate={{ opacity: 1, y: 0, rotate: 0 }}
-                            transition={{
-                                duration: 0.8,
-                                delay: 0.5 + (i * 0.05),
-                                type: "spring",
-                                stiffness: 150
-                            }}
-                            className="inline-block font-display italic text-[32px] xs:text-[36px] sm:text-[48px] md:text-[80px] lg:text-[120px] text-white font-normal leading-none"
-                            style={{
-                                fontFamily: 'var(--font-display)',
-                                textShadow: '0 0 20px rgba(0,0,0,0.3)',
-                                padding: "0 1px",
-                                letterSpacing: '0.01em'
-                            }}
-                        >
-                            {char}
-                        </m.span>
-                    )))}
+                <m.div className="mb-10 md:whitespace-nowrap flex flex-wrap justify-center gap-x-2 sm:gap-x-4">
+                    {"The Futora Cafe".split(" ").map((word, wordIndex) => (
+                        <div key={wordIndex} className="inline-block whitespace-nowrap">
+                            {word.split("").map((char, charIndex) => (
+                                <m.span
+                                    key={`${wordIndex}-${charIndex}`}
+                                    initial={{ opacity: 0, y: 50, rotate: charIndex % 2 === 0 ? 30 : -30 }}
+                                    animate={{ opacity: 1, y: 0, rotate: 0 }}
+                                    transition={{
+                                        duration: 0.8,
+                                        delay: 0.5 + (wordIndex * 0.2) + (charIndex * 0.05),
+                                        type: "spring",
+                                        stiffness: 150
+                                    }}
+                                    className="inline-block font-display italic text-[54px] xs:text-[60px] sm:text-[80px] md:text-[80px] lg:text-[120px] text-white font-normal leading-tight md:leading-none"
+                                    style={{
+                                        fontFamily: 'var(--font-display)',
+                                        textShadow: '0 0 20px rgba(0,0,0,0.3)',
+                                        padding: "0 1px",
+                                        letterSpacing: '0.01em'
+                                    }}
+                                >
+                                    {char}
+                                </m.span>
+                            ))}
+                        </div>
+                    ))}
                 </m.div>
 
                 {/* Dynamic Tagline (80% Zoom) - Brown Color */}

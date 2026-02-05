@@ -30,7 +30,7 @@ export default function MustTryDishes() {
     }
 
     return (
-        <section className="py-20 bg-[#F7F3E3]">
+        <section id="must-try-delights" className="py-20 bg-[#F7F3E3]">
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: -30 }}

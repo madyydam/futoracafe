@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ReservationsPage() {
     return (
-        <div className="flex min-h-screen flex-col bg-[#F7F1E1]">
+        <div className="flex min-h-screen flex-col bg-[#F7F1E1] overflow-x-hidden w-full">
             <Header />
             <main className="flex-grow pt-[120px] pb-24">
                 <div className="container mx-auto px-6">

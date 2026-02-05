@@ -30,7 +30,7 @@ const Footer = React.memo(() => {
                         transition={{ delay: 0.5, duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <p className="font-display text-[#913429] text-[64px] md:text-[100px] italic">
+                        <p className="font-display text-[#913429] text-[48px] xs:text-[56px] sm:text-[64px] md:text-[100px] italic">
                             Until We Meet
                         </p>
                     </motion.div>

@@ -77,7 +77,7 @@ export default function ReservationForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white p-8 md:p-12 rounded-2xl shadow-2xl max-w-3xl mx-auto border border-[#E8DCC4]">
+        <form onSubmit={handleSubmit} className="bg-white p-5 md:p-12 rounded-2xl shadow-2xl max-w-3xl mx-auto border border-[#E8DCC4]">
             <div className="space-y-8">
                 {/* Step Indicators */}
                 <div className="flex justify-center items-center gap-4 mb-8">

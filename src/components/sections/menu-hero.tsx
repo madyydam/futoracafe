@@ -44,7 +44,7 @@ const MenuHero: React.FC = () => {
             whileHover={{ scale: 1.05 }}
           >
             <a
-              href="#menu-items"
+              href="#must-try-delights"
               className="btn-order shadow-lg hover:shadow-xl active:scale-95 transition-all bg-[#8F221B] text-white px-6 py-3 rounded-full font-bold flex items-center gap-2"
             >
               Explore Menu
@@ -88,57 +88,10 @@ const MenuHero: React.FC = () => {
         >
           Discover Our Delicious Creations
         </motion.p>
-
-        {/* Category Quick Links - New Enhancement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-wrap justify-center gap-4 mt-12 mb-4"
-        >
-          {[
-            { name: "Must Try", icon: "✨", id: "#must-try" },
-            { name: "Specials", icon: "🍛", id: "#specials" },
-            { name: "Starters", icon: "🥟", id: "#starters" },
-            { name: "Beverages", icon: "☕", id: "#beverages" },
-            { name: "Pizza/Dosa", icon: "🍕", id: "#pizza-dosa" },
-            { name: "Jain", icon: "🌿", id: "#jain" },
-          ].map((cat) => (
-            <motion.a
-              key={cat.id}
-              href={cat.id}
-              whileHover={{
-                scale: 1.1,
-                backgroundColor: "#8F221B",
-                color: "#ffffff"
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 rounded-full border-2 border-[#8F221B] text-[#8F221B] font-bold text-sm bg-white transition-all flex items-center gap-2 shadow-sm"
-            >
-              <span>{cat.icon}</span>
-              {cat.name}
-            </motion.a>
-          ))}
-        </motion.div>
       </div>
 
       {/* Large Bottom Illustration */}
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="relative w-full mt-8 md:mt-0 z-0 overflow-visible"
-      >
-        <div className="relative w-full aspect-[21/9] min-h-[300px] md:min-h-[400px]">
-          <Image
-            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop"
-            alt="Cafe atmosphere"
-            fill
-            className="object-cover object-center opacity-30"
-            priority
-          />
-        </div>
-      </motion.div>
+
 
       {/* Wave Brush Divider */}
       <div className="absolute bottom-0 left-0 w-full h-[60px] pointer-events-none">
@@ -154,7 +107,7 @@ const MenuHero: React.FC = () => {
       <style jsx global>{`
         h1.hero-title {
           font-family: var(--font-display);
-          font-size: clamp(100px, 18vw, 200px);
+          font-size: clamp(60px, 12vw, 150px);
           color: var(--color-secondary, #EAB231);
           line-height: 1;
           font-weight: 400;
@@ -163,7 +116,7 @@ const MenuHero: React.FC = () => {
         
         @media (max-width: 768px) {
           h1.hero-title {
-            font-size: 80px;
+            font-size: 48px;
           }
         }
 

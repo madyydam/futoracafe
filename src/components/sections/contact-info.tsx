@@ -58,7 +58,7 @@ export default function ContactInfo() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-center font-heading text-[40px] md:text-[56px] text-[#912222] font-bold mb-16"
+                    className="text-center font-heading text-[32px] md:text-[56px] text-[#912222] font-bold mb-16"
                 >
                     Contact Information
                 </motion.h2>
@@ -81,7 +81,7 @@ export default function ContactInfo() {
                                 rotate: index % 2 === 0 ? -2 : 2,
                                 transition: { duration: 0.3 }
                             }}
-                            className="bg-white p-8 rounded-2xl shadow-xl text-center relative overflow-hidden"
+                            className="bg-white p-6 md:p-8 rounded-2xl shadow-xl text-center relative overflow-hidden"
                         >
                             {/* Background Decoration */}
                             <motion.div

@@ -61,7 +61,7 @@ export default function ContactHero() {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, type: "spring" }}
-          className="font-display text-[60px] md:text-[90px] text-[#913429] mb-6 italic"
+          className="font-display text-[48px] md:text-[90px] text-[#913429] mb-6 italic"
         >
           Get In Touch
         </motion.h1>

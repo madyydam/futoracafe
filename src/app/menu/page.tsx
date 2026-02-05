@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import Header from "@/components/sections/header";
 import { MenuProvider } from "@/contexts/MenuContext";
-import MenuFilters from "@/components/sections/MenuFilters";
+
 
 // Lazy loading menu sections
 export const metadata = {
@@ -48,7 +48,7 @@ export default function MenuPage() {
                 <Header />
                 <main className="flex-grow pt-[80px]">
                     <MenuHero />
-                    <MenuFilters />
+
                     <MustTryDishes />
                     <FutoraSpecialMenu />
                     <StartersAndBeverages />

@@ -25,7 +25,7 @@ const TestimonialsSection = () => {
       <div className="container mx-auto max-w-[1140px]">
         {/* Section Header */}
         <div className="text-center mb-[60px]">
-          <h2 className="font-traditional text-[45px] leading-[1.2] text-[#3C2415] mb-4">
+          <h2 className="font-traditional text-[36px] md:text-[45px] leading-[1.2] text-[#3C2415] mb-4">
             Testimonials
           </h2>
           <div className="flex justify-center">
@@ -38,9 +38,9 @@ const TestimonialsSection = () => {
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
           {testimonials.map((testimonial, index) => (
-            <div 
-              key={index} 
-              className="bg-white p-[30px] rounded-[20px] shadow-soft flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-2"
+            <div
+              key={index}
+              className="bg-white p-5 md:p-[30px] rounded-[20px] shadow-soft flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-2"
             >
               {/* Avatar with circular mask */}
               <div className="relative w-[100px] h-[100px] mb-6">

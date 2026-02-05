@@ -7,7 +7,7 @@ import Image from "next/image";
  */
 export default function WelcomeSection() {
   return (
-    <section 
+    <section
       className="relative flex flex-col items-center justify-center pt-24 pb-20 px-4 bg-[#fdf8e1] overflow-hidden"
       style={{
         backgroundColor: "rgb(253, 248, 225)",
@@ -30,10 +30,10 @@ export default function WelcomeSection() {
       </div>
 
       <div className="container relative z-20 max-w-[1200px] flex flex-col items-center text-center">
-        
+
         {/* Character Illustrations Wrapper */}
         <div className="absolute top-10 left-0 hidden lg:block animate-in fade-in slide-in-from-left-8 duration-1000">
-          <Image 
+          <Image
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Final-1-e1743600227811-210x300-10.png"
             alt="Traditional Character Left"
             width={180}
@@ -43,7 +43,7 @@ export default function WelcomeSection() {
         </div>
 
         <div className="absolute top-10 right-0 hidden lg:block scale-x-[-1] animate-in fade-in slide-in-from-right-8 duration-1000">
-          <Image 
+          <Image
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/images/Menu-Card-Final-1-e1743600227811-210x300-10.png"
             alt="Traditional Character Right"
             width={180}
@@ -54,12 +54,12 @@ export default function WelcomeSection() {
 
         {/* Floating Decoration Assets (Visual depth) */}
         <div className="absolute -top-4 -left-10 lg:left-[-150px] opacity-40">
-           {/* Decorative banana leaf elements usually go here */}
+          {/* Decorative banana leaf elements usually go here */}
         </div>
 
         {/* Main Heading */}
         <div className="mb-4">
-          <h1 className="font-display text-[80px] md:text-[100px] lg:text-[120px] font-bold text-[#6e1c0d] leading-[0.8em] drop-shadow-sm animate-in zoom-in duration-700">
+          <h1 className="font-display text-[56px] xs:text-[64px] sm:text-[80px] md:text-[100px] lg:text-[120px] font-bold text-[#6e1c0d] leading-[0.9em] md:leading-[0.8em] drop-shadow-sm animate-in zoom-in duration-700">
             Welcome To <br className="block md:hidden" /> Futora Cafe
           </h1>
         </div>
@@ -69,7 +69,7 @@ export default function WelcomeSection() {
           <h6 className="font-body text-[14px] md:text-[16px] font-medium text-[#4a4a4a] tracking-widest uppercase mb-8 animate-in slide-in-from-bottom-4 duration-800">
             serving smile with Every plate, flavors You'll Celebrate!
           </h6>
-          
+
           <h2 className="font-heading text-[36px] md:text-[45px] lg:text-[50px] font-normal text-[#d18d2d] leading-[1.2em] animate-in slide-in-from-bottom-6 duration-1000">
             Spreading cheer with every bite,<br className="hidden md:block" /> Crispy dosas cooked just right!
           </h2>
@@ -79,11 +79,11 @@ export default function WelcomeSection() {
         <div className="flex items-center justify-center w-full max-w-[800px] gap-4 mb-4">
           <div className="h-[1px] bg-[#e5e5e5] flex-grow"></div>
           <div className="text-[#6e1c0d]">
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="currentColor" 
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />

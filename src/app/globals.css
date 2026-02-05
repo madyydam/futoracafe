@@ -118,6 +118,12 @@
     --input: #D4CDB3;
     --ring: #EB6D48;
     --radius: 0.5rem;
+
+    /* Global Font Variables for Direct Access */
+    --font-display: "Clicker Script", cursive;
+    --font-heading: "Amita", serif;
+    --font-sans: "Poppins", sans-serif;
+    --font-nav: "Montserrat", sans-serif;
   }
 }
 

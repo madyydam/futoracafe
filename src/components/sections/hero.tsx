@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ChevronDown, Coffee, Sun, Star, Zap } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 
 /**
  * Hero Section - ULTRA ANIMATED "BHA BHAR KE" VERSION
@@ -13,6 +13,18 @@ import { motion } from 'framer-motion';
 const HeroSection = React.memo(() => {
     // Generate decorative elements only on client side to prevent hydration mismatch
     const [isClient, setIsClient] = useState(false);
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { margin: "100px" });
+
+    // Parallax setup
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end start"]
+    });
+
+    const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+    const beansY = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
 
     useEffect(() => {
         setIsClient(true);
@@ -44,12 +56,13 @@ const HeroSection = React.memo(() => {
     }, [isClient]);
 
     return (
-        <section className="relative overflow-hidden w-full h-[90vh] bg-[#1a1a1a]">
+        <section ref={sectionRef} className="relative overflow-hidden w-full h-[90vh] bg-[#1a1a1a]">
             {/* --- BACKGROUND LAYER --- */}
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <motion.div
                     initial={{ scale: 1.1, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
+                    style={{ y: bgY }}
                     transition={{ duration: 2, ease: "easeOut" }}
                     className="relative w-full h-full"
                 >
@@ -72,101 +85,108 @@ const HeroSection = React.memo(() => {
             </div>
 
             {/* --- DECORATIVE ANIMATIONS (BHA BHAR KE) --- */}
+            {isInView && (
+                <>
+                    {/* Floating Coffee Beans */}
+                    {coffeeBeans.map((bean) => (
+                        <motion.div
+                            key={`bean-${bean.id}`}
+                            className="absolute z-20 pointer-events-none opacity-40"
+                            style={{
+                                left: bean.left,
+                                top: bean.top,
+                                y: beansY,
+                                willChange: 'transform', // GPU acceleration hint
+                                transform: 'translateZ(0)', // Force GPU layer
+                            }}
+                            animate={{
+                                y: [0, -150, 0, 150, 0],
+                                x: [0, 80, 0, -80, 0],
+                                rotate: [bean.rotate, bean.rotate + 360],
+                                scale: [1, 1.2, 0.8, 1]
+                            }}
+                            transition={{
+                                duration: bean.duration,
+                                repeat: Infinity,
+                                delay: bean.delay,
+                                ease: "easeInOut"
+                            }}
+                        >
+                            <div
+                                className="bg-[#2D1B18] rounded-full blur-[0.5px] border border-white/5"
+                                style={{ width: bean.size, height: bean.size * 0.7 }}
+                            />
+                        </motion.div>
+                    ))}
 
-            {/* Floating Coffee Beans */}
-            {coffeeBeans.map((bean) => (
-                <motion.div
-                    key={`bean-${bean.id}`}
-                    className="absolute z-20 pointer-events-none opacity-40"
-                    style={{
-                        left: bean.left,
-                        top: bean.top,
-                        willChange: 'transform', // GPU acceleration hint
-                        transform: 'translateZ(0)', // Force GPU layer
-                    }}
-                    animate={{
-                        y: [0, -150, 0, 150, 0],
-                        x: [0, 80, 0, -80, 0],
-                        rotate: [bean.rotate, bean.rotate + 360],
-                        scale: [1, 1.2, 0.8, 1]
-                    }}
-                    transition={{
-                        duration: bean.duration,
-                        repeat: Infinity,
-                        delay: bean.delay,
-                        ease: "easeInOut"
-                    }}
-                >
-                    <div
-                        className="bg-[#2D1B18] rounded-full blur-[0.5px] border border-white/5"
-                        style={{ width: bean.size, height: bean.size * 0.7 }}
-                    />
-                </motion.div>
-            ))}
+                    {/* Twinkling Magical Sparkles */}
+                    {sparkles.map((sparkle) => (
+                        <motion.div
+                            key={`sparkle-${sparkle.id}`}
+                            className="absolute z-30 pointer-events-none"
+                            style={{
+                                left: sparkle.left,
+                                top: sparkle.top,
+                                willChange: 'transform, opacity', // GPU acceleration
+                                transform: 'translateZ(0)',
+                            }}
+                            animate={{
+                                opacity: [0, 1, 0],
+                                scale: [0, 1.2, 0],
+                                rotate: [0, 180],
+                            }}
+                            transition={{
+                                duration: sparkle.duration,
+                                repeat: Infinity,
+                                delay: sparkle.delay,
+                            }}
+                        >
+                            <Star size={8} fill="#FFD700" className="text-yellow-400 drop-shadow-[0_0_8px_rgba(255,215,0,0.8)]" />
+                        </motion.div>
+                    ))}
 
-            {/* Twinkling Magical Sparkles */}
-            {sparkles.map((sparkle) => (
-                <motion.div
-                    key={`sparkle-${sparkle.id}`}
-                    className="absolute z-30 pointer-events-none"
-                    style={{
-                        left: sparkle.left,
-                        top: sparkle.top,
-                        willChange: 'transform, opacity', // GPU acceleration
-                        transform: 'translateZ(0)',
-                    }}
-                    animate={{
-                        opacity: [0, 1, 0],
-                        scale: [0, 1.2, 0],
-                        rotate: [0, 180],
-                    }}
-                    transition={{
-                        duration: sparkle.duration,
-                        repeat: Infinity,
-                        delay: sparkle.delay,
-                    }}
-                >
-                    <Star size={8} fill="#FFD700" className="text-yellow-400 drop-shadow-[0_0_8px_rgba(255,215,0,0.8)]" />
-                </motion.div>
-            ))}
-
-            {/* Floating Icons */}
-            <motion.div
-                className="absolute top-[20%] left-[15%] z-20 text-white/20 hidden lg:block"
-                animate={{
-                    y: [0, -40, 0],
-                    rotate: [-15, 15, -15],
-                    scale: [0.9, 1, 0.9],
-                }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            >
-                <Coffee size={100} strokeWidth={0.5} />
-            </motion.div>
-
-            {/* Heavy Steam Clouds Animation */}
-            <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-full h-[500px] pointer-events-none z-20">
-                {[...Array(5)].map((_, i) => (
+                    {/* Floating Icons */}
                     <motion.div
-                        key={`steam-heavy-${i}`}
-                        className="absolute bottom-0 w-[15%] h-56 bg-white/10 blur-[50px] rounded-full"
-                        style={{ left: `${20 + i * 15}%` }}
+                        className="absolute top-[20%] left-[15%] z-20 text-white/20 hidden lg:block"
                         animate={{
-                            y: [0, -600],
-                            opacity: [0, 0.3, 0],
-                            scale: [1, 2.5, 1.2],
+                            y: [0, -40, 0],
+                            rotate: [-15, 15, -15],
+                            scale: [0.9, 1, 0.9],
                         }}
-                        transition={{
-                            duration: 6 + i,
-                            repeat: Infinity,
-                            delay: i * 1.5,
-                            ease: "easeOut"
-                        }}
-                    />
-                ))}
-            </div>
+                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                        <Coffee size={100} strokeWidth={0.5} />
+                    </motion.div>
+
+                    {/* Heavy Steam Clouds Animation */}
+                    <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-full h-[500px] pointer-events-none z-20">
+                        {[...Array(5)].map((_, i) => (
+                            <motion.div
+                                key={`steam-heavy-${i}`}
+                                className="absolute bottom-0 w-[15%] h-56 bg-white/10 blur-[50px] rounded-full"
+                                style={{ left: `${20 + i * 15}%` }}
+                                animate={{
+                                    y: [0, -600],
+                                    opacity: [0, 0.3, 0],
+                                    scale: [1, 2.5, 1.2],
+                                }}
+                                transition={{
+                                    duration: 6 + i,
+                                    repeat: Infinity,
+                                    delay: i * 1.5,
+                                    ease: "easeOut"
+                                }}
+                            />
+                        ))}
+                    </div>
+                </>
+            )}
 
             {/* --- CONTENT LAYER --- */}
-            <div className="relative z-40 flex flex-col items-center justify-center h-full max-w-[1200px] mx-auto text-center px-4">
+            <motion.div
+                style={{ y: textY }}
+                className="relative z-40 flex flex-col items-center justify-center h-full max-w-[1200px] mx-auto text-center px-4"
+            >
 
                 {/* Title with 80% Zoom (Reduced font size) */}
                 <motion.div className="mb-10">
@@ -183,11 +203,11 @@ const HeroSection = React.memo(() => {
                                 type: "spring",
                                 stiffness: 150
                             }}
-                            className="inline-block font-heading text-[48px] md:text-[80px] lg:text-[104px] text-white font-black leading-none"
+                            className="inline-block font-display italic text-[36px] md:text-[60px] lg:text-[80px] text-white font-normal leading-none"
                             style={{
-                                fontFamily: 'var(--font-heading)',
-                                textShadow: '0 0 15px rgba(0,0,0,0.5), 0 0 30px rgba(145,52,41,0.3)',
-                                padding: "0 1.5px"
+                                fontFamily: 'var(--font-display)',
+                                textShadow: '0 0 15px rgba(0,0,0,0.3)',
+                                padding: "0 1px"
                             }}
                         >
                             {char}
@@ -232,7 +252,7 @@ const HeroSection = React.memo(() => {
                         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12 z-20 pointer-events-none"
                     />
                 </motion.a>
-            </div>
+            </motion.div>
         </section>
     );
 });

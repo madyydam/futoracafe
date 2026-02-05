@@ -2,9 +2,15 @@ import dynamic from "next/dynamic";
 import Header from "@/components/sections/header";
 import HeroSection from "@/components/sections/hero";
 
+import { WelcomeMenuSkeleton, StatsSkeleton } from "@/components/Skeletons";
+
 // Lazy loading below-the-fold components
 const WelcomeMenu = dynamic(() => import("@/components/sections/welcome-menu"), {
-  loading: () => <div className="h-[500px] animate-pulse bg-gray-100" />,
+  loading: () => <WelcomeMenuSkeleton />,
+});
+
+const StatsSection = dynamic(() => import("@/components/sections/stats-section"), {
+  loading: () => <StatsSkeleton />,
 });
 
 const OurStory = dynamic(() => import("@/components/sections/our-story"), {
@@ -22,6 +28,7 @@ export default function Home() {
       <main className="flex-grow">
         <HeroSection />
         <WelcomeMenu />
+        <StatsSection />
         <OurStory />
       </main>
       <Footer />

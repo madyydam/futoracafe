@@ -3,10 +3,12 @@ import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
+import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
   title: "The Futora Cafe",
   description: "Coffee, Conversations & Comfort at The Futora Cafe",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -34,7 +36,9 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
-        {children}
+        <PageTransition>
+          {children}
+        </PageTransition>
         <VisualEditsMessenger />
       </body>
     </html>

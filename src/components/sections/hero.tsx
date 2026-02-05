@@ -21,7 +21,7 @@ const HeroSection = React.memo(() => {
     // Decorative elements data - only populated after client hydration
     const coffeeBeans = useMemo(() => {
         if (!isClient) return [];
-        return [...Array(25)].map((_, i) => ({
+        return [...Array(15)].map((_, i) => ({ // Reduced from 25 to 15 for performance
             id: i,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -34,7 +34,7 @@ const HeroSection = React.memo(() => {
 
     const sparkles = useMemo(() => {
         if (!isClient) return [];
-        return [...Array(20)].map((_, i) => ({
+        return [...Array(12)].map((_, i) => ({ // Reduced from 20 to 12 for performance
             id: i,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -78,7 +78,12 @@ const HeroSection = React.memo(() => {
                 <motion.div
                     key={`bean-${bean.id}`}
                     className="absolute z-20 pointer-events-none opacity-40"
-                    style={{ left: bean.left, top: bean.top }}
+                    style={{
+                        left: bean.left,
+                        top: bean.top,
+                        willChange: 'transform', // GPU acceleration hint
+                        transform: 'translateZ(0)', // Force GPU layer
+                    }}
                     animate={{
                         y: [0, -150, 0, 150, 0],
                         x: [0, 80, 0, -80, 0],
@@ -104,7 +109,12 @@ const HeroSection = React.memo(() => {
                 <motion.div
                     key={`sparkle-${sparkle.id}`}
                     className="absolute z-30 pointer-events-none"
-                    style={{ left: sparkle.left, top: sparkle.top }}
+                    style={{
+                        left: sparkle.left,
+                        top: sparkle.top,
+                        willChange: 'transform, opacity', // GPU acceleration
+                        transform: 'translateZ(0)',
+                    }}
                     animate={{
                         opacity: [0, 1, 0],
                         scale: [0, 1.2, 0],

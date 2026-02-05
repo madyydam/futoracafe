@@ -1,8 +1,19 @@
+import dynamic from 'next/dynamic';
 import Header from '@/components/sections/header';
-import Footer from '@/components/sections/footer';
 import ContactHero from '@/components/sections/contact-hero';
-import ContactForm from '@/components/sections/contact-form';
-import ContactInfo from '@/components/sections/contact-info';
+
+// Lazy load below-the-fold components
+const Footer = dynamic(() => import('@/components/sections/footer'), {
+    loading: () => <div className="h-[300px] animate-pulse bg-black/5" />,
+});
+
+const ContactForm = dynamic(() => import('@/components/sections/contact-form'), {
+    loading: () => <div className="h-[500px] animate-pulse bg-gray-50" />,
+});
+
+const ContactInfo = dynamic(() => import('@/components/sections/contact-info'), {
+    loading: () => <div className="h-[400px] animate-pulse bg-gray-100" />,
+});
 
 export default function ContactPage() {
     return (

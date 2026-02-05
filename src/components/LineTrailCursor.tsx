@@ -8,8 +8,6 @@ import React, { useEffect, useRef, useState } from 'react';
  */
 export default function LineTrailCursor() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    const [prevPos, setPrevPos] = useState({ x: 0, y: 0 });
     const trailPoints = useRef<Array<{ x: number; y: number; timestamp: number }>>([]);
 
     useEffect(() => {
@@ -27,15 +25,12 @@ export default function LineTrailCursor() {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Track mouse movement
+        // Track mouse movement - direct manipulation, no setState
         const handleMouseMove = (e: MouseEvent) => {
-            const newPos = { x: e.clientX, y: e.clientY };
-            setPrevPos(mousePos);
-            setMousePos(newPos);
-
+            // Add new point to trail
             trailPoints.current.push({
-                x: newPos.x,
-                y: newPos.y,
+                x: e.clientX,
+                y: e.clientY,
                 timestamp: Date.now()
             });
 
@@ -46,16 +41,16 @@ export default function LineTrailCursor() {
             );
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
+        // Use passive event listener for better scroll performance
+        window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-        // Animation loop
+        // Animation loop - runs continuously
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             // Draw trail
             if (trailPoints.current.length > 1) {
                 ctx.beginPath();
-                ctx.strokeStyle = 'rgba(145, 52, 41, 0.3)'; // Brand red with transparency
                 ctx.lineWidth = 2;
                 ctx.lineCap = 'round';
                 ctx.lineJoin = 'round';
@@ -82,7 +77,7 @@ export default function LineTrailCursor() {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('resize', resizeCanvas);
         };
-    }, [mousePos]);
+    }, []); // ✅ FIXED: Empty dependency array - runs once!
 
     return (
         <canvas

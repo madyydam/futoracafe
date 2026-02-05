@@ -14,7 +14,7 @@ export default function ContactHero() {
   // Coffee beans data - only populated after client hydration
   const coffeeBeans = useMemo(() => {
     if (!isClient) return [];
-    return [...Array(15)].map((_, i) => ({
+    return [...Array(10)].map((_, i) => ({ // Reduced from 15 to 10 for performance
       id: i,
       width: 15 + Math.random() * 15,
       height: 20 + Math.random() * 20,
@@ -40,6 +40,8 @@ export default function ContactHero() {
             left: bean.left,
             top: bean.top,
             background: 'linear-gradient(135deg, #5D4037 0%, #3E2723 100%)',
+            willChange: 'transform', // GPU acceleration
+            transform: 'translateZ(0)',
           }}
           animate={{
             y: [0, -20, 0],

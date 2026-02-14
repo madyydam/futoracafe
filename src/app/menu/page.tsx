@@ -1,63 +1,42 @@
-import dynamic from "next/dynamic";
-import Header from "@/components/sections/header";
-import { MenuProvider } from "@/contexts/MenuContext";
+import { Suspense } from 'react';
+import { getMenuCategories, getMenuItems } from '@/lib/api/menu';
+import MenuGrid from '@/components/menu/MenuGrid';
+import PageTransition from '@/components/PageTransition';
 
+export const revalidate = 60; // Revalidate every minute
 
-// Lazy loading menu sections
-export const metadata = {
-    title: "Menu | The Futora Cafe Pune – Best Handcrafted Coffee & Global Food",
-    description: "Explore the menu at The Futora Cafe, one of the best cafes in Pune. Handcrafted artisanal coffee, gourmet food, and amazing fusions near FC Road.",
-};
+export default async function MenuPage() {
+    const [categories, items] = await Promise.all([
+        getMenuCategories(),
+        getMenuItems()
+    ]);
 
-const MenuHero = dynamic(() => import("@/components/sections/menu-hero"), {
-    loading: () => <div className="h-[400px] animate-pulse bg-gray-100" />,
-});
-
-const MustTryDishes = dynamic(() => import("@/components/sections/must-try-dishes"), {
-    loading: () => <div className="h-[500px] animate-pulse bg-gray-50" />,
-});
-
-const FutoraSpecialMenu = dynamic(() => import("@/components/sections/futora-special-menu"), {
-    loading: () => <div className="h-[500px] animate-pulse bg-gray-100" />,
-});
-
-const StartersAndBeverages = dynamic(() => import("@/components/sections/starters-beverages"), {
-    loading: () => <div className="h-[500px] animate-pulse bg-gray-50" />,
-});
-
-const NamasteAnnaPizzaSection = dynamic(() => import("@/components/sections/namaste-anna-pizza"), {
-    loading: () => <div className="h-[500px] animate-pulse bg-gray-100" />,
-});
-
-const JainJuhuChowpatty = dynamic(() => import("@/components/sections/jain-juhu-chowpatty"), {
-    loading: () => <div className="h-[500px] animate-pulse bg-gray-50" />,
-});
-
-const RiceMenuFooterCallout = dynamic(() => import("@/components/sections/rice-menu-footer-callout"), {
-    loading: () => <div className="h-[400px] animate-pulse bg-gray-100" />,
-});
-
-const Footer = dynamic(() => import("@/components/sections/footer"), {
-    loading: () => <div className="h-[300px] animate-pulse bg-black/5" />,
-});
-
-export default function MenuPage() {
     return (
-        <MenuProvider>
-            <div className="flex min-h-screen flex-col bg-[#F7F1E1]">
-                <Header />
-                <main className="flex-grow pt-[80px]">
-                    <MenuHero />
+        <PageTransition>
+            <div className="pt-24 pb-16 bg-background min-h-screen">
+                {/* Helper text for empty state */}
+                {items.length === 0 && (
+                    <div className="container mx-auto px-4 mb-8">
+                        <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 rounded-lg p-4 text-sm">
+                            <strong>Note:</strong> Your menu appears to be empty. Please run the provided <code>supabase_seed.sql</code> in your Supabase SQL Editor to load sample dishes.
+                        </div>
+                    </div>
+                )}
 
-                    <MustTryDishes />
-                    <FutoraSpecialMenu />
-                    <StartersAndBeverages />
-                    <NamasteAnnaPizzaSection />
-                    <JainJuhuChowpatty />
-                    <RiceMenuFooterCallout />
-                </main>
-                <Footer />
+                <div className="container mx-auto px-4 mb-12 text-center">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                        Our Menu
+                    </h1>
+                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                        Discover our handcrafted brews and delicious bites.
+                        Made with love, served with passion.
+                    </p>
+                </div>
+
+                <Suspense fallback={<div className="text-center py-20">Loading menu...</div>}>
+                    <MenuGrid categories={categories} items={items} />
+                </Suspense>
             </div>
-        </MenuProvider>
+        </PageTransition>
     );
 }

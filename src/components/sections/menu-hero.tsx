@@ -1,0 +1,134 @@
+"use client";
+
+import React from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+/**
+ * MenuHero component for The Futora Cafe
+ */
+const MenuHero: React.FC = () => {
+  return (
+    <section
+      className="relative w-full bg-[#F6F1DC] flex flex-col items-center pt-24 pb-0 overflow-hidden"
+      style={{ minHeight: '80vh' }}
+    >
+      {/* Container for the Main Typography Content */}
+      <div className="container relative z-10 flex flex-col items-center">
+
+        {/* "Menu" text - properly centered */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, type: "spring" }}
+          className="relative w-full flex justify-center mb-8"
+        >
+          <h1 className="hero-title animate-in slide-in-from-bottom duration-1000 select-none text-center">
+            Menu
+          </h1>
+        </motion.div>
+
+        {/* Interaction Bar: a-waits, Order Button, Scooter */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex items-center gap-6 md:gap-12 mb-8"
+        >
+          <span className="font-heading text-[20px] md:text-[28px] text-[#332D26] italic lowercase opacity-80">
+            awaits you
+          </span>
+
+          <motion.div
+            className="flex items-center gap-4"
+            whileHover={{ scale: 1.05 }}
+          >
+            <a
+              href="#must-try-delights"
+              className="btn-order shadow-lg hover:shadow-xl active:scale-95 transition-all bg-[#8F221B] text-white px-6 py-3 rounded-full font-bold flex items-center gap-2"
+            >
+              Explore Menu
+              <svg
+                className="w-4 h-4 fill-current"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+              </svg>
+            </a>
+
+            {/* Delivery Scooter Illustration */}
+            <motion.div
+              className="relative w-[60px] h-[50px] md:w-[80px] md:h-[65px]"
+              animate={{
+                x: [0, 10, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/181cb15d-0961-460f-888f-83bfd54e1847-sadosacafe-com/assets/icons/vecteezy_delivery-illustration-free-vector-element-1.png"
+                alt="Delivery scooter"
+                fill
+                className="object-contain"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="font-heading text-[18px] md:text-[24px] text-[#666666] tracking-wide mt-4 text-center"
+        >
+          Discover Our Delicious Creations
+        </motion.p>
+      </div>
+
+      {/* Large Bottom Illustration */}
+
+
+      {/* Wave Brush Divider */}
+      <div className="absolute bottom-0 left-0 w-full h-[60px] pointer-events-none">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="w-full h-full fill-white"
+        >
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
+        </svg>
+      </div>
+
+      <style jsx global>{`
+        h1.hero-title {
+          font-family: var(--font-display);
+          font-size: clamp(60px, 12vw, 150px);
+          color: var(--color-secondary, #EAB231);
+          line-height: 1;
+          font-weight: 400;
+          margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+          h1.hero-title {
+            font-size: 48px;
+          }
+        }
+
+        .btn-order {
+          transition: all 0.3s ease;
+        }
+        .btn-order:hover {
+          transform: translateY(-2px);
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default MenuHero;

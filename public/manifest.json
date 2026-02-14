@@ -1,0 +1,21 @@
+{
+    "name": "The Futora Cafe",
+    "short_name": "Futora Cafe",
+    "description": "City's Most Iconic Coffee Experience",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1a1a1a",
+    "theme_color": "#8F221B",
+    "icons": [
+        {
+            "src": "https://images.unsplash.com/photo-1510707577719-af7c183f1fef?q=80&w=192&auto=format&fit=crop",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://images.unsplash.com/photo-1510707577719-af7c183f1fef?q=80&w=512&auto=format&fit=crop",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+import { nextjs } from "@next/eslint-plugin-next";
+
+/** @type {import('eslint').Linter.Config[]} */
+const eslintConfig = [
+  ...nextjs.configs.recommended,
+  ...nextjs.configs["core-web-vitals"],
+  {
+    rules: {
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-img-element": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "react-hooks/exhaustive-deps": "off",
+    },
+  },
+];
+
+export default eslintConfig;

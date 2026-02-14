@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 import { useRouter } from 'next/navigation';
@@ -8,10 +8,19 @@ import Header from '@/components/sections/header';
 import Footer from '@/components/sections/footer';
 import { MapPin, Clock, User, Phone, Mail, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
+import { createOrder } from '@/lib/api/orders';
+import { toast } from 'sonner';
 
 export default function CheckoutPage() {
     const { items, subtotal, clearCart } = useCart();
     const router = useRouter();
+
+    // Redirect to menu if cart is empty
+    useEffect(() => {
+        if (items.length === 0) {
+            router.push('/menu');
+        }
+    }, [items.length, router]);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -44,35 +53,41 @@ export default function CheckoutPage() {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         if (!validate()) return;
 
-        // Generate order ID
-        const orderId = `FTC-${Date.now()}`;
+        try {
+            const orderData = {
+                customer_name: formData.name,
+                customer_email: formData.email,
+                customer_phone: formData.phone,
+                order_type: formData.orderType,
+                delivery_address: formData.address,
+                time_slot: formData.timeSlot,
+                special_instructions: formData.specialInstructions,
+                items: items,
+                subtotal,
+                delivery_fee: deliveryFee,
+                tax,
+                total,
+                status: 'pending'
+            };
 
-        // Store order data
-        const orderData = {
-            id: orderId,
-            items,
-            customer: formData,
-            subtotal,
-            deliveryFee,
-            tax,
-            total,
-            date: new Date().toISOString()
-        };
+            const result = await createOrder(orderData);
 
-        localStorage.setItem('latest_order', JSON.stringify(orderData));
-        clearCart();
-        router.push(`/order-confirmation?id=${orderId}`);
+            // Also save to localStorage
+            localStorage.setItem('latest_order', JSON.stringify({ ...orderData, id: result.id }));
+
+            clearCart();
+            toast.success('Order placed successfully!');
+            router.push(`/order-confirmation?id=${result.id}`);
+        } catch (error) {
+            console.error('Order error:', error);
+            toast.error('Failed to place order. Please try again.');
+        }
     };
-
-    if (items.length === 0) {
-        router.push('/menu');
-        return null;
-    }
 
     return (
         <div className="min-h-screen flex flex-col bg-[#F7F1E1] overflow-x-hidden w-full">

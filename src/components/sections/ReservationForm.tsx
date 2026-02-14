@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Users, Star, CheckCircle } from 'lucide-react';
+import { createReservation } from '@/lib/api/reservations';
+import { toast } from 'sonner';
 
 export default function ReservationForm() {
     const [step, setStep] = useState(1);
@@ -19,19 +21,39 @@ export default function ReservationForm() {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isConfirmed, setIsConfirmed] = useState(false);
+    const [confirmationId, setConfirmationId] = useState('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Mock API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        try {
+            const reservationData = {
+                customer_name: formData.name,
+                customer_email: formData.email,
+                customer_phone: formData.phone,
+                reservation_date: formData.date,
+                reservation_time: formData.time,
+                number_of_guests: parseInt(formData.guests) || 2,
+                occasion: formData.occasion,
+                special_requests: formData.requests,
+                status: 'confirmed'
+            };
 
-        const reservationId = `RES-${Math.floor(1000 + Math.random() * 9000)}`;
-        localStorage.setItem('latest_reservation', JSON.stringify({ ...formData, id: reservationId }));
+            const result = await createReservation(reservationData);
 
-        setIsSubmitting(false);
-        setIsConfirmed(true);
+            // Also save to localStorage for offline reference
+            localStorage.setItem('latest_reservation', JSON.stringify({ ...formData, id: result.id }));
+
+            setConfirmationId(result.id);
+            setIsConfirmed(true);
+            toast.success('Reservation confirmed!');
+        } catch (error) {
+            console.error('Reservation error:', error);
+            toast.error('Failed to create reservation. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (isConfirmed) {
